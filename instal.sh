@@ -53,6 +53,29 @@ echo
 sleep 0.5
 
 
+if [ ${runPackage} = ${runPackage2} ]; then
+
+  echo "├[DionX Performance Actived]"
+  echo "├[Compiler System && Renderer Actived]"
+  echo "├[Driver Game Actived]"
+  echo "├Mediatek Tuner Actived]"
+  echo "├"
+  if [ $usefl = true ]; then
+	    flaunch $runPackage
+  else
+      echo "└[${runPackage}] Open To Menu Laxeron📳 "
+      sleep 0.5
+      echo
+      echo "───────────────────────────────────────────────────────"
+      sleep 0.5
+      echo 
+      echo "| -Have a nice play- |"
+      echo "|      -enjoy-       |"
+	    xtorm $core
+  fi
+
+else
+
 case $1 in
        "--collingmod"
           setprop debug.sf.hw 0
@@ -124,4 +147,18 @@ esac
      echo "├[$(getprop ro.product.brand)] not supported"
      sleep 0.5
 fi
- 
+
+if [ $usefl = true ]; then
+	    flaunch $runPackage
+  else
+      echo "└[${runPackage}] Open To Menu Laxeron📳 "
+      sleep 0.5
+      echo
+      echo "───────────────────────────────────────────────────────"
+      sleep 0.5
+      echo 
+      echo "| -Have a nice play- |"
+      echo "|      -enjoy-       |"
+	    xtorm $core
+  fi
+fi
