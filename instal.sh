@@ -101,7 +101,7 @@ case $1 in
             setprop debug.systemuicompilerfilter balanced
             performance=true
             setprop debug.composition.type cpu
-	          echo "├[Colling System Actived]"
+	          echo "┌[Colling System Actived]"
 	          sleep 0.5
             ;;
        "--performance" | *)
@@ -120,7 +120,7 @@ case $1 in
             setprop debug.systemuicompilerfilter speed
             performance=true
             setprop debug.composition.type gpu
-            echo "├[DionX Performance Actived]"
+            echo "┌[DionX Performance Actived]"
             sleep 0.5
             ;;
 esac
