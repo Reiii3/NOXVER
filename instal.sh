@@ -59,7 +59,8 @@ case $1 in
 	        	setprop debug.egl.sync 1
 		        performance=false
 		        setprop debug.composition.type cpu
-		        echo "[${runPackage}] battery composing"
+	          echo "├[Colling System Actived]"
+	          sleep 0.5
             ;;
        "--performance" | *)
             setprop debug.sf.hw 1
@@ -67,7 +68,8 @@ case $1 in
         		setprop debug.egl.sync 0
 		        performance=true
 		        setprop debug.composition.type gpu
-		        echo "[${runPackage}] performance composing"
+		        echo "├[DionX Performance Actived]"
+		        sleep 0.5
             ;;
 esac
 
@@ -80,9 +82,13 @@ esac
  cmd power set-adaptive-power-saver-enabled false
  cmd package compile -m speed-profile --secondary-dex -f ${runPackage} > /dev/null 2>&1
  cmd power set-mode 0
+ echo "├[Compiler System && Renderer Actived]"
+ sleep 0.5
  
  #// Driver Game By Mang Levv
  settings put global updatable_driver_production_opt_in_apps ${runPackage}
+ echo "├[Driver Game Actived]"
+ sleep 0.5
  
  if [ $(getprop ro.hardware.egl) == meow ]; then
        setprop debug.mtk.chiptuning.enable 1
@@ -91,5 +97,10 @@ esac
        setprop debug.mediatek.game_pq_enable 1
        setprop debug.mediatek.appgamepq_compress 1
        setprop debug.mediatek.high_frame_rate_sf_set_big_core_fps_threshold 119
- 
+       echo "├[Mediatek Tuner Actived]"
+       sleep 0.5
+ else 
+     echo "├[$(getprop ro.product.brand)] not supported"
+     sleep 0.5
+fi
  
