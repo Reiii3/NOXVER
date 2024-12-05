@@ -28,12 +28,10 @@ fi
 if [ ${runPackage2} = ${runPackage} ]; then
     echo "Game Detected : [${runPackage}]"
     sleep 0.5
-    echo
 else
     echo "Add Game    : [${runPackage}]"
     sleep 0.5
     echo "Remove Game : [${runPackage2}]"
-    echo
     settings delete global updatable_driver_production_opt_in > /dev/null 2>&1
     sleep 0.5
 fi
@@ -51,6 +49,9 @@ else
     renderer="opengl"
 fi
 echo "Render Selection : [${renderer}]"
+echo
+sleep 0.5
+
 
 case $1 in
        "--collingmod"
