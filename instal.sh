@@ -55,12 +55,20 @@ sleep 0.5
 
 if [ ${runPackage} = ${runPackage2} ]; then
 
-  echo "├[DionX Performance Actived]"
+  echo "┌[DionX Performance Actived]"
+  sleep 0.5
   echo "├[Compiler System && Renderer Actived]"
+  sleep 0.5
   echo "├[Driver Game Actived]"
-  echo "├Mediatek Tuner Actived]"
-  echo "├"
+  sleep 0.5
+  echo "├[Mediatek Tuner Actived]"
+  sleep 0.5
+  echo "├[Comming Soon Next Update]"
+  sleep 0.5
   if [ $usefl = true ]; then
+      echo "└[Fast Lounch Selection Open the Game ]"
+      echo "───────────────────────────────────────────────────────"
+      sleep 0.5
 	    flaunch $runPackage
   else
       echo "└[${runPackage}] Open To Menu Laxeron📳 "
