@@ -71,6 +71,8 @@ case $1 in
             ;;
 esac
 
+
+#// cmd By Reii
  setprop debug.hwui.renderer ${renderer}
  setprop debug.renderengine.backend skiavkthreaded
  cmd thermalservice override-status 0
@@ -79,6 +81,15 @@ esac
  cmd package compile -m speed-profile --secondary-dex -f ${runPackage} > /dev/null 2>&1
  cmd power set-mode 0
  
+ #// Driver Game By Mang Levv
  settings put global updatable_driver_production_opt_in_apps ${runPackage}
+ 
+ if [ $(getprop ro.hardware.egl) == meow ]; then
+       setprop debug.mtk.chiptuning.enable 1
+       setprop debug.mtk.gpu.mode 1
+       setprop debug.mediatek.disp_decompress 1
+       setprop debug.mediatek.game_pq_enable 1
+       setprop debug.mediatek.appgamepq_compress 1
+       setprop debug.mediatek.high_frame_rate_sf_set_big_core_fps_threshold 119
  
  
