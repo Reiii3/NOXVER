@@ -9,9 +9,9 @@ wr="\e[38;2;188;61;0m"
 nwr="\e[0m"
 runPackage2=${runPackage}
 
+#// start Execution
 
 
-renderer="opengl"
 usefl=false
 	
 if [ -n "$1" ] && [ "$1" == "-p" ];then
@@ -43,12 +43,11 @@ if [ -n "$1" ] && [ "$1" == "-fl" ]; then
 	shift
 fi
 
-if [ -n "$1" ] && [ "$1" == "-vk" ]; then
-	if ls /system/lib/libvulkan.so > /dev/null 2>&1; then
-    	renderer="vulkan"
-		shift
-    else
-    	echo "Vulkan not supported"
-    	exit 1
-	fi
+if [ -n "$(getprop ro.hardware.vulkan)" ]; then
+    renderer="vulkan"
+elif [ -n "$(getprop ro.hardware.opengl)" ]; then
+    renderer="skiagl"
+else
+    renderer="opengl"
 fi
+echo "Render Selection : [${renderer}]"
