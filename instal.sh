@@ -73,8 +73,12 @@ esac
 
  setprop debug.hwui.renderer ${renderer}
  setprop debug.renderengine.backend skiavkthreaded
- am force-stop ${runPackage}
  cmd thermalservice override-status 0
  cmd power set-fixed-performance-mode-enabled true
  cmd power set-adaptive-power-saver-enabled false
+ cmd package compile -m speed-profile --secondary-dex -f ${runPackage} > /dev/null 2>&1
  cmd power set-mode 0
+ 
+ settings put global updatable_driver_production_opt_in_apps ${runPackage}
+ 
+ 
