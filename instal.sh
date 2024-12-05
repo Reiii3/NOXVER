@@ -51,3 +51,30 @@ else
     renderer="opengl"
 fi
 echo "Render Selection : [${renderer}]"
+
+case $1 in
+       "--collingmod"
+            setprop debug.sf.hw 0
+		        setprop debug.egl.hw 0
+	        	setprop debug.egl.sync 1
+		        performance=false
+		        setprop debug.composition.type cpu
+		        echo "[${runPackage}] battery composing"
+            ;;
+       "--performance" | *)
+            setprop debug.sf.hw 1
+		        setprop debug.egl.hw 1
+        		setprop debug.egl.sync 0
+		        performance=true
+		        setprop debug.composition.type gpu
+		        echo "[${runPackage}] performance composing"
+            ;;
+esac
+
+ setprop debug.hwui.renderer ${renderer}
+ setprop debug.renderengine.backend skiavkthreaded
+ am force-stop ${runPackage}
+ cmd thermalservice override-status 0
+ cmd power set-fixed-performance-mode-enabled true
+ cmd power set-adaptive-power-saver-enabled false
+ cmd power set-mode 0
