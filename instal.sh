@@ -54,11 +54,21 @@ echo "Render Selection : [${renderer}]"
 
 case $1 in
        "--collingmod"
-            setprop debug.sf.hw 0
-		        setprop debug.egl.hw 0
-	        	setprop debug.egl.sync 1
-		        performance=false
-		        setprop debug.composition.type cpu
+          setprop debug.sf.hw 0
+            setprop debug.egl.hw 0
+            setprop debug.egl.sync 1
+            setprop debug.cpuprio 5
+            setprop debug.gpuprio 5
+            setprop debug.ioprio 5
+            setprop debug.performance.tuning 0
+            setprop debug.performance.profile 0
+            setprop debug.performance.force false
+            setprop debug.power.profile medium
+            setprop debug.performance_schema 0
+            setprop debug.multicore.processing 0
+            setprop debug.systemuicompilerfilter balanced
+            performance=true
+            setprop debug.composition.type cpu
 	          echo "├[Colling System Actived]"
 	          sleep 0.5
             ;;
