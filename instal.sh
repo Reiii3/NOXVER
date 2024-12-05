@@ -71,7 +71,7 @@ if [ ${runPackage} = ${runPackage2} ]; then
       sleep 0.5
 	    flaunch $runPackage
   else
-      echo "└[${runPackage}] Open To Menu Laxeron📳 "
+      echo "└[Open To Laxeron] "
       sleep 0.5
       echo
       echo "───────────────────────────────────────────────────────"
@@ -157,6 +157,9 @@ esac
 fi
 
 if [ $usefl = true ]; then
+      echo "└[Fast Lounch Selection Open the Game ]"
+      echo "───────────────────────────────────────────────────────"
+      sleep 0.5
 	    flaunch $runPackage
   else
       echo "└[${runPackage}] Open To Menu Laxeron📳 "
