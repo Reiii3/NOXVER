@@ -66,6 +66,16 @@ case $1 in
             setprop debug.sf.hw 1
 		        setprop debug.egl.hw 1
         		setprop debug.egl.sync 0
+        		setprop debug.cpuprio 6
+            setprop debug.gpuprio 7
+            setprop debug.ioprio 7
+            setprop debug.performance.tuning 1
+            setprop debug.performance.profile 1
+            setprop debug.performance.force true
+            setprop debug.power.profile high_performance
+            setprop debug.performance_schema 1
+            setprop debug.multicore.processing 1
+            setprop debug.systemuicompilerfilter speed
 		        performance=true
 		        setprop debug.composition.type gpu
 		        echo "├[DionX Performance Actived]"
