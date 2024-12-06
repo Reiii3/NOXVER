@@ -31,4 +31,4 @@ echo "────────────────────────�
   echo "[${runPackage}] Removing Succesfuly"
   echo "Next Remove Redionpl If installed"
 echo "──────────────────────────────────────────────────────"""
-echo "              Thank you for using my module"
+echo "                Thank you for using my module"
