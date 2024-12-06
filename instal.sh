@@ -122,7 +122,7 @@ else
   
 case $1 in
        "--collingmod"
-          setprop debug.sf.hw 0
+           setprop debug.sf.hw 0
             setprop debug.egl.hw 0
             setprop debug.egl.sync 1
             setprop debug.cpuprio 5
