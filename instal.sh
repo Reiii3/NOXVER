@@ -24,7 +24,6 @@ echo "${wr}            update  : ${version}${nwr}"
 sleep 1
 echo "${wr}            modules : online${nwr}"
 sleep 1
-
 if [ -z "$user" ]; then 
    echo "${wr}            user    : username is not detected${nwr}"
 else 
