@@ -5,7 +5,7 @@ fi
 $AXFUN
 import axeron.prop
 
-echo
+echo "Status : Removing"
 sleep 1
 echo "───────────────────────────────────────────────────────"""
 #// Unistaler By Reii
