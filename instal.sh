@@ -121,7 +121,7 @@ else
   sleep 0.5
   
 case $1 in
-       "--collingmod"
+       "--collingmod")
            setprop debug.sf.hw 0
             setprop debug.egl.hw 0
             setprop debug.egl.sync 1
