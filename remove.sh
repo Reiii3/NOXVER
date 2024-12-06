@@ -4,7 +4,8 @@ fi
 
 $AXFUN
 import axeron.prop
-
+wr="\e[38;2;188;61;0m"
+nwr="\e[0m"
 
 echo
 sleep 0.5
@@ -30,7 +31,9 @@ echo "${wr}        └═══════════════════�
 sleep 1
 echo
 sleep 1
-echo "Status : Removing"
+echo "Status       : Removing"
+sleep 0.5 
+echo "Game Removed : ${runPackage}"
 sleep 1
 echo "───────────────────────────────────────────────────────"""
 #// Unistaler By Reii
