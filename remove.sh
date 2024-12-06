@@ -5,6 +5,31 @@ fi
 $AXFUN
 import axeron.prop
 
+
+echo
+sleep 0.5
+sleep 1
+echo "                 ⟨⟨INFORMATION MODULES⟩⟩"
+echo "${wr}        ┌═══════════════════════════════════════┐${nwr}"
+sleep 1
+echo "${wr}            source  : @Reiieja${nwr}"
+sleep 1
+echo "${wr}            Dev     : ${author}${nwr}"
+sleep 1
+echo "${wr}            update  : ${version}${nwr}"
+sleep 1
+echo "${wr}            modules : online${nwr}"
+sleep 1
+if [ -z "$user" ]; then 
+   echo "${wr}            user    : username is not detected${nwr}"
+else 
+   echo "${wr}            user    : ${user}${nwr}"
+fi
+sleep 1
+echo "${wr}        └═══════════════════════════════════════┘${nwr}"
+sleep 1
+echo
+sleep 1
 echo "Status : Removing"
 sleep 1
 echo "───────────────────────────────────────────────────────"""
