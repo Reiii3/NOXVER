@@ -185,7 +185,6 @@ esac
        setprop debug.mediatek.disp_decompress 1
        setprop debug.mediatek.game_pq_enable 1
        setprop debug.mediatek.appgamepq_compress 1
-       setprop debug.mediatek.high_frame_rate_sf_set_big_core_fps_threshold 119
        echo "├[Mediatek Tuner Actived]"
        sleep 0.5
  else 
