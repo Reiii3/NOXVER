@@ -20,7 +20,7 @@ echo "${wr}            source  : @Reiieja${nwr}"
 sleep 1
 echo "${wr}            Dev     : ${author}${nwr}"
 sleep 1
-echo "${wr}            update  : ${version}${nwr}"
+echo "${wr}            update  : ${version} | ${versionCode}${nwr}"
 sleep 1
 echo "${wr}            modules : online${nwr}"
 sleep 1
