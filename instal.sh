@@ -10,6 +10,31 @@ nwr="\e[0m"
 runPackage2=${runPackage}
 
 #// start Execution
+echo
+sleep 0.5
+sleep 1
+echo "                 ⟨⟨INFORMATION MODULES⟩⟩"
+echo "${wr}        ┌═══════════════════════════════════════┐${nwr}"
+sleep 1
+echo "${wr}            source  : @Reiieja${nwr}"
+sleep 1
+echo "${wr}            Dev     : ${author}${nwr}"
+sleep 1
+echo "${wr}            update  : ${version}${nwr}"
+sleep 1
+echo "${wr}            modules : online${nwr}"
+sleep 1
+
+if [ -z "$user" ]; then 
+   echo "${wr}            user    : username is not detected${nwr}"
+else 
+   echo "${wr}            user    : ${user}${nwr}"
+fi
+sleep 1
+echo "${wr}        └═══════════════════════════════════════┘${nwr}"
+sleep 1
+echo
+sleep 1
 
 
 usefl=false
@@ -26,13 +51,13 @@ if [ -z $runPackage ]; then
 fi
 
 if [ ${runPackage2} = ${runPackage} ]; then
-    echo "Game Detected : [${runPackage}]"
+    echo "Game Detected    : [${runPackage}]"
     sleep 0.5
 else
-    echo "Add Game    : [${runPackage}]"
+    echo "Add Game         : [${runPackage}]"
     sleep 0.5
-    echo "Remove Game : [${runPackage2}]"
-    settings delete global updatable_driver_production_opt_in > /dev/null 2>&1
+    echo "Remove Game      : [${runPackage2}]"
+   settings delete global updatable_driver_production_opt_in > /dev/null 2>&1
     sleep 0.5
 fi
 
@@ -54,6 +79,11 @@ sleep 0.5
 
 
 if [ ${runPackage} = ${runPackage2} ]; then
+  echo "───────────────────────────────────────────────────────"
+  sleep 0.5
+  echo "          ∥  All features have been activated  ∥"
+  echo
+  sleep 0.5
 
   echo "┌[DionX Performance Actived]"
   sleep 0.5
@@ -84,6 +114,13 @@ if [ ${runPackage} = ${runPackage2} ]; then
 
 else
 
+  sleep 0.5
+  echo "───────────────────────────────────────────────────────"
+  sleep 0.5
+  echo "               ∥  Actived features DionX  ∥"
+  echo 
+  sleep 0.5
+  
 case $1 in
        "--collingmod"
           setprop debug.sf.hw 0
