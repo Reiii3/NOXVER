@@ -58,7 +58,10 @@ echo "────────────────────────�
             cmd power set-mode 1 > /dev/null 2>&1
             cmd package compile -m verify -f ${runPackage2} > /dev/null 2>&1
   echo "[${runPackage}] Removing Succesfuly"
+  sleep 0.5
   echo "Next Remove Redionpl If installed"
 echo "──────────────────────────────────────────────────────"
+sleep 0.5
 echo "                Thank you for using my module"
+sleep 0.5
 echo "                      Support Me Reiii"
