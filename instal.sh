@@ -120,7 +120,8 @@ else
   echo "               ∥  Actived features DionX  ∥"
   echo 
   sleep 0.5
-  
+cmd package compile -m speed -f ${runPackage2} > /dev/null 2>&1
+
 case $1 in
        "--collingmod")
            setprop debug.sf.hw 0
@@ -170,7 +171,6 @@ esac
  cmd power set-fixed-performance-mode-enabled true
  cmd power set-adaptive-power-saver-enabled false
  cmd package compile -m speed --secondary-dex -f ${runPackage} > /dev/null 2>&1
- cmd package compile -m speed -f ${runPackage2} > /dev/null 2>&1
  cmd power set-mode 0
  echo "├[Compiler System && Renderer Actived]"
  sleep 0.5
