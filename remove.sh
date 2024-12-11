@@ -35,7 +35,7 @@ echo "Status       : Removing"
 sleep 0.5 
 echo "Game Removed : ${runPackage}"
 sleep 1
-echo "───────────────────────────────────────────────────────"""
+echo "───────────────────────────────────────────────────────"
 #// Unistaler By Reii
             setprop debug.sf.hw 0
             setprop debug.egl.hw 0
