@@ -172,7 +172,7 @@ esac
  cmd power set-adaptive-power-saver-enabled false
  cmd package compile -m speed --secondary-dex -f ${runPackage} > /dev/null 2>&1
  cmd power set-mode 0
- echo "├[Compiler System && Renderer succes]"
+ echo "├[Compiler System && Renderer Succes]"
  sleep 0.5
  
  #// Driver Game By Mang Levv
