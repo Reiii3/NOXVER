@@ -50,7 +50,7 @@ echo "────────────────────────�
             setprop debug.performance_schema 0
             setprop debug.multicore.processing 0
             setprop debug.systemuicompilerfilter balanced
-            performance=true
+            performance=false
             setprop debug.composition.type cpu
             setprop debug.hwui.renderer opengl
             cmd power set-fixed-performance-mode-enabled false > /dev/null 2>&1
