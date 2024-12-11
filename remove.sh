@@ -53,9 +53,10 @@ echo "────────────────────────�
             performance=true
             setprop debug.composition.type cpu
             setprop debug.hwui.renderer opengl
-            cmd power set-fixed-performance-mode-enabled false
-            cmd power set-adaptive-power-saver-enabled true
-            cmd power set-mode 1
+            cmd power set-fixed-performance-mode-enabled false > /dev/null 2>&1
+            cmd power set-adaptive-power-saver-enabled true > /dev/null 2>&1
+            cmd power set-mode 1 > /dev/null 2>&1
+            cmd package compile -m verify -f ${runPackage2} > /dev/null 2>&1
   echo "[${runPackage}] Removing Succesfuly"
   echo "Next Remove Redionpl If installed"
 echo "──────────────────────────────────────────────────────"
