@@ -120,7 +120,7 @@ else
   echo "               ∥  Actived features DionX  ∥"
   echo 
   sleep 0.5
-cmd package compile -m speed -f ${runPackage2} > /dev/null 2>&1
+ cmd package compile -m speed -f ${runPackage2} > /dev/null 2>&1
 
 case $1 in
        "--collingmod")
