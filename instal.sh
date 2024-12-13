@@ -120,7 +120,7 @@ else
   echo "               ∥  Actived features DionX  ∥"
   echo 
   sleep 0.5
- cmd package compile -m speed -f ${runPackage2} > /dev/null 2>&1
+ cmd package compile -m speed -f ${runPackage} > /dev/null 2>&1
 
 case $1 in
        "--collingmod")
@@ -157,7 +157,7 @@ case $1 in
             setprop debug.multicore.processing 1
             setprop debug.systemuicompilerfilter speed
             performance=true
-            setprop debug.composition.type gpu
+            setprop debug.composition.type vulkan
             echo "┌[DionX Performance Actived]"
             sleep 0.5
             ;;
