@@ -194,7 +194,7 @@ esac
 fi
 
 if [ $usefl = true ]; then
-      echo "└>[Fast Lounch Selection Open the Game ]"
+      echo "└>[ Fast Lounch Selection Open the Game ]"
       echo "───────────────────────────────────────────────────────"
       sleep 0.5
 	    flaunch $runPackage
