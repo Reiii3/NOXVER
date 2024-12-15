@@ -139,7 +139,7 @@ case $1 in
             setprop debug.systemuicompilerfilter balanced
             performance=true
             setprop debug.composition.type cpu
-	          echo "┌[Colling System Actived]"
+	          echo "┌[ Actived Colling System ]"
 	          sleep 0.5
             ;;
        "--performance" | *)
@@ -158,7 +158,7 @@ case $1 in
             setprop debug.systemuicompilerfilter speed
             performance=true
             setprop debug.composition.type vulkan
-            echo "┌[DionX Performance Actived]"
+            echo "┌>[ Actived DionX Performance ]"
             sleep 0.5
             ;;
 esac
@@ -172,12 +172,12 @@ esac
  cmd power set-adaptive-power-saver-enabled false
  cmd package compile -m speed --secondary-dex -f ${runPackage} > /dev/null 2>&1
  cmd power set-mode 0
- echo "├[Compiler System && Renderer Succes]"
+ echo "├>[ Compiler System && Renderer Succes ]"
  sleep 0.5
  
  #// Driver Game By Mang Levv
  settings put global updatable_driver_production_opt_in_apps ${runPackage}
- echo "├[Driver Game Actived]"
+ echo "├>[ Actived Driver Game ]"
  sleep 0.5
  
  if [ $(getprop ro.hardware.egl) == meow ]; then
@@ -186,20 +186,20 @@ esac
        setprop debug.mediatek.disp_decompress 1
        setprop debug.mediatek.game_pq_enable 1
        setprop debug.mediatek.appgamepq_compress 1
-       echo "├[Mediatek Tuner Actived]"
+       echo "├>[  Actived Mediatek Tuner ]"
        sleep 0.5
  else 
-     echo "├[$(getprop ro.product.brand)] not supported"
+     echo "├>[$(getprop ro.product.brand)] not supported"
      sleep 0.5
 fi
 
 if [ $usefl = true ]; then
-      echo "└[Fast Lounch Selection Open the Game ]"
+      echo "└>[Fast Lounch Selection Open the Game ]"
       echo "───────────────────────────────────────────────────────"
       sleep 0.5
 	    flaunch $runPackage
   else
-      echo "└[${runPackage}] Open To Menu Laxeron📳 "
+      echo "└>[${runPackage}] Open To Menu Laxeron📳 "
       sleep 0.5
       echo
       echo "───────────────────────────────────────────────────────"
