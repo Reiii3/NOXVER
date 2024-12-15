@@ -102,7 +102,7 @@ if [ ${runPackage} = ${runPackage2} ]; then
       sleep 0.5
 	    flaunch $runPackage
   else
-      echo "└>[Open To Laxeron] "
+      echo "└>[ Open To Laxeron ] "
       sleep 0.5
       echo "───────────────────────────────────────────────────────"
       sleep 0.5
