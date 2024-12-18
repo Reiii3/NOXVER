@@ -157,7 +157,7 @@ case $1 in
             setprop debug.multicore.processing 1
             setprop debug.systemuicompilerfilter speed
             performance=true
-            setprop debug.composition.type vulkan
+            setprop debug.composition.type gpu
             echo "┌>[ Actived DionX Performance ]"
             sleep 0.5
             ;;
