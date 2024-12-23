@@ -186,7 +186,7 @@ esac
        setprop debug.mediatek.disp_decompress 1
        setprop debug.mediatek.game_pq_enable 1
        setprop debug.mediatek.appgamepq_compress 1
-       echo "├>[  Actived Mediatek Tuner ]"
+       echo "├>[ Actived Mediatek Tuner ]"
        sleep 0.5
  else 
      echo "├>[$(getprop ro.product.brand)] not supported"
