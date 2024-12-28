@@ -122,6 +122,7 @@ else
    echo "        ∥ Special Fetures MCPE Tuner By Mojang ∥"
   elif [ runPackage = net.atlasclient.atlaspe ]; then
    echo "        ∥ Special Fetures MCPE Tuner By Mojang ∥"
+  fi
   echo 
  cmd package compile -m speed -f ${runPackage} > /dev/null 2>&1
 
