@@ -119,7 +119,6 @@ else
   sleep 0.5
   echo "               ∥  Actived features DionX  ∥"
   echo 
-  sleep 0.5
  cmd package compile -m speed -f ${runPackage} > /dev/null 2>&1
 
 case $1 in
