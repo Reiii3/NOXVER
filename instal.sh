@@ -82,9 +82,9 @@ if [ ${runPackage} = ${runPackage2} ]; then
   echo "───────────────────────────────────────────────────────"
   sleep 0.5
   echo "          ∥  All features have been activated  ∥"
-  if [ runPackage = com.mojang.minecraftpe ]; then
+  if [ runPackage2 = com.mojang.minecraftpe ]; then
    echo "        ∥ Special Fetures MCPE Tuner By Mojang ∥"
-  elif [ runPackage = net.atlasclient.atlaspe ]; then
+  elif [ runPackage2 = net.atlasclient.atlaspe ]; then
    echo "        ∥ Special Fetures MCPE Tuner By Mojang ∥"
   fi
   echo
@@ -99,10 +99,10 @@ if [ ${runPackage} = ${runPackage2} ]; then
   echo "├>[ Actived Mediatek Tuner ]"
   sleep 0.5
   
-  if [ runPackage = com.mojang.minecraftpe ]; then
+  if [ runPackage2 = com.mojang.minecraftpe ]; then
    echo "├>[ Atlas Client Tuning Actived ]"
    sleep 0.5
-  elif [ runPackage = net.atlasclient.atlaspe ]; then
+  elif [ runPackage2 = net.atlasclient.atlaspe ]; then
    echo "├>[ Minecraft Tuning Actived ]"
    sleep 0.5
   fi
