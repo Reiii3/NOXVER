@@ -182,6 +182,7 @@ if [ runPackage = com.mojang.minecraftpe ]; then
    setprop debug.egl.force_txaa false
    setprop debug.egl.force_csaa false
      echo "├>[ Actived Minecraft Tuning ]"
+     sleep 0.5
 elif [ runPackage = net.atlasclient.atlaspe ]; then
    setprop debug.egl.force_fxaa false
    setprop debug.egl.force_taa false
@@ -192,6 +193,7 @@ elif [ runPackage = net.atlasclient.atlaspe ]; then
    setprop debug.egl.force_txaa false
    setprop debug.egl.force_csaa false
      echo "├>[ Actived Atlas Client Tuning ]"
+     sleep 0.5
 else 
    setprop debug.egl.force_fxaa true
    setprop debug.egl.force_taa true
