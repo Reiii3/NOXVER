@@ -197,6 +197,7 @@ else
    setprop debug.egl.force_txaa true
    setprop debug.egl.force_csaa true
 fi
+
 #// cmd By Reii
  setprop debug.hwui.renderer ${renderer}
  setprop debug.renderengine.backend skiavkthreaded
