@@ -98,10 +98,19 @@ if [ ${runPackage} = ${runPackage2} ]; then
   sleep 0.5
   echo "├>[ Actived Mediatek Tuner ]"
   sleep 0.5
+  
+  if [ runPackage = com.mojang.minecraftpe ]; then
+   echo "├>[ Atlas Client Tuning Actived ]"
+   sleep 0.5
+  elif [ runPackage = net.atlasclient.atlaspe ]; then
+   echo "├>[ Minecraft Tuning Actived ]"
+   sleep 0.5
+  fi
+  
   echo "├>[ Comming Soon Next Update ]"
   sleep 0.5
   if [ $usefl = true ]; then
-      echo "└>[Fast Lounch Selection Open the Game ]"
+      echo "└>[ Fast Lounch Selection Open the Game ]"
       sleep 0.5
       echo "───────────────────────────────────────────────────────"
       sleep 0.5
