@@ -118,6 +118,10 @@ else
   echo "───────────────────────────────────────────────────────"
   sleep 0.5
   echo "               ∥  Actived features DionX  ∥"
+  if [ runPackage = com.mojang.minecraftpe ]; then
+   echo "        ∥ Special Fetures MCPE Tuner By Mojang ∥"
+  elif [ runPackage = net.atlasclient.atlaspe ]; then
+   echo "        ∥ Special Fetures MCPE Tuner By Mojang ∥"
   echo 
  cmd package compile -m speed -f ${runPackage} > /dev/null 2>&1
 
@@ -162,7 +166,36 @@ case $1 in
             ;;
 esac
 
-
+if [ runPackage = com.mojang.minecraftpe ]; then
+   setprop debug.egl.force_fxaa false
+   setprop debug.egl.force_taa false
+   setprop debug.egl.force_msaa false
+   setprop debug.egl.force_ssaa false
+   setprop debug.egl.force_smaa false
+   setprop debug.egl.force_mlaa false
+   setprop debug.egl.force_txaa false
+   setprop debug.egl.force_csaa false
+     echo "├>[ Actived Minecraft Tuning ]"
+elif [ runPackage = net.atlasclient.atlaspe ]; then
+   setprop debug.egl.force_fxaa false
+   setprop debug.egl.force_taa false
+   setprop debug.egl.force_msaa false
+   setprop debug.egl.force_ssaa false
+   setprop debug.egl.force_smaa false
+   setprop debug.egl.force_mlaa false
+   setprop debug.egl.force_txaa false
+   setprop debug.egl.force_csaa false
+     echo "├>[ Actived Client Tuning ]"
+else 
+   setprop debug.egl.force_fxaa true
+   setprop debug.egl.force_taa true
+   setprop debug.egl.force_msaa true
+   setprop debug.egl.force_ssaa true
+   setprop debug.egl.force_smaa true
+   setprop debug.egl.force_mlaa true
+   setprop debug.egl.force_txaa true
+   setprop debug.egl.force_csaa true
+fi
 #// cmd By Reii
  setprop debug.hwui.renderer ${renderer}
  setprop debug.renderengine.backend skiavkthreaded
