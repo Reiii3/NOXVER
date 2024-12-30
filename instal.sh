@@ -110,10 +110,10 @@ if [ "${runPackage}" = "${runPackage2}" ]; then
   sleep 0.5
   
   if [ "${runPackage2}" = "com.mojang.minecraftpe" ]; then
-   echo "├>[ Atlas Client Tuning Actived ]"
+   echo "├>[ Minecraft Tuning Actived ]"
    sleep 0.5
   elif [ "${runPackage2}" = "net.atlasclient.atlaspe" ]; then
-   echo "├>[ Minecraft Tuning Actived ]"
+   echo "├>[ Atlas Client Tuning Actived ]"
    sleep 0.5
   fi
   
