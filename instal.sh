@@ -57,7 +57,6 @@ else
     sleep 0.5
     echo "Remove Game      : [${runPackage2}]"
    settings delete global updatable_driver_production_opt_in > /dev/null 2>&1
-   cmd package compile -m verify -f ${runPackage2} > /dev/null 2>&1
     sleep 0.5
 fi
 
@@ -148,7 +147,6 @@ else
    echo "        ∥ Special Fetures MCPE Tuner By Mojang ∥"
   fi
   echo 
- cmd package compile -m speed -f ${runPackage} > /dev/null 2>&1
 
 case $1 in
        "--collingmod")
