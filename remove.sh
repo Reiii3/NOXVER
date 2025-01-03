@@ -46,6 +46,7 @@ echo "────────────────────────�
             setprop debug.performance.tuning 0
             setprop debug.performance.profile 0
             setprop debug.performance.force false
+            setprop debug.hwui.disable_vsync true
             setprop debug.power.profile medium
             setprop debug.performance_schema 0
             setprop debug.multicore.processing 0
