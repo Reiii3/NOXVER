@@ -68,9 +68,9 @@ fi
 if [ -n "$(getprop ro.hardware.vulkan)" ]; then
     renderer="vulkan"
 elif [ -n "$(getprop ro.hardware.opengl)" ]; then
-    renderer="skiagl"
-else
     renderer="opengl"
+else
+    renderer="skiagl"
 fi
 echo "Render Selection : [${renderer}]"
 echo
