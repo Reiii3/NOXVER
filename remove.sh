@@ -56,7 +56,6 @@ echo "────────────────────────�
             cmd power set-fixed-performance-mode-enabled false > /dev/null 2>&1
             cmd power set-adaptive-power-saver-enabled true > /dev/null 2>&1
             cmd power set-mode 1 > /dev/null 2>&1
-            cmd package compile -m verify -f ${runPackage2} > /dev/null 2>&1
   echo "[${runPackage}] Removing Succesfuly"
   sleep 0.5
   echo "Next Remove Redionpl If installed"
