@@ -243,9 +243,6 @@ fi
  if [ $(getprop ro.hardware.egl) == meow ]; then
        setprop debug.mtk.chiptuning.enable 1
        setprop debug.mtk.gpu.mode 1
-       setprop debug.mediatek.disp_decompress 1
-       setprop debug.mediatek.game_pq_enable 1
-       setprop debug.mediatek.appgamepq_compress 1
        echo "├>[ Actived Mediatek Tuner ]"
        sleep 0.5
  else 
