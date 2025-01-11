@@ -120,7 +120,8 @@ if [ "${runPackage}" = "${runPackage2}" ]; then
    echo "├>[ Atlas Client Tuning Actived ]"
    sleep 0.5
   fi
-  
+  echo "[├>[ Gpu && Rendering Stabilizer Actived ]"
+  sleep 0.5
   echo "├>[ Comming Soon Next Update ]"
   sleep 0.5
   if [ $usefl = true ]; then
@@ -254,6 +255,20 @@ fi
      echo "├>[$(getprop ro.product.brand)] not supported"
      sleep 0.5
 fi
+
+# Render Optimization
+setprop debug.hwui.disable_draw_defer true
+setprop debug.hwui.disable_draw_reorder true
+setprop debug.hwui.render_dirty_regions false
+setprop debug.hwui.skip_empty_damage true
+setprop debug.hwui.disable_vsync true
+setprop debug.hwui.fps_divisor 1
+setprop debug.hwui.render_thread true
+setprop debug.hwui.render_thread_count 1
+setprop debug.hwui.use_gpu_pixel_buffers false
+setprop debug.hwui.use_buffer_age false
+
+echo "[├>[ Gpu && Rendering Optimization Actived ]"
 
 if [ $usefl = true ]; then
       echo "└>[ Fast Lounch Selection Open the Game ]"
