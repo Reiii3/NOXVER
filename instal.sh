@@ -86,7 +86,7 @@ case $1 in
      "--SkiaGl Thred" | --SkiaGlTR)
      renderer=skiaglthreaded
      ;;
-     "--SkiaVk Thred" | --SkiaVkTR
+     "--SkiaVk Thred" | --SkiaVkTR)
      renderer=skiavkthreaded
      ;;
 esac
