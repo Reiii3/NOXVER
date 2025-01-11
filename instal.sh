@@ -70,16 +70,29 @@ if [ -n "$1" ] && [ "$1" == "-fl" ]; then
 	shift
 fi
 
-if [ -n "$(getprop ro.hardware.vulkan)" ]; then
-    renderer="vulkan"
-elif [ -n "$(getprop ro.hardware.opengl)" ]; then
-    renderer="opengl"
-else
-    renderer="skiagl"
-fi
+case $1 in 
+     "--OpenGL" | --OpenGL)
+     renderer=opengl
+     ;;
+     "--Vulkan" | --Vulkan)
+     renderer=vulkan 
+     ;;
+     "--SkiaGl" | --SkiaGl)
+     renderer=skiagl
+     ;;
+     "--SkiaVk" | --SkiaVk)
+     renderer=skiavk
+     ;;
+     "--SkiaGl Thred" | --SkiaGlTR)
+     renderer=skiaglthreaded
+     ;;
+     "--SkiaVk Thred" | --SkiaVkTR
+     renderer=skiavkthreaded
+     ;;
+esac
 echo "Render Selection : [${renderer}]"
-echo
 sleep 0.5
+echo
 
 if [ "${runPackage}" = "com.mojang.minecraftpe" ]; then
   echo "                    >>Special Edition<<"
