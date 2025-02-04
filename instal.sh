@@ -222,7 +222,7 @@ else
 fi
 
 #// cmd By Reii
- setprop debug.hwui.renderer ${renderer}
+ setprop debug.hwui.renderer vulkan
  setprop debug.renderengine.backend skiavkthreaded
  setprop debug.hwui.render_performance true
  cmd thermalservice override-status 0
