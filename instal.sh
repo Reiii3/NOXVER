@@ -70,28 +70,7 @@ if [ -n "$1" ] && [ "$1" == "-fl" ]; then
 	shift
 fi
 
-case $1 in 
-    "--OpenGL" | *)
-        renderer=opengl
-        ;;
-    "--Vulkan" | --Vulkan)
-        renderer=vulkan
-        ;;
-    "--SkiaGl" | --SkiaGl)
-        renderer=skiagl
-        ;;
-    "--SkiaVk" | --SkiaVk)
-        renderer=skiavk
-        ;;
-    "--SkiaGl Thread" | --SkiaGlTR)
-        renderer=skiaglthreaded
-        ;;
-    "--SkiaVk Thread" | --SkiaVkTR)
-        renderer=skiavkthreaded
-        ;;
-esac
-echo "Render Selection : [${renderer}]"
-sleep 0.5
+
 echo
 
 if [ "${runPackage}" = "com.mojang.minecraftpe" ]; then
