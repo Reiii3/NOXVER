@@ -30,7 +30,6 @@ if [[ ! -f $file_update ]]; then
 fi
 
 
-fi
 if [ ! -d $nox_bin ]; then
   mkdir -p "$nox_bin"
   echo "DEBUG : direktory berhasil di tambahkan"
