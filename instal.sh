@@ -43,7 +43,11 @@ fi
 . $engine
 
 case $1 in 
-   -devmod | dmod)
+   -devOn | dmon)
+     axprop $engine devmode -s true
+     devmode=true
+    ;;
+   -devOff | dmoff)
      axprop $engine devmode -s false
      devmode=false
     ;;
