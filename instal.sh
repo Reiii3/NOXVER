@@ -39,6 +39,8 @@ if [ "$noxUpdate" = true ]; then
    echo "   - Welcome to NOXVER.AI -"
    axprop $path_axeronprop name -s "NVEX"
    name="NVEX"
+   axprop $path_axeronprop id -s "vexa"
+   id="vexa"
    exit 0
 else
    echo "terjadi kesalahan teknis pada logic anda"
