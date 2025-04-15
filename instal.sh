@@ -4,14 +4,21 @@ bin="/data/local/tmp"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_core="https://reiii3.github.io/NOXVER/"
+local url_engine="$url_core/engine/noxen.sh"
 import axeron.prop
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 update="$bin/detecUpdate"
+engine="$nox_bin/engine"
 
 if [ ! -d $nox_bin ]; then
   mkdir -p "$nox_bin"
+  echo "DEBUG : direktory berhasil di tambahkan"
 fi
 
+if [[ ! -f $engine ]]; then
+  storm -rP "$nox_bin" -s ${url_engine} -fn "engine"
+  echo "DEBUG : all file berhasil ter ekstrak"
+fi
 
 if [ $devmode = true ]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
@@ -19,9 +26,9 @@ fi
 local akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
 
 if [[ $akses_awal = true ]]; then
-  echo "cek id berhasi"
+  echo "DEBUG : cek id berhasi"
 else
-  echo "cek id gagal, ada masalah di logic anda"
+  echo "DEBUG : cek id gagal, ada masalah di logic anda"
 fi
 
 
