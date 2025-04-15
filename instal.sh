@@ -1,10 +1,22 @@
 $AXFUN
 bin="/data/local/tmp"
+local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_core="https://reiii3.github.io/NOXVER/"
 import axeron.prop
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 update="$bin/detecUpdate"
+
+if [ ! -d $nox_bin ]; then
+  mkdir -p "$nox_bin"
+fi
+
+
+if [ $devmode = true ]; then
+  local id_dev=$(storm "$url_core/user/developer.txt")
+fi
+local cek_beta_ui=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
+
 
 #// start Execution
 echo
