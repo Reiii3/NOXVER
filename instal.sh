@@ -1,13 +1,9 @@
-if [ $AXERON = false ]; then
-	echo "Only Support in Laxeron"
-fi
-
 $AXFUN
+bin="/data/local/tmp"
+local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 import axeron.prop
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
-wr="\e[38;2;188;61;0m"
-nwr="\e[0m"
-runPackage2=${runPackage}
+update="$bin/detecUpdate"
 
 #// start Execution
 echo
@@ -35,7 +31,17 @@ sleep 1
 echo
 sleep 1
 
+storm -rP "$bin" ${url_detect} "deteUpdate" "$@"
+. $update
 
+if [ "$noxUpdate" = true ]; then
+   echo "haii sekarang waktunya reinkarnasi"
+   echo "   - Welcome to NOXVER.AI -"
+   exit 0
+else
+   echo "terjadi kesalahan teknis pada logic anda"
+   exit 0
+fi
 
 
 
