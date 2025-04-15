@@ -1,6 +1,6 @@
-
 $AXFUN
 bin="/data/local/tmp"
+local cash="$bin/axeron_cash/update"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_core="https://reiii3.github.io/NOXVER/"
@@ -10,8 +10,27 @@ if [[ $debug = "on" ]]; then
   local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 fi
 update="$bin/detecUpdate"
+file_update="$cash/noxUp"
 engine="$nox_bin/engine"
 
+if [[ ! -d $cash ]]; then
+  mkdir -p "$cash"
+  echo "DEBUG : direktory cash berhasil di tambahkan"
+fi
+
+if [[ ! -f $file_update ]]; then
+  echo "# Dont Change It" > "$file_update"
+  axprop $file_update ver -s "null"
+  axprop $file_update verc -s "null"
+  axprop $file_update status -s "null"
+  axprop $file_update notif -s "false"
+  axprop $file_update waktuUp -s "null"
+  axprop $file_update waktuIn -s "null"
+  echo "DEBUG : File penyimpan update berhasil di tambahkan"
+fi
+
+
+fi
 if [ ! -d $nox_bin ]; then
   mkdir -p "$nox_bin"
   echo "DEBUG : direktory berhasil di tambahkan"
