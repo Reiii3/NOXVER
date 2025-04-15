@@ -6,7 +6,9 @@ local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_core="https://reiii3.github.io/NOXVER/"
 local url_engine="$url_core/engine/noxen.sh"
 import axeron.prop
-local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
+if [[ $debug = "on" ]]; then
+  local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
+fi
 update="$bin/detecUpdate"
 engine="$nox_bin/engine"
 
