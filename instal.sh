@@ -31,7 +31,7 @@ if [[ ! -f $file_update ]]; then
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
 if [[ ! -f $fu ]]; then
-  storm -rP "$nox_bin" -s ${$url_function} -fn "function"
+  storm -rP "$nox_bin" -s ${url_function} -fn "function"
 fi
 
 . $fun
