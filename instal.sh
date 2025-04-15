@@ -33,7 +33,7 @@ sleep 1
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
 . $update
-
+if 
 if [ "$noxUpdate" = true ]; then
    echo "haii sekarang waktunya reinkarnasi"
    echo "   - Welcome to NOXVER.AI -"
