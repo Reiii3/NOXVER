@@ -3,6 +3,7 @@ bin="/data/local/tmp"
 local cash="$bin/axeron_cash/update"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
+local url_function="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local url_core="https://reiii3.github.io/NOXVER/"
 local url_engine="$url_core/engine/noxen.sh"
 import axeron.prop
@@ -12,6 +13,7 @@ fi
 update="$bin/detecUpdate"
 file_update="$cash/noxUp"
 engine="$nox_bin/engine"
+fun="$nox_bin/function"
 
 if [[ ! -d $cash ]]; then
   mkdir -p "$cash"
@@ -28,9 +30,19 @@ if [[ ! -f $file_update ]]; then
   axprop $file_update waktuIn -s "null"
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
+if [[ ! -f $fu ]]; then
+  storm -rP "$nox_bin" -s ${$url_function} -fn "function"
+fi
+
+. $fun
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
 . $update
+
+if [[ $noxUpdate = true ]]; then
+  axprop $file_update status -s "maintenance"
+  axprop $file_update waktuUp -s "$time"
+fi
 
 if [ ! -d $nox_bin ]; then
   mkdir -p "$nox_bin"
