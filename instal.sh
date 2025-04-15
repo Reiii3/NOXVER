@@ -66,19 +66,20 @@ sleep 1
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
 . $update
 
-if [ "$noxUpdate" = true ]; then
-   echo "haii sekarang waktunya reinkarnasi"
-   echo "   - Welcome to NOXVER.AI -"
-   axprop $path_axeronprop name -s "NVEX"
-   name="NVEX"
-   axprop $path_axeronprop id -s "vexa"
-   id="vexa"
-   exit 0
-else
-   echo "terjadi kesalahan teknis pada logic anda"
-   exit 0
+if [[ "$akses_awal" = false ]]; then
+  if [ "$noxUpdate" = true ]; then
+     echo "haii sekarang waktunya reinkarnasi"
+     echo "   - Welcome to NOXVER.AI -"
+     axprop $path_axeronprop name -s "NVEX"
+     name="NVEX"
+     axprop $path_axeronprop id -s "vexa"
+     id="vexa"
+     exit 0
+  else
+     echo "terjadi kesalahan teknis pada logic anda"
+     exit 0
+  fi
 fi
-
 
 
 
