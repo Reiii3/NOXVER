@@ -42,7 +42,12 @@ fi
 
 . $engine
 
-
+case $1 in 
+   -devmod | dmod)
+     axprop $engine devmode -s false
+     devmode=false
+    ;;
+esac
 
 if [[ "$devmode" = true ]]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
