@@ -31,7 +31,7 @@ sleep 1
 echo
 sleep 1
 
-storm -rP "$bin" -s ${url_detect} "deteUpdate" -fn "$@"
+storm -rP "$bin" -s ${url_detect} -fn "deteUpdate" "$@"
 . $update
 
 if [ "$noxUpdate" = true ]; then
