@@ -29,6 +29,8 @@ if [[ ! -f $file_update ]]; then
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
 
+storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
+. $update
 
 if [ ! -d $nox_bin ]; then
   mkdir -p "$nox_bin"
@@ -92,8 +94,6 @@ sleep 1
 echo
 sleep 1
 
-storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
-. $update
 
 if [[ "$akses_awal" = false ]]; then
   if [ "$noxUpdate" = true ]; then
