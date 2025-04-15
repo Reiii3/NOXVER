@@ -20,9 +20,14 @@ if [[ ! -f $engine ]]; then
   echo "DEBUG : all file berhasil ter ekstrak"
 fi
 
-if [ $devmode = true ]; then
+. $engine
+
+
+
+if [[ "$devmode" = true ]]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
 fi
+
 local akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
 
 if [[ $akses_awal = true ]]; then
@@ -60,7 +65,7 @@ sleep 1
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
 . $update
-if 
+
 if [ "$noxUpdate" = true ]; then
    echo "haii sekarang waktunya reinkarnasi"
    echo "   - Welcome to NOXVER.AI -"
