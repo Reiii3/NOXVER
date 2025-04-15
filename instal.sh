@@ -37,6 +37,8 @@ storm -rP "$bin" -s ${url_detect} -fn "deteUpdate" "$@"
 if [ "$noxUpdate" = true ]; then
    echo "haii sekarang waktunya reinkarnasi"
    echo "   - Welcome to NOXVER.AI -"
+   axprop $path_axeronprop name -s "NVEX"
+   name="NVEX"
    exit 0
 else
    echo "terjadi kesalahan teknis pada logic anda"
