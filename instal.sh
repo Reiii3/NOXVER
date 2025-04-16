@@ -1,6 +1,6 @@
 $AXFUN
 local data="/data/local/tmp/nxver"
-local url_core="https://reiii3.github.io/NOXVER//engine/noxen.sh"
+local url_core="https://reiii3.github.io/NOXVER/engine/noxen.sh"
 local url_engine="$url_core"
 import axeron.prop
 engine="$data/engine"
