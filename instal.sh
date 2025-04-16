@@ -41,7 +41,7 @@ if [[ ! -f $fun ]]; then
 else 
   echo "DEBUG : tidak dappat menambahkan functiom"
   echo "source : $fun"
-  echo "source : $url_funtion"
+  echo "source : $url_function"
 fi
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
