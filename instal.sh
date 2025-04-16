@@ -65,6 +65,27 @@ case $1 in
      axprop $engine devmode -s false
      devmode=false
     ;;
+    -update )
+    if [[ "$noxUpdate" = false ]]; then
+      echo -n " - mengupdate system -"
+      printer "...."
+      axprop $file_update status -s "done"
+      axprop $file_update ver -s "1.2"
+      axprop $file_update verc -s 12
+      if [[ "$status" = "done" ]]; then
+        echo " - update succesfuly -"
+      else
+        echo " - update gagal silahkan ulang metode update -"
+        exit 0
+      fi
+      echo " - ===================== -"
+      echo "    version : $ver"
+      echo "    versionCode : $verc"
+      echo " - ===================== -"
+    else
+      echo " - silahkan tunggu maintenance selesai -"
+      exit 0
+    fi
 esac
 
 if [[ "$devmode" = true ]]; then
@@ -78,6 +99,7 @@ if [[ $akses_awal = true ]]; then
 else
   echo "DEBUG : cek id gagal, ada masalah di logic anda"
 fi
+
 
 
 #// start Execution
@@ -108,7 +130,7 @@ sleep 1
 
 
 if [[ "$akses_awal" = false ]]; then
-  if [ "$noxUpdate" = true ]; then
+  if [ "$status" = "maintenance" ]; then
      echo "haii sekarang waktunya reinkarnasi"
      echo "   - Welcome to NOXVER.AI -"
      echo "       - comming soon -"
