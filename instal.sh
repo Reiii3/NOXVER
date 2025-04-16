@@ -1,7 +1,7 @@
 $AXFUN
 local data="/data/local/tmp/nxver"
-local url_core="https://reiii3.github.io/NOXVER/"
-local url_engine="$url_core/engine/noxen.sh"
+local url_core="https://reiii3.github.io/NOXVER//engine/noxen.sh"
+local url_engine="$url_core"
 import axeron.prop
 engine="$data/engine"
 
@@ -12,7 +12,7 @@ if [ ! -d $data ]; then
 fi
 
 if [[ ! -f $engine ]]; then
-  storm -rP "$nox_bin" -s ${url_engine} -fn "engine"
+  storm -rP "$nox_bin" -s ${url_core} -fn "engine"
   echo "DEBUG : all file berhasil ter ekstrak"
 fi
 
