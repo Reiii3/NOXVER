@@ -35,6 +35,9 @@ fi
 
 if [[ ! -f $fun ]]; then
   storm -rP "$nox_bin" -s ${url_function} -fn "function"
+  echo "DEBUG : behasil menambahkan function"
+else 
+  echo "DEBUG : tidak dappat menambahkan functiom"
 fi
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
