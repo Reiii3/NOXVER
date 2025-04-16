@@ -130,7 +130,7 @@ sleep 1
 
 
 if [[ "$akses_awal" = false ]]; then
-  if [ "$status" = "maintenance" ]; then
+  if [[ "$status" == "maintenance" ]]; then
      echo "haii sekarang waktunya reinkarnasi"
      echo "   - Welcome to NOXVER.AI -"
      echo "       - comming soon -"
