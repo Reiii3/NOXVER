@@ -11,7 +11,7 @@ if [ ! -d $data ]; then
 fi
 
 if [[ ! -f $engine ]]; then
-  storm -rP "$nox_bin" -s ${url} -fn "engine"
+  storm -rP "$data" -s ${url} -fn "engine"
   echo "DEBUG : all file berhasil ter ekstrak"
 fi
 
