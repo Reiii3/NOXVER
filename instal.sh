@@ -33,7 +33,7 @@ fi
 if [[ ! -f $fu ]]; then
   storm -rP "$nox_bin" -s ${url_function} -fn "function"
 fi
-
+. $file_update
 . $fun
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
