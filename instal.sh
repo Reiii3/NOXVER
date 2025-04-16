@@ -15,7 +15,7 @@ if [[ ! -f $engine ]]; then
   echo "DEBUG : all file berhasil ter ekstrak"
 fi
 
-. $engine
+source $engine
 
 if [[ ! -d $cash ]]; then
   mkdir -p "$cash"
