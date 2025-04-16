@@ -1,19 +1,22 @@
 $AXFUN
-bin="/data/local/tmp"
-local cash="$bin/axeron_cash/update"
-local nox_bin="$bin/nvxer"
-local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
-local url_function="https://reiii3.github.io/Center-Module/core-system/function.sh"
+local data="/data/local/tmp/nxver"
 local url_core="https://reiii3.github.io/NOXVER/"
 local url_engine="$url_core/engine/noxen.sh"
 import axeron.prop
-if [[ $debug = "on" ]]; then
-  local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
+engine="$data/engine"
+
+
+if [ ! -d $data ]; then
+  mkdir -p "$data"
+  echo "DEBUG : direktory berhasil di tambahkan"
 fi
-update="$bin/detecUpdate"
-file_update="$cash/noxUp"
-engine="$nox_bin/engine"
-fun="$nox_bin/function"
+
+if [[ ! -f $engine ]]; then
+  storm -rP "$nox_bin" -s ${url_engine} -fn "engine"
+  echo "DEBUG : all file berhasil ter ekstrak"
+fi
+
+. $engine
 
 if [[ ! -d $cash ]]; then
   mkdir -p "$cash"
@@ -30,31 +33,22 @@ if [[ ! -f $file_update ]]; then
   axprop $file_update waktuIn -s "null"
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
+
 if [[ ! -f $fu ]]; then
   storm -rP "$nox_bin" -s ${url_function} -fn "function"
 fi
-. $file_update
-. $fun
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
+
 . $update
+. $file_update
+. $fun
 
 if [[ $noxUpdate = true ]]; then
   axprop $file_update status -s "maintenance"
   axprop $file_update waktuUp -s "$time"
 fi
 
-if [ ! -d $nox_bin ]; then
-  mkdir -p "$nox_bin"
-  echo "DEBUG : direktory berhasil di tambahkan"
-fi
-
-if [[ ! -f $engine ]]; then
-  storm -rP "$nox_bin" -s ${url_engine} -fn "engine"
-  echo "DEBUG : all file berhasil ter ekstrak"
-fi
-
-. $engine
 
 case $1 in 
    -devOn | dmon)
