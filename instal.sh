@@ -1,6 +1,7 @@
 $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
+url_function="https://reiii3.github.io/Center-Module/core-system/function.sh"
 import axeron.prop
 engine="$data/engine"
 
@@ -34,10 +35,10 @@ if [[ ! -f $file_update ]]; then
 fi
 
 if [[ ! -f $fun ]]; then
-  storm -rP "$nox_bin" -s ${url_funtion} -fn "function" "$@"
   echo "DEBUG : behasil menambahkan function"
   echo "source : $fun"
   echo "source : $url_function"
+  storm -rP "$nox_bin" -s ${url_funtion} -fn "function"
 else 
   echo "DEBUG : tidak dappat menambahkan functiom"
   echo "source : $fun"
