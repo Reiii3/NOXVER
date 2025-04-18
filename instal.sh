@@ -34,7 +34,7 @@ if [[ ! -f $file_update ]]; then
 fi
 
 if [[ ! -f $fun ]]; then
-  storm -rP "$nox_bin" -s ${url_funtion} "function" "$@"
+  storm -rP "$nox_bin" -s ${url_funtion} -fn "function" "$@"
   echo "DEBUG : behasil menambahkan function"
   echo "source : $fun"
   echo "source : $url_function"
