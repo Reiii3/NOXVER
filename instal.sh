@@ -12,7 +12,8 @@ local update="$bin/detecUpdate"
 local file_update="$cash/noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
-
+echo
+echo
 if [ ! -d $data ]; then
   mkdir -p "$data"
   echo "DEBUG : direktory berhasil di tambahkan"
@@ -75,3 +76,5 @@ if [[ "$akses_awal" = false ]]; then
      exit 0
   fi
 fi
+echo
+echo
