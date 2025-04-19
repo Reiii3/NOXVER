@@ -71,13 +71,14 @@ case $1 in
    if [[ "$noxUpdate" == false ]]; then
       storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
       . $u_ver
+      sleep 2
       echo "  $pr update system starting"
       axprop $file_update ver -s "$verU"
       axprop $file_update verc -s $vercU
       axprop $file_update nameEngine -s "$engineName"
       axprop $file_update waktuIn -s "$time"
       axprop $file_update status -s "done"
-      sleep 0.03
+      sleep 1
       echo "  $su update succesfully"
       echo
       sleep 0.03
