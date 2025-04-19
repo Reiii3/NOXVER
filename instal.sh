@@ -78,6 +78,7 @@ case $1 in
    if [[ "$noxUpdate" == false ]]; then
      if [[ "$insUp" == false ]]; then
          storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+         sleep 2
          . $u_ver
          sleep 5
          echo "  $pr update system starting"
