@@ -44,10 +44,12 @@ if [[ ! -f $file_update ]]; then
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
 
+# // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
 storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
 . $update
 . $file_update
 
+# // dev mod di gunakan untuk mode debugger/akses awal developer
 if [[ "$devmode" = true ]]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
 fi
