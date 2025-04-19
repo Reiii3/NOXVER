@@ -5,7 +5,7 @@ local bin="/data/local/tmp"
 local cash="$bin/axeron_cash/update"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
-local url_function="https://reiii3.github.io/Center-Module/core-system/function.sh"
+local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/detecUpdate"
@@ -19,7 +19,7 @@ if [ ! -d $data ]; then
 fi
 
 if [[ ! -f $engine ]]; then
-  storm -rP "$data" -s ${url} -fn "engine"
+  storm -rP "$data" -s "${url}" -fn "engine"
   echo "DEBUG : all file berhasil ter ekstrak"
 fi
 
@@ -41,8 +41,11 @@ if [[ ! -f $file_update ]]; then
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
 
+if [[ ! -f $fun ]]; then
+   storm -rP "$nox_bin" -s "${url_funct}" -fn "function" "$@"
+fi
 
-storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
+storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate" "$@"
 . $update
 . $file_update
 
