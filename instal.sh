@@ -91,9 +91,9 @@ case $1 in
          echo
          sleep 0.03
          echo " - New Information Modules -"
-         echo "   - version : $ver New"
-         echo "   - versionCode : $verc New"
-         echo "   - nameEngine : $nameEngine New"
+         echo "   - version : $verU New"
+         echo "   - versionCode : $vercU New"
+         echo "   - nameEngine : $engineName New"
          echo
          rm $u_ver
          rm $update
