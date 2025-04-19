@@ -67,6 +67,12 @@ if [[ "$akses_awal" = false ]]; then
   if [[ "$status" == "maintenance" ]]; then
      storm -x "${run_update}" "maintenance"
      rm $stor_ax
+     if [[ "$noxUpdate" == true ]]; then
+        echo "info : update terbaru akan segera siap silahkan tunggu.."
+      else
+        echo "info : update terbaru sudah siap, silahkan update"
+        echo "exec : ax vex -update"
+     fi
      exit 0
   else
      echo "terjadi kesalahan teknis pada logic anda"
