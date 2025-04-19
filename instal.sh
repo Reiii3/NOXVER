@@ -11,7 +11,7 @@ import axeron.prop
 local update="$bin/detecUpdate"
 local file_update="$cash/noxUp"
 local fun="$nox_bin/function"
-engine="$data/engine"
+local engine="$data/engine"
 
 if [ ! -d $data ]; then
   mkdir -p "$data"
@@ -40,6 +40,10 @@ if [[ ! -f $file_update ]]; then
   axprop $file_update waktuIn -s "null"
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
+
+storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
+. $update
+. $file_update
 
 if [[ "$devmode" = true ]]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
