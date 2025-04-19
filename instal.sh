@@ -98,9 +98,6 @@ case $1 in
    ;;
 esac
 
-
-echo 
-echo "ui interaktif"
 echo 
 
 if [[ "$akses_awal" = false ]]; then
