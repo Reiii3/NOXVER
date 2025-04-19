@@ -118,4 +118,3 @@ if [[ "$akses_awal" = false ]]; then
   fi
 fi
 echo
-echo
