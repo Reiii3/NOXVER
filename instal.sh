@@ -107,9 +107,6 @@ if [[ "$akses_awal" = false ]]; then
      fi
      rm $update
      exit 0
-  else
-     echo "terjadi kesalahan teknis pada logic anda"
-     exit 0
   fi
 fi
 echo
