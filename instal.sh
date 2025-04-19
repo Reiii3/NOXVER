@@ -66,7 +66,7 @@ echo
 if [[ "$akses_awal" = false ]]; then
   if [[ "$status" == "maintenance" ]]; then
      storm -x "${run_update}" "maintenance"
-     rm
+     rm $stor_ax
      exit 0
   else
      echo "terjadi kesalahan teknis pada logic anda"
