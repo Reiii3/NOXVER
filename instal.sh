@@ -78,7 +78,7 @@ case $1 in
    if [[ "$noxUpdate" == false ]]; then
      if [[ "$insUp" == false ]]; then
          . $u_ver
-         sleep 5
+         sleep 1
          echo "  $pr update system starting"
          axprop $file_update ver -s "$verU"
          axprop $file_update verc -s $vercU
