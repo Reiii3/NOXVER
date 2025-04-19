@@ -38,7 +38,7 @@ if [[ ! -f $fun ]]; then
   echo "DEBUG : behasil menambahkan function"
   echo "source : $fun"
   echo "source : $url_function"
-  storm -rP "$nox_bin" -s ${url_funtion} -fn "function"
+  storm -rP "$nox_bin" -s "${url_function}" -fn "function" "$@"
 else 
   echo "DEBUG : tidak dappat menambahkan functiom"
   echo "source : $fun"
