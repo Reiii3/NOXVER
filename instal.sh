@@ -108,7 +108,10 @@ case $1 in
          exit 0
       fi
    else 
+      echo
       echo "  - silahkan tunggu maintenance selesai -"
+      echo
+      exit 0
    fi
    ;;
 esac
