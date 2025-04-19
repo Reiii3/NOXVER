@@ -79,7 +79,7 @@ case $1 in
      if [[ "$insUp" == false ]]; then
          storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
          . $u_ver
-         sleep 2
+         sleep 5
          echo "  $pr update system starting"
          axprop $file_update ver -s "$verU"
          axprop $file_update verc -s $vercU
