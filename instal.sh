@@ -43,6 +43,7 @@ fi
 
 if [[ ! -f $fun ]]; then
    storm -rP "$nox_bin" -s "${url_funct}" -fn "function" "$@"
+   echo "file telah di buat"
 fi
 
 storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate" "$@"
