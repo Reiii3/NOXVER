@@ -98,6 +98,10 @@ case $1 in
          echo
          rm $u_ver
          exit 0
+      else
+         echo " - modules ini sudah terupdate ke versi terbaru sejak"
+         echo "        $waktuIn"
+         exit 0
       fi
    else 
       echo "  - silahkan tunggu maintenance selesai -"
