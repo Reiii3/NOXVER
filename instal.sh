@@ -7,6 +7,7 @@ local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local run_update="https://reiii3.github.io/NOXVER/engine/ui-system/ui-maintenance.sh"
+local url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/detecUpdate"
@@ -14,6 +15,7 @@ local file_update="$cash/noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
 local stor_ax="$bin/axeron_cash/DionX/response"
+local u_ver="$bin/prop"
 echo
 echo
 if [ ! -d $data ]; then
@@ -37,6 +39,7 @@ if [[ ! -f $file_update ]]; then
   echo "# Dont Change It" > "$file_update"
   axprop $file_update ver -s "null"
   axprop $file_update verc -s "null"
+  axprop $file_update nameEngine -s "null"
   axprop $file_update status -s "null"
   axprop $file_update notif -s "false"
   axprop $file_update waktuUp -s "null"
@@ -61,6 +64,32 @@ else
   echo "DEBUG : cek id gagal, ada masalah di logic anda"
 fi
 
+
+
+case $1 in
+   -update )
+   if [[ "$noxUpdate" == false ]]; then
+      storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+      . $u_ver
+      echo "  $pr update system starting"
+      axprop $file_update ver -s "$verU"
+      axprop $file_update verc -s $vercU
+      axprop $file_update nameEngine -s "$engineName"
+      axprop $file_update waktuIn -s "$time"
+      sleep 0.03
+      echo "  $su update succesfully"
+      echo
+      sleep 0.03
+      echo " - New Information Modules -"
+      echo "   - version : $ver New"
+      echo "   - versionCode : $verc New"
+      echo "   - nameEngine : $nameEngine New"
+      echo
+   fi
+   ;;
+esac
+
+
 echo 
 echo "ui interaktif"
 echo 
@@ -75,6 +104,7 @@ if [[ "$akses_awal" = false ]]; then
         echo "info : update terbaru sudah siap, silahkan update"
         echo "exec : ax vex -update"
      fi
+     rm $update
      exit 0
   else
      echo "terjadi kesalahan teknis pada logic anda"
