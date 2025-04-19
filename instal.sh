@@ -1,10 +1,17 @@
 $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
-url_function="https://reiii3.github.io/Center-Module/core-system/function.sh"
+local bin="/data/local/tmp"
+local cash="$bin/axeron_cash/update"
+local nox_bin="$bin/nvxer"
+local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
+local url_function="https://reiii3.github.io/Center-Module/core-system/function.sh"
+local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
+local update="$bin/detecUpdate"
+local file_update="$cash/noxUp"
+local fun="$nox_bin/function"
 engine="$data/engine"
-
 
 if [ ! -d $data ]; then
   mkdir -p "$data"
@@ -34,18 +41,10 @@ if [[ ! -f $file_update ]]; then
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
 
-if [[ ! -f $fun ]]; then
-  echo "DEBUG : behasil menambahkan function"
-  echo "source : $fun"
-  echo "source : $url_function"
-else 
-  echo "DEBUG : tidak dappat menambahkan functiom"
-  echo "source : $fun"
-  echo "source : $url_function"
-fi
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
-
+storm -rP "$nox_bin" -s "${url_function}" -fn "function" "$@"
+. $fun
 . $update
 . $file_update
 
