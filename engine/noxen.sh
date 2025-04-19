@@ -3,7 +3,8 @@ export time=$(date "+%a %b %d %Y %H:%M %Z")
 export war="[?]"
 export in="[!]"
 export pr="[-]"
-export su="[√]"  
+export su="[√]"
+
 printer() {
 text="$1"
  i=0
