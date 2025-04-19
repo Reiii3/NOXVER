@@ -44,6 +44,7 @@ if [[ ! -f $file_update ]]; then
   axprop $file_update notif -s "false"
   axprop $file_update waktuUp -s "null"
   axprop $file_update waktuIn -s "null"
+  axprop $file_update insUp -s true
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
 
@@ -55,6 +56,7 @@ storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
 if [[ "$noxUpdate" == true ]]; then
    axprop $file_update status -s "maintenance"
    axprop $file_update notif -s false
+   axprop $file_update insUp -s false
 fi
 
 # // dev mod di gunakan untuk mode debugger/akses awal developer
@@ -74,26 +76,31 @@ fi
 case $1 in
    -update )
    if [[ "$noxUpdate" == false ]]; then
-      storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
-      . $u_ver
-      sleep 2
-      echo "  $pr update system starting"
-      axprop $file_update ver -s "$verU"
-      axprop $file_update verc -s $vercU
-      axprop $file_update nameEngine -s "$engineName"
-      axprop $file_update waktuIn -s "$time"
-      axprop $file_update status -s "done"
-      sleep 1
-      echo "  $su update succesfully"
-      echo
-      sleep 0.03
-      echo " - New Information Modules -"
-      echo "   - version : $ver New"
-      echo "   - versionCode : $verc New"
-      echo "   - nameEngine : $nameEngine New"
-      echo
-      rm $u_ver
-      exit 0
+     if [[ "$insUp" == false ]]; then
+         storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+         . $u_ver
+         sleep 2
+         echo "  $pr update system starting"
+         axprop $file_update ver -s "$verU"
+         axprop $file_update verc -s $vercU
+         axprop $file_update nameEngine -s "$engineName"
+         axprop $file_update waktuIn -s "$time"
+         axprop $file_update status -s "done"
+         axprop $file_update insUp -s true
+         sleep 1
+         echo "  $su update succesfully"
+         echo
+         sleep 0.03
+         echo " - New Information Modules -"
+         echo "   - version : $ver New"
+         echo "   - versionCode : $verc New"
+         echo "   - nameEngine : $nameEngine New"
+         echo
+         rm $u_ver
+         exit 0
+      fi
+   else 
+      echo "  - silahkan tunggu maintenance selesai -"
    fi
    ;;
 esac
