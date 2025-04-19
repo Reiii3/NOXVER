@@ -40,7 +40,7 @@ if [[ ! -f $file_update ]]; then
   axprop $file_update ver -s "null"
   axprop $file_update verc -s "null"
   axprop $file_update nameEngine -s "null"
-  axprop $file_update status -s "null"
+  axprop $file_update status -s "maintenance"
   axprop $file_update notif -s "false"
   axprop $file_update waktuUp -s "null"
   axprop $file_update waktuIn -s "null"
