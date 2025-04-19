@@ -52,6 +52,11 @@ storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
 . $update
 . $file_update
 
+if [[ "$noxUpdate" == true ]]; then
+   axprop $file_update status -s "maintenance"
+   axprop $file_update notif -s false
+fi
+
 # // dev mod di gunakan untuk mode debugger/akses awal developer
 if [[ "$devmode" = true ]]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
