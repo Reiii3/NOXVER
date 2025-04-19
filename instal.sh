@@ -43,8 +43,6 @@ fi
 
 
 storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
-storm -rP "$nox_bin" -s "${url_function}" -fn "function" "$@"
-. $fun
 . $update
 . $file_update
 
