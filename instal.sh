@@ -44,7 +44,6 @@ fi
 if [[ "$devmode" = true ]]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
 fi
-
 local akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
 
 if [[ $akses_awal = true ]]; then
