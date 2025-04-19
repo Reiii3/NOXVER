@@ -102,6 +102,7 @@ case $1 in
          echo
          echo " - modules ini sudah terupdate ke versi terbaru sejak -"
          echo "        $waktuIn"
+         echo
          exit 0
       fi
    else 
