@@ -97,6 +97,7 @@ case $1 in
          echo "   - nameEngine : $nameEngine New"
          echo
          rm $u_ver
+         rm $update
          exit 0
       else
          echo
