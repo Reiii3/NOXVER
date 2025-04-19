@@ -114,6 +114,7 @@ if [[ "$akses_awal" = false ]]; then
         echo "exec : ax vex -update"
      fi
      rm $update
+     echo
      exit 0
   fi
 fi
