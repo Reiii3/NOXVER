@@ -48,7 +48,6 @@ storm -rP "$bin" -s ${url_detect} -fn "detecUpdate" "$@"
 
 . $update
 . $file_update
-. $fun
 
 if [[ $noxUpdate = true ]]; then
   axprop $file_update status -s "maintenance"
