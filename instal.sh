@@ -41,53 +41,6 @@ if [[ ! -f $file_update ]]; then
   echo "DEBUG : File penyimpan update berhasil di tambahkan"
 fi
 
-if [[ ! -f $fun ]]; then
-   storm -rP "$nox_bin" -s "${url_funct}" -fn "function" "$@"
-   echo "file telah di buat"
-fi
-
-storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate" "$@"
-. $update
-. $file_update
-
-if [[ $noxUpdate = true ]]; then
-  axprop $file_update status -s "maintenance"
-  axprop $file_update waktuUp -s "$time"
-fi
-
-
-case $1 in 
-   -devOn | dmon)
-     axprop $engine devmode -s true
-     devmode=true
-    ;;
-   -devOff | dmoff)
-     axprop $engine devmode -s false
-     devmode=false
-    ;;
-    -update )
-    if [[ "$noxUpdate" = false ]]; then
-      echo -n " - mengupdate system -"
-      printer "...."
-      axprop $file_update status -s "done"
-      axprop $file_update ver -s "1.2"
-      axprop $file_update verc -s 12
-      if [[ "$status" = "done" ]]; then
-        echo " - update succesfuly -"
-      else
-        echo " - update gagal silahkan ulang metode update -"
-        exit 0
-      fi
-      echo " - ===================== -"
-      echo "    version : $ver"
-      echo "    versionCode : $verc"
-      echo " - ===================== -"
-    else
-      echo " - silahkan tunggu maintenance selesai -"
-      exit 0
-    fi
-esac
-
 if [[ "$devmode" = true ]]; then
   local id_dev=$(storm "$url_core/user/developer.txt")
 fi
