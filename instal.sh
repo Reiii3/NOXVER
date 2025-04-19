@@ -76,6 +76,7 @@ case $1 in
       axprop $file_update verc -s $vercU
       axprop $file_update nameEngine -s "$engineName"
       axprop $file_update waktuIn -s "$time"
+      axprop $file_update status -s "done"
       sleep 0.03
       echo "  $su update succesfully"
       echo
