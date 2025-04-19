@@ -6,12 +6,14 @@ local cash="$bin/axeron_cash/update"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
+local run_update="https://reiii3.github.io/NOXVER/engine/ui-system/ui-maintenance.sh"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/detecUpdate"
 local file_update="$cash/noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
+local stor_ax="$bin/axeron_cash/DionX/response"
 echo
 echo
 if [ ! -d $data ]; then
@@ -63,13 +65,8 @@ echo
 
 if [[ "$akses_awal" = false ]]; then
   if [[ "$status" == "maintenance" ]]; then
-     echo "     haii sekarang waktunya reinkarnasi"
-     echo "        - Welcome to NOXVER.AI -"
-     echo "            - comming soon -"
-     axprop $path_axeronprop name -s "NVEX"
-     name="NVEX"
-     axprop $path_axeronprop id -s "vexa"
-     id="vexa"
+     storm -x "${run_update}" "maintenance"
+     rm
      exit 0
   else
      echo "terjadi kesalahan teknis pada logic anda"
