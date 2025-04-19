@@ -1,6 +1,9 @@
 export devmode=true
 export time=$(date "+%a %b %d %Y %H:%M %Z")
-
+export war="[?]"
+export in="[!]"
+export pr="[-]"
+export su="[√]"  
 printer() {
 text="$1"
  i=0
@@ -13,7 +16,7 @@ echo
 }
 
 fle_ins() {
-    folder_path="/data/local/tmp/axeron_cash/zcek_ins"
+    folder_path="/data//tmp/axeron_cash/zcek_ins"
     file_name="$1"    # Nama fil
     # Buat file di dalamnya
     file_path="$folder_path/$file_name"
