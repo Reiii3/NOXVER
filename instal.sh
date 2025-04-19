@@ -86,6 +86,8 @@ case $1 in
       echo "   - versionCode : $verc New"
       echo "   - nameEngine : $nameEngine New"
       echo
+      rm $u_ver
+      exit 0
    fi
    ;;
 esac
