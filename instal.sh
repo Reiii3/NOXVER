@@ -160,7 +160,6 @@ if [[ "$notif" = false ]]; then
    echo
 fi
 
-echo 
 
 if [[ "$akses_awal" = false ]]; then
   if [[ "$status" == "maintenance" ]]; then
@@ -178,4 +177,4 @@ if [[ "$akses_awal" = false ]]; then
      exit 0
   fi
 fi
-echo
+echo "Silahkan tunggu ui selesai tetapi fungsi modules tetap bisa di gunakan"
