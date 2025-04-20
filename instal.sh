@@ -190,6 +190,8 @@ run_ui() {
    echo "ui intraksion fisual modules"
    echo
 }
+
+
 # == MAIN MODULES INSTALATION ==
 main() {
    setup_file_awal
