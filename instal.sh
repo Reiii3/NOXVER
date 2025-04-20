@@ -9,6 +9,7 @@ local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local run_update="https://reiii3.github.io/NOXVER/engine/ui-system/ui-maintenance.sh"
 local url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
+local url_ui="https://reiii3.github.io/NOXVER/engine/ui-system/ui-v1.sh"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/detecUpdate"
@@ -188,6 +189,8 @@ run_maintrnance() {
 run_ui() {
    echo
    echo "ui intraksion fisual modules"
+   storm -x "${url_ui}" "ui"
+   rm $stor_ax
    echo
 }
 
