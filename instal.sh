@@ -17,7 +17,8 @@ local engine="$data/engine"
 local stor_ax="$bin/axeron_cash/DionX/response"
 local u_ver="$bin/prop"
 echo
-echo
+
+
 if [ ! -d $data ]; then
   mkdir -p "$data"
   echo "DEBUG : direktory berhasil di tambahkan"
@@ -113,6 +114,44 @@ case $1 in
    fi
    ;;
 esac
+
+if [[ "$ver" = "null" ]] && [[ "$verc" = "null" ]]; then
+ if [[ "$noxUpdate" == false ]]; then
+   storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+   sleep 1 
+   . $u_ver
+   echo "       - [initializing system] -"
+   sleep 1.5
+   echo "      Welcome to NOXVER.AI Modules"
+   echo
+   echo "  $in Menginstall system modules.."
+   sleep 1 
+   axprop $file_update ver -s "$verU"
+   axprop $file_update verc -s $vercU
+   axprop $file_update status -s "done"
+   axprop $file_update waktuIn -s "$time"
+   sleep 1 
+   echo "  $su Instalation succesfully"
+   echo 
+   echo "==============================="
+   echo "    Information Instalation"
+   echo "==============================="
+   echo "  version : $verU"
+   echo "  versionCode : $vercU"
+   echo "  engine : $engineName"
+   echo
+   rm $u_ver
+   exit 0
+   else
+   echo 
+   echo " [system sedang maintenance silahkan tunggu sampai selesai]"
+   echo 
+   axprop $file_update ver -s "1.0"
+   axprop $file_update verc -s 11
+   exit 0
+ fi
+fi
+
 
 echo 
 
