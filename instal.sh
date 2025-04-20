@@ -18,64 +18,64 @@ local stor_ax="$bin/axeron_cash/DionX/response"
 local u_ver="$bin/prop"
 echo
 
-
-if [ ! -d $data ]; then
-  mkdir -p "$data"
-  echo "DEBUG : direktory berhasil di tambahkan"
-fi
-
-if [[ ! -f $engine ]]; then
-  storm -rP "$data" -s "${url}" -fn "engine"
-  echo "DEBUG : all file berhasil ter ekstrak"
-fi
-
-source $engine
-
-if [[ ! -d $cash ]]; then
-  mkdir -p "$cash"
-  echo "DEBUG : direktory cash berhasil di tambahkan"
-fi
-
-if [[ ! -f $file_update ]]; then
-  echo "# Dont Change It" > "$file_update"
-  axprop $file_update ver -s "null"
-  axprop $file_update verc -s "null"
-  axprop $file_update nameEngine -s "null"
-  axprop $file_update status -s "maintenance"
-  axprop $file_update notif -s false
-  axprop $file_update waktuUp -s "null"
-  axprop $file_update waktuIn -s "null"
-  axprop $file_update insUp -s true
-  echo "DEBUG : File penyimpan update berhasil di tambahkan"
-fi
+# // FUNGSI : Menambahkan file penting seperti engine san yang lain
+setup_file_awal() {
+   if [ ! -d $data ]; then
+     mkdir -p "$data"
+     echo "DEBUG : direktory berhasil di tambahkan"
+   fi
+   if [[ ! -f $engine ]]; then
+     storm -rP "$data" -s "${url}" -fn "engine"
+     echo "DEBUG : all file berhasil ter ekstrak"
+   fi
+   source $engine
+   if [[ ! -d $cash ]]; then
+     mkdir -p "$cash"
+     echo "DEBUG : direktory cash berhasil di tambahkan"
+   fi
+   if [[ ! -f $file_update ]]; then
+     echo "# Dont Change It" > "$file_update"
+     axprop $file_update ver -s "null"
+     axprop $file_update verc -s "null"
+     axprop $file_update nameEngine -s "null"
+     axprop $file_update status -s "maintenance"
+     axprop $file_update notif -s false
+     axprop $file_update waktuUp -s "null"
+     axprop $file_update waktuIn -s "null"
+     axprop $file_update insUp -s true
+     echo "DEBUG : File penyimpan update berhasil di tambahkan"
+   fi
+}
 
 # // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
-storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
-. $update
-. $file_update
+detected_update() {
+   storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
+   . $update
+   . $file_update
+   
+   if [[ "$noxUpdate" == true ]]; then
+      axprop $file_update status -s "maintenance"
+      axprop $file_update notif -s false
+      axprop $file_update insUp -s false
+   fi
+}
 
-if [[ "$noxUpdate" == true ]]; then
-   axprop $file_update status -s "maintenance"
-   axprop $file_update notif -s false
-   axprop $file_update insUp -s false
-fi
+# FUNGSI : digunakan untuk par developer untuk debugger pada saat system sedang maintenance
+developer_mode() {
+   if [[ "$devmode" = true ]]; then
+     local id_dev=$(storm "$url_core/user/developer.txt")
+   fi
+   local akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
+   
+   if [[ $akses_awal = true ]]; then
+     echo "DEBUG : cek id berhasi"
+   else
+     echo "DEBUG : cek id gagal, ada masalah di logic anda"
+   fi
+}
 
-# // dev mod di gunakan untuk mode debugger/akses awal developer
-if [[ "$devmode" = true ]]; then
-  local id_dev=$(storm "$url_core/user/developer.txt")
-fi
-local akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
-
-if [[ $akses_awal = true ]]; then
-  echo "DEBUG : cek id berhasi"
-else
-  echo "DEBUG : cek id gagal, ada masalah di logic anda"
-fi
-
-
-
-case $1 in
-   -update )
+# FUNGSI : untuk mengupdate system ke version terbaru
+run_update_versiom() {
    if [[ "$noxUpdate" == false ]]; then
      if [[ "$insUp" == false ]]; then
          . $u_ver
@@ -112,69 +112,100 @@ case $1 in
       echo
       exit 0
    fi
-   ;;
-esac
+}
 
-if [[ "$ver" = "null" ]] && [[ "$verc" = "null" ]]; then
- if [[ "$noxUpdate" == false ]]; then
-   storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
-   sleep 1 
-   . $u_ver
-   echo "       - [initializing system] -"
-   sleep 1.5
-   echo "      Welcome to NOXVER.AI Modules"
-   echo
-   echo "  $in Menginstall system modules.."
-   sleep 1 
-   axprop $file_update ver -s "$verU"
-   axprop $file_update verc -s $vercU
-   axprop $file_update status -s "done"
-   axprop $file_update waktuIn -s "$time"
-   axprop $file_update nameEngine -s "$engineName"
-   sleep 1 
-   echo "  $su Instalation succesfully"
-   echo 
-   echo "==============================="
-   echo "    Information Instalation"
-   echo "==============================="
-   echo "  version : $verU"
-   echo "  versionCode : $vercU"
-   echo "  engine : $engineName"
-   echo
-   rm $u_ver
-   exit 0
-   else
-   echo 
-   echo " [system sedang maintenance silahkan tunggu sampai selesai]"
-   echo 
-   axprop $file_update ver -s "1.0"
-   axprop $file_update verc -s 11
-   exit 0
- fi
-fi
-
-if [[ "$notif" = false ]]; then
-   echo "[system telah di update ke version $ver | $verc | $nameEngine New]"
-   echo "[Di install pada $waktuIn]"
-   axprop $file_update notif -s true
-   echo
-fi
-
-
-if [[ "$akses_awal" = false ]]; then
-  if [[ "$status" == "maintenance" ]]; then
-     storm -x "${run_update}" "maintenance"
-     rm $stor_ax
-     if [[ "$noxUpdate" == true ]]; then
-        echo "info : update terbaru akan segera siap silahkan tunggu.."
+# FUNGSI : berfungsi untuk Menginstall versi terbaru pada saat pertama kali menggunakan modules
+first_run() {
+   if [[ "$ver" = "null" ]] && [[ "$verc" = "null" ]]; then
+    if [[ "$noxUpdate" == false ]]; then
+      storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+      sleep 1 
+      . $u_ver
+      echo "       - [initializing system] -"
+      sleep 1.5
+      echo "      Welcome to NOXVER.AI Modules"
+      echo
+      echo "  $in Menginstall system modules.."
+      sleep 1 
+      axprop $file_update ver -s "$verU"
+      axprop $file_update verc -s $vercU
+      axprop $file_update status -s "done"
+      axprop $file_update waktuIn -s "$time"
+      axprop $file_update nameEngine -s "$engineName"
+      sleep 1 
+      echo "  $su Instalation succesfully"
+      echo 
+      echo "==============================="
+      echo "    Information Instalation"
+      echo "==============================="
+      echo "  version : $verU"
+      echo "  versionCode : $vercU"
+      echo "  engine : $engineName"
+      echo
+      rm $u_ver
+      exit 0
       else
-        echo "info : update terbaru sudah siap, silahkan update"
-        echo "exec : ax vex -update"
-        storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+      echo 
+      echo " [system sedang maintenance silahkan tunggu sampai selesai]"
+      echo 
+      axprop $file_update ver -s "1.0"
+      axprop $file_update verc -s 11
+      exit 0
+    fi
+   fi
+}
+
+# fungsi : digunakan untuk menampilkan info bahwa syatem sudah di update keversion terbaru
+run_notif() {
+   if [[ "$notif" = false ]]; then
+      echo "[system telah di update ke version $ver | $verc | $nameEngine New]"
+      echo "[Di install pada $waktuIn]"
+      axprop $file_update notif -s true
+      echo
+   fi
+}
+
+# fungsi ; ini adalah system maintenance
+run_maintrnance() {
+   if [[ "$akses_awal" = false ]]; then
+     if [[ "$status" == "maintenance" ]]; then
+        storm -x "${run_update}" "maintenance"
+        rm $stor_ax
+        if [[ "$noxUpdate" == true ]]; then
+           echo "info : update terbaru akan segera siap silahkan tunggu.."
+         else
+           echo "info : update terbaru sudah siap, silahkan update"
+           echo "exec : ax vex -update"
+           storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+        fi
+        rm $update
+        echo
+        exit 0
      fi
-     rm $update
-     echo
-     exit 0
-  fi
-fi
-echo "Silahkan tunggu ui selesai tetapi fungsi modules tetap bisa di gunakan"
+   fi
+}
+
+run_ui() {
+   echo
+   echo "ui intraksion fisual modules"
+   echo
+}
+# == MAIN MODULES INSTALATION ==
+main() {
+   setup_file_awal
+   detected_update
+   developer_mode
+   
+   case $1 in 
+     -update )
+      run_update_versiom
+      ;;
+   esac
+   
+   first_run
+   run_notif
+   run_maintrnance
+   run_ui
+}
+
+main "$@"
