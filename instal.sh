@@ -42,7 +42,7 @@ if [[ ! -f $file_update ]]; then
   axprop $file_update verc -s "null"
   axprop $file_update nameEngine -s "null"
   axprop $file_update status -s "maintenance"
-  axprop $file_update notif -s "false"
+  axprop $file_update notif -s false
   axprop $file_update waktuUp -s "null"
   axprop $file_update waktuIn -s "null"
   axprop $file_update insUp -s true
@@ -130,6 +130,7 @@ if [[ "$ver" = "null" ]] && [[ "$verc" = "null" ]]; then
    axprop $file_update verc -s $vercU
    axprop $file_update status -s "done"
    axprop $file_update waktuIn -s "$time"
+   axprop $file_update nameEngine -s "$engineName"
    sleep 1 
    echo "  $su Instalation succesfully"
    echo 
@@ -152,6 +153,12 @@ if [[ "$ver" = "null" ]] && [[ "$verc" = "null" ]]; then
  fi
 fi
 
+if [[ "$notif" = false ]]; then
+   echo "[system telah di update ke version $ver | $verc | $nameEngine New]"
+   echo "[Di install pada $waktuIn]"
+   axprop $file_update notif -s true
+   echo
+fi
 
 echo 
 
