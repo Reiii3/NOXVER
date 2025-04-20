@@ -1,3 +1,4 @@
+# == SOURCE GLOBAL ==
 $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
@@ -16,7 +17,6 @@ local fun="$nox_bin/function"
 local engine="$data/engine"
 local stor_ax="$bin/axeron_cash/DionX/response"
 local u_ver="$bin/prop"
-echo
 
 # // FUNGSI : Menambahkan file penting seperti engine san yang lain
 setup_file_awal() {
