@@ -190,7 +190,7 @@ run_ui() {
    echo
    echo "ui intraksion fisual modules"
    storm -x "${url_ui}" "ui"
-   rm $stor_ax
+   [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
 }
 
