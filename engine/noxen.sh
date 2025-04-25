@@ -16,15 +16,17 @@ text="$1"
 echo
 }
 
-upPackage() {
-  pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
-  axprop $file_update  packageRun -s "$pkg"
-  packageRun="$pkg"
-  # Mengubah Package Ke Name APK
-  name_g=$(pkglist -L "$packageRun")
-  axprop $file_update nameGame -s "$name_g"
-  nameGame="$name_g"
-  shift 2
+listGame() {
+   game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
+   package_list=$(cmd package list packages | cut -f 2 -d ":")
+   
+   echo "$game" | while IFS= read -r line; do
+       if [ -n "$line" ]; then
+           if echo "$package_list" | grep -qx "$line"; then
+               echo "｜Game List : $line"
+           fi
+       fi
+   done
 }
 
 install_perff() {
