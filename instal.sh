@@ -46,6 +46,7 @@ setup_file_awal() {
      axprop $file_update waktuUp -s "null"
      axprop $file_update waktuIn -s "null"
      axprop $file_update insUp -s true
+     axprop $file_update perfIns -s ""
      echo "DEBUG : File penyimpan update berhasil di tambahkan"
    fi
 }
