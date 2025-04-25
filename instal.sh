@@ -192,7 +192,7 @@ run_ui() {
    echo
    echo "ui intraksion fisual modules"
    if [[ -z "$perfIns" ]]; then
-      storm -rP "$nox_bin" -s "${engine_system}" -fn "engine_core" "$@"
+      storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
    fi
    sleep 1
    storm -x "${url_ui}" "ui"
