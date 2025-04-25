@@ -41,6 +41,8 @@ setup_file_awal() {
      axprop $file_update ver -s "null"
      axprop $file_update verc -s "null"
      axprop $file_update nameEngine -s "null"
+     axprop $file_update packageRun -s ""
+     axprop $file_update nameGame -s ""
      axprop $file_update status -s "maintenance"
      axprop $file_update notif -s false
      axprop $file_update waktuUp -s "null"
@@ -146,6 +148,7 @@ first_run() {
       echo "  version : $verU"
       echo "  versionCode : $vercU"
       echo "  engine : $engineName"
+      echo "==============================="
       echo
       rm $u_ver
       exit 0
