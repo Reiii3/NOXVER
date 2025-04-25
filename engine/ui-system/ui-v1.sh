@@ -1,8 +1,10 @@
 $AXFUN
+res="/data/local/tmp/axeron_cash/update/noxUp"
 engine="/data/local/tmp/nxver/engine"
 engine_system="/data/local/tmp/engine_core"
 source $engine
 source $engine_system
+source $res
 echo "Test ui v1 debug engine"
 printer "selamat datang di ui v1"
 
