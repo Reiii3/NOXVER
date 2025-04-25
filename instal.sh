@@ -189,6 +189,7 @@ run_maintrnance() {
    fi
 }
 
+# FUNGSI : running all system && performa fitures
 run_ui() {
    echo
    echo "ui intraksion fisual modules"
@@ -197,6 +198,7 @@ run_ui() {
    fi
    sleep 1
    storm -x "${url_ui}" "ui"
+   install_perff
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
 }
