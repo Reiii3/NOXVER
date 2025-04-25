@@ -1,10 +1,23 @@
 core_1() {
-   
+   cmd package compile -m everything-profile -f "$packageRun"
+   cmd package compile -m quicken -f "$packageRun"
+   cmd package compile -m speed --secondary-dex -f "$packageRun"
 }
 
 core_2() {
-   
-}
+   setprop debug.hwui.use_hint_manager 1
+   setprop debug.hwui.disable_vsync true
+   setprop debug.hwui.disable_scissor_opt true
+   setprop debug.sf.disable_client_composition_cache 1
+   setprop debug.sf.lag_adj 0
+   setprop debug.sf.early_phase_offset_ns 500000
+   setprop debug.sf.early_app_phase_offset_ns 500000
+   setprop debug.hwui.use_buffer_age false
+   setprop debug.hwui.show_dirty_regions false
+   setprop debug.hwui.skip_empty_damage true
+   setprop debug.hwui.target_cpu_time_percent 100
+   setprop debug.hwui.target_gpu_time_percent 100
+} # core 1 di gunakana untuk resource setprop
 
 core_ai() {
    IDLE_TIME=5
@@ -20,6 +33,20 @@ core_ai() {
        setprop debug.hwui.renderer skiavk
        setprop debug.hwui.shadow.renderer skiavk
        cmd thermalservice override-status 0
+       settings put global low_power 0
+       cmd power set-adaptive-power-saver-enabled false
+       cmd power set-fixed-performance-mode-enabled true
+       cmd power set-mode 0
+       setprop debug.renderengine.backend skiavk
+       setprop debug.composition.type dyn
+       setprop debug.hwui.render_dirty_regions false
+       setprop debug.hwui.skia_atrace_enabled false
+       setprop debug.qsg_renderer 0
+       setprop debug.vulkan.layers ""
+       setprop debug.cpurend.vsync false
+       setprop debug.gpurend.vsync true
+       dumpsys deviceidle force-idle
+       dumpsys deviceidle step deep
        sleep 0.5
    }
    ai_op() {
@@ -36,6 +63,16 @@ core_ai() {
        setprop debug.hwui.renderer opengl
        setprop debug.hwui.shadow.renderer opengl
        cmd thermalservice override-status 1
+       setprop debug.renderengine.backend opengl
+       setprop debug.composition.type gpu
+       setprop debug.hwui.render_dirty_regions true
+       setprop debug.hwui.skia_atrace_enabled true
+       setprop debug.qsg_renderer 0
+       setprop debug.vulkan.layers ""
+       setprop debug.cpurend.vsync true
+       setprop debug.gpurend.vsync false
+       dumpsys deviceidle unforce
+       dumpsys deviceidle step active
        sleep 1
    }
    cmd notification post -S bigtext -t "NOXVER.AI" "tag" "Engine : "$nameEngin" | Developer : ReiiEja"
