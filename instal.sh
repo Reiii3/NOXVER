@@ -205,6 +205,7 @@ run_ui() {
    if [[ -z "$perfIns" ]]; then
       install_perff
    fi
+   listGame
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
 }
@@ -226,7 +227,17 @@ main() {
      nameGame="$name_g"
      shift 2
    fi
-   
+   if [ -n "$1" ] && [ "$1" == "-g" ]; then
+     pkg_2="$packageRun"
+     pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
+     axprop $engine  packageRun -s "$pkg"
+     packageRun="$pkg"
+     # Mengubah Package Ke Name APK
+     name_g=$(pkglist -L "$packageRun")
+     axprop $prop nameGame -s "$name_g"
+     nameGame="$name_g"
+     shift 2
+     fi
    case $1 in 
      -update )
       run_update_versiom
