@@ -1,5 +1,4 @@
 export devmode=true
-export perfIns=""
 export time=$(date "+%a %b %d %Y %H:%M %Z")
 export war="[?]"
 export in="[!]"
