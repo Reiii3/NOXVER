@@ -1,7 +1,7 @@
 core_1() {
-   cmd package compile -m everything-profile -f "$packageRun"
-   cmd package compile -m quicken -f "$packageRun"
-   cmd package compile -m speed --secondary-dex -f "$packageRun"
+   cmd package compile -m everything-profile -f "$line"
+   cmd package compile -m quicken -f "$line"
+   cmd package compile -m speed --secondary-dex -f "$line"
 }
 
 core_2() {
