@@ -1,10 +1,10 @@
-core_1() {
+core_test() {
    cmd package compile -m everything-profile -f "$line"
    cmd package compile -m quicken -f "$line"
    cmd package compile -m speed --secondary-dex -f "$line"
 }
 
-core_2() {
+core_1() {
    setprop debug.hwui.use_hint_manager 1
    setprop debug.hwui.disable_vsync true
    setprop debug.hwui.disable_scissor_opt true
