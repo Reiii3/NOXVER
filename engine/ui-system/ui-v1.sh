@@ -11,7 +11,7 @@ printer "selamat datang di ui v1"
 if [[ -z "$perfIns" ]]; then
    core_1
    core_2
-   axprop $engine perfIns -s "$time"
+   axprop $res perfIns -s "$time"
    rm "$engine_system"
    echo "DEBUG : Test setprop terinstall"
 else
