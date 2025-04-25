@@ -43,7 +43,7 @@ install_ai() {
    sleep 2
    status=$(pgrep -f ai-system)
    if [ -z $pid_ins ]; then
-     axprop $file_update pid_ins "$status"
+     axprop $file_update insAi -s "$status"
      insAi=$status
    fi
    if [ "$status" ]; then
