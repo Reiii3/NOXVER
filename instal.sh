@@ -202,7 +202,9 @@ run_ui() {
    fi
    sleep 1
    storm -x "${url_ui}" "ui"
-   install_perff
+   if [[ -z "$perfIns" ]]; then
+      install_perff
+   fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
 }
@@ -213,7 +215,9 @@ main() {
    setup_file_awal
    detected_update
    developer_mode
-   upPackage
+   if [ -n $1 ] && [ "$1" == "-g" ]; then
+     upPackage
+   fi
    
    case $1 in 
      -update )
