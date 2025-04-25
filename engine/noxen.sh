@@ -23,7 +23,7 @@ listGame() {
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
-               echo "｜Game List : $line"
+               echo "｜Game Boosted : $line"
            fi
        fi
    done
