@@ -213,6 +213,7 @@ main() {
    setup_file_awal
    detected_update
    developer_mode
+   upPackage
    
    case $1 in 
      -update )
