@@ -16,13 +16,29 @@ text="$1"
 echo
 }
 
-listGame() {
+gameRun() {
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
    package_list=$(cmd package list packages | cut -f 2 -d ":")
    compile() {
       cmd package compile -m everything-profile -f "$line"
       cmd package compile -m quicken -f "$line"
       cmd package compile -m speed --secondary-dex -f "$line"
+   }
+   echo "$game" | while IFS= read -r line; do
+       if [ -n "$line" ]; then
+           if echo "$package_list" | grep -qx "$line"; then
+               echo "｜Game Boosted : $line"
+               compile >/dev/null 2>&1
+           fi
+       fi
+   done
+}
+
+gameRem() {
+   game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
+   package_list=$(cmd package list packages | cut -f 2 -d ":")
+   compile() {
+      cmd package compile --reset "$line"
    }
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
