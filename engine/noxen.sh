@@ -24,6 +24,7 @@ listGame() {
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
                echo "｜Game Boosted : $line"
+               core_1
            fi
        fi
    done
