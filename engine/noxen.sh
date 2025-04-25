@@ -18,11 +18,11 @@ echo
 
 upPackage() {
   pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
-  axprop $engine  packageRun -s "$pkg"
+  axprop $file_update  packageRun -s "$pkg"
   packageRun="$pkg"
   # Mengubah Package Ke Name APK
   name_g=$(pkglist -L "$packageRun")
-  axprop $prop nameGame -s "$name_g"
+  axprop $file_update nameGame -s "$name_g"
   nameGame="$name_g"
   shift 2
 }
