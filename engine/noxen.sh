@@ -16,10 +16,40 @@ text="$1"
 echo
 }
 
-fle_ins() {
-    folder_path="/data//tmp/axeron_cash/zcek_ins"
-    file_name="$1"    # Nama fil
-    # Buat file di dalamnya
-    file_path="$folder_path/$file_name"
-    echo "" > "$file_path"
+install_perff() {
+   reso="/data/local/tmp/axeron_cash/update/noxUp"
+   engine_system="/data/local/tmp/engine_core"
+   source $reso
+   if [[ -f $engine_system ]]; then
+      source $engine_system
+   fi
+   sleep 1
+   if [[ -z "$perfIns" ]]; then
+      axprop $reso perfIns -s "$time"
+      rm "$engine_system"
+      echo "DEBUG : Test setprop terinstall"
+   else
+      echo "DEBUG : Setprop sudah terinstall"
+    fi
+}
+
+install_ai() {
+   status=$(pgrep -f ai-system)
+   if [ ! "$status" ]; then
+       storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
+       nohup sh /data/local/tmp/ai-system >/dev/null 2>&1 &
+       printer "$in Instalation Program Succesfuly"
+   fi
+   sleep 2
+   status=$(pgrep -f ai-system)
+   if [ -z $pid_ins ]; then
+     axprop $file_update pid_ins "$status"
+     insAi=$status
+   fi
+   if [ "$status" ]; then
+       echo "${ORANGE}$su Program berhasil terpasang${END}"
+       am broadcast -a axeron.show.TOAST --es title "FOXVER Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
+   else
+       echo "$war Program failed: gagal"
+   fi
 }
