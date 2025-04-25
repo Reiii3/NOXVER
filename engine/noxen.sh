@@ -24,7 +24,9 @@ listGame() {
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
                echo "｜Game Boosted : $line"
-               core_1
+               cmd package compile -m everything-profile -f "$line"
+               cmd package compile -m quicken -f "$line"
+               cmd package compile -m speed --secondary-dex -f "$line"
            fi
        fi
    done
