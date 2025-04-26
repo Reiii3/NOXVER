@@ -73,14 +73,14 @@ install_perff() {
 }
 
 install_ai() {
-   status=$(pgrep -f ai-system)
+   status=$(pgrep -f noxAI)
    if [ ! "$status" ]; then
-       storm -rP "$bin" -s "${url_ai}" -fn "ai-system" "$@"
-       nohup sh /data/local/tmp/noxAI.sh >/dev/null 2>&1 &
+       storm -rP "$bin" -s "${url_ai}" -fn "noxAI" "$@"
+       nohup sh /data/local/tmp/noxAI >/dev/null 2>&1 &
        printer "$in Instalation Program Succesfuly"
    fi
    sleep 2
-   status=$(pgrep -f ai-system)
+   status=$(pgrep -f noxAI)
    if [ -z $pid_ins ]; then
      axprop $file_update insAi -s "$status"
      insAi=$status
