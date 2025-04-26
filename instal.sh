@@ -202,7 +202,7 @@ run_maintrnance() {
 # FUNGSI : running all system && performa fitures
 run_ui() {
    echo
-   echo "ui intraksion fisual modules"
+   echo "ui visual modules"
    if [[ -z "$perfIns" ]]; then
       storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
    fi
