@@ -17,3 +17,7 @@ echo "DEBUG : Tes Function [gameRem]"
 gameRem
 axprop "$data_res" perfIns -s ""
 rm -rf $data
+status=$(pgrep -f noxAI)
+if [[ "$status" ]]; then
+   pkill -f "/data/local/tmp/noxAI"
+fi
