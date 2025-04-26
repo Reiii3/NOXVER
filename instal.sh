@@ -3,7 +3,7 @@ $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
 local bin="/data/local/tmp"
-local ash="$bin/axeron_cash/updateSys"
+local cash="$bin/axeron_cash/updateSys"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
