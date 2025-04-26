@@ -214,7 +214,11 @@ run_ui() {
    if [[ -z "$perfIns" ]]; then
       install_perff
       gameRun
+      echo "=================================="
+      echo "   Auto Scan Game For AI NOXVER"
+      echo "=================================="
       install_ai
+      echo "=================================="
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
