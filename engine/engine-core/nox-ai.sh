@@ -70,7 +70,7 @@
              fi
              if [ "$notif_run" != "run" ]; then
                cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
-                  "Game Mode : ON  Engine : v1.1.XIO │ Status : Conected │ Developer : ReiiEja"
+                  "Game Mode : ON  Engine : v$ver.$nameEngine │ Status : Conected │ Developer : ReiiEja"
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Actived" --ei duration "3000"
                   notif_run="run"
              fi
