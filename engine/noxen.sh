@@ -43,7 +43,7 @@ gameRem() {
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
-               echo "｜Game Boosted : $line"
+               echo "｜Game Reboosted : $line"
                compile >/dev/null 2>&1
            fi
        fi
