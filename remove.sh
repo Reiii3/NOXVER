@@ -2,6 +2,7 @@ $AXFUN
 import axeron.prop
 data="/data/local/tmp/nxver/engine"
 data_res="/data/local/tmp/axeron_cash/update/noxUp"
+data_ai="/data/local/tmp/noxAI"
 source "$data"
 source "$data_res"
 
@@ -17,6 +18,7 @@ echo "DEBUG : Tes Function [gameRem]"
 gameRem
 axprop "$data_res" perfIns -s ""
 rm -rf $data
+rm $data_ai
 status=$(pgrep -f noxAI)
 if [[ "$status" ]]; then
    pkill -f "/data/local/tmp/noxAI"
