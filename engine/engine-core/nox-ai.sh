@@ -1,4 +1,3 @@
-core_ai() {
    IDLE_TIME=5
    bin="/data/local/tmp/nxver"
    cash="/data/local/tmp/axeron_cash/update"
@@ -121,6 +120,3 @@ core_ai() {
        sleep "$IDLE_TIME"
    done
     
-}
-
-core_ai "$@"
