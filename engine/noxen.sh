@@ -1,6 +1,8 @@
 $AXFUN
 export devmode=true
 export time=$(date "+%a %b %d %Y %H:%M %Z")
+export wr="\e[38;2;188;61;0m"
+export nwr="\e[0m"
 export war="[?]"
 export in="[!]"
 export pr="[-]"
