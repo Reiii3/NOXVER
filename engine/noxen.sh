@@ -30,7 +30,7 @@ gameRun() {
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
-             gameName=$(pkglist -P "$line")
+             gameName=$(pkglist -L "$line")
                echo "｜Game Boosted : $gameName"
                compile >/dev/null 2>&1
            fi
@@ -47,7 +47,7 @@ gameRem() {
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
-            gameName=$(pkglist -P "$line")
+            gameName=$(pkglist -L "$line")
                echo "｜Game Reboosted : $gameName"
                compile >/dev/null 2>&1
            fi
