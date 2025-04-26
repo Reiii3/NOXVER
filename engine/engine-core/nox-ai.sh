@@ -60,8 +60,8 @@
       detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$game")
       render_detected=$(getrop debug.hwui.renderer)
       perfo1=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
-      file_update="$cash/noxUp"
-       source "$file_update
+      file_update="/data/local/tmp/axeron_cash/update/noxUp"
+       source "$file_update"
          if [ -n "$detected_apps" ]; then
              if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
                   ai_start
