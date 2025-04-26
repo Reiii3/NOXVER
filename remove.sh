@@ -1,7 +1,7 @@
 $AXFUN
 import axeron.prop
 data="/data/local/tmp/nxver/engine"
-data_res="/data/local/tmp/axeron_cash/update/nosUp"
+data_res="/data/local/tmp/axeron_cash/update/noxUp"
 source "$data"
 source "$data_res"
 
