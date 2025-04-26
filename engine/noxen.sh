@@ -20,8 +20,10 @@ echo
 }
 
 gameRun() {
+   reso="/data/local/tmp/axeron_cash/update/noxUP"
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
    package_list=$(cmd package list packages | cut -f 2 -d ":")
+   source $reso
    compile() {
       cmd package compile -m everything-profile -f "$line"
       cmd package compile -m quicken -f "$line"
@@ -33,6 +35,14 @@ gameRun() {
              gameName=$(pkglist -L "$line")
                echo "｜Game Boosted : $gameName"
                compile >/dev/null 2>&1
+               add_package() {
+                   if [ -z "$packageRun" ]; then
+                       axprop $reso packageRun -s "$line"
+                   else
+                       axprop $reso packageRun -s "$pakageRun|$line"
+                   fi
+               }
+              add_package
            fi
        fi
    done
