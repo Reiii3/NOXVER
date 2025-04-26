@@ -204,8 +204,8 @@ run_ui() {
    storm -x "${url_ui}" "ui"
    if [[ -z "$perfIns" ]]; then
       install_perff
+      gameRun
    fi
-   listGame
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
 }
