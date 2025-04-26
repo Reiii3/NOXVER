@@ -29,20 +29,20 @@ gameRun() {
       cmd package compile -m quicken -f "$line"
       cmd package compile -m speed --secondary-dex -f "$line"
    }
+   add_package() {
+       if [ -z "$packageRun" ]; then
+          axprop $reso packageRun -s "$line"
+        else
+          axprop $reso packageRun -s "$packageRun|$line"
+       fi
+   }
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
              gameName=$(pkglist -L "$line")
                echo "｜Game Boosted : $gameName"
                compile >/dev/null 2>&1
-               add_package() {
-                   if [ -z "$packageRun" ]; then
-                       axprop $reso packageRun -s "$line"
-                   else
-                       axprop $reso packageRun -s "$pakageRun|$line"
-                   fi
-               }
-              add_package
+               add_package # memanggil fungsi menambahkan package berurut
            fi
        fi
    done
