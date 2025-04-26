@@ -32,9 +32,11 @@ setup_file_awal() {
      echo "DEBUG : all file berhasil ter ekstrak"
    fi
    source $engine
-   if [[ ! -d $cash ]]; then
+   if [[ ! -d "$cash" ]]; then
      mkdir -p "$cash"
      echo "DEBUG : direktory cash berhasil di tambahkan"
+     else
+     echo "DEBUG : Gagal menambahkan direktori update"
    fi
    if [[ ! -f $file_update ]]; then
      echo "# Dont Change It" > "$file_update"
@@ -216,28 +218,7 @@ main() {
    setup_file_awal
    detected_update
    developer_mode
-   if [ -n $1 ] && [ "$1" == "-g" ]; then
-     upPackage
-     pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
-     axprop $file_update  packageRun -s "$pkg"
-     packageRun="$pkg"
-     # Mengubah Package Ke Name APK
-     name_g=$(pkglist -L "$packageRun")
-     axprop $file_update nameGame -s "$name_g"
-     nameGame="$name_g"
-     shift 2
-   fi
-   if [ -n "$1" ] && [ "$1" == "-g" ]; then
-     pkg_2="$packageRun"
-     pkg=$(pm list packages | grep -i "$2" | sed 's/package://g')
-     axprop $engine  packageRun -s "$pkg"
-     packageRun="$pkg"
-     # Mengubah Package Ke Name APK
-     name_g=$(pkglist -L "$packageRun")
-     axprop $prop nameGame -s "$name_g"
-     nameGame="$name_g"
-     shift 2
-     fi
+
    case $1 in 
      -update )
       run_update_versiom
