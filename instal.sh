@@ -208,7 +208,6 @@ run_ui() {
    echo "ui visual modules"
    if [[ -z "$perfIns" ]]; then
       storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
-      storm -rP "$bin" -s "${url_ai}" -fn "noxAI.sh" "$@"
    fi
    sleep 1
    storm -x "${url_ui}" "ui"
