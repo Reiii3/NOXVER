@@ -215,7 +215,7 @@ run_ui() {
    if [[ -z "$perfIns" ]]; then
       install_perff
       gameRun
-      isntall_ai
+      install_ai
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
