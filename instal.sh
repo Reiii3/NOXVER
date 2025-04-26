@@ -3,7 +3,7 @@ $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
 local bin="/data/local/tmp"
-local cash="$bin/axeron_cash/update"
+local cashup="$bin/axeron_cash/update"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
@@ -14,7 +14,7 @@ local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-p
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/detecUpdate"
-local file_update="$cash/noxUp"
+local file_update="$cashup/noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
 local engine_core="$data/engine_system"
