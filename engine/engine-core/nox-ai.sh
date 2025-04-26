@@ -53,8 +53,6 @@
        dumpsys deviceidle step active
        sleep 1
    }
-   cmd notification post -S bigtext -t "NOXVER.AI" "tag" "Engine : "$nameEngin" | Developer : ReiiEja"
-   sleep 1
    check_game() {
       game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
       detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$game")
