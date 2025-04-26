@@ -57,8 +57,13 @@ core_ai() {
    cmd notification post -S bigtext -t "NOXVER.AI" "tag" "Engine : "$nameEngin" | Developer : ReiiEja"
    sleep 1
    check_game() {
-      detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$packageRun")
-      render_detected=$(getprop debug.hwui.renderer)
+      runG=$(
+      game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
+      for package in $game do
+      echo "$game"
+      )
+      detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$runG")
+      render_detected=$(getrop debug.hwui.renderer)
       perfo1=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
       file_update="$cash/noxUp"
        source "$file_update"
