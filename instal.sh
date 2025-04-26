@@ -18,7 +18,8 @@ local file_update="$cashup/noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
 local engine_core="$data/engine_system"
-local stor_ax="$bin/axeron_cash/DionX/response"
+local stor_ax="$bin/axeron_cash/Vex/response"
+local stor_ins="$bin/axeron_cash/Vex/instal"
 local u_ver="$bin/prop"
 
 # // FUNGSI : Menambahkan file penting seperti engine san yang lain
@@ -234,6 +235,7 @@ main() {
    run_notif
    run_maintrnance
    run_ui
+   rm "$stor_ins"
 }
 
 main "$@"
