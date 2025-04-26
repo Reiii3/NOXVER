@@ -32,8 +32,8 @@ setup_file_awal() {
      echo "DEBUG : all file berhasil ter ekstrak"
    fi
    source $engine
-   if [[ ! -d "$cash" ]]; then
-    if mkdir -p "$cash"; then
+   if [[ ! -d "$cashup" ]]; then
+    if mkdir -p "$cashup"; then
         echo "DEBUG : direktory cash berhasil di tambahkan"
     else
         echo "DEBUG : Gagal membuat direktori cash"
