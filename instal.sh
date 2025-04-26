@@ -3,7 +3,7 @@ $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
 local bin="/data/local/tmp"
-local cash="$bin/axeron_cash/updateSys"
+local ash="$bin/axeron_cash/updateSys"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
@@ -33,10 +33,14 @@ setup_file_awal() {
    fi
    source $engine
    if [[ ! -d "$cash" ]]; then
-     mkdir -p "$cash"
-     echo "DEBUG : direktory cash berhasil di tambahkan"
-     else
-     echo "DEBUG : Gagal menambahkan direktori update"
+    if mkdir -p "$cash"; then
+        echo "DEBUG : direktory cash berhasil di tambahkan"
+    else
+        echo "DEBUG : Gagal membuat direktori cash"
+        exit 1
+    fi
+   else
+    echo "DEBUG : direktory cash sudah ada"
    fi
    if [[ ! -f $file_update ]]; then
      echo "# Dont Change It" > "$file_update"
