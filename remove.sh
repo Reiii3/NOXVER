@@ -13,3 +13,5 @@ printer "DEBUG : Test Function [printer]"
 echo "DEBUG : Test Function [time] $time"
 echo "DEBUG : Tes Function [gameRem]"
 gameRem
+
+rm -rf $data
