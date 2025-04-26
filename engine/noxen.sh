@@ -20,7 +20,7 @@ echo
 }
 
 gameRun() {
-   reso="/data/local/tmp/axeron_cash/update/noxUP"
+   reso="/data/local/tmp/axeron_cash/update/noxUp"
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
    package_list=$(cmd package list packages | cut -f 2 -d ":")
    source $reso
