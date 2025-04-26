@@ -1,3 +1,4 @@
+$AXFUN
 export devmode=true
 export time=$(date "+%a %b %d %Y %H:%M %Z")
 export war="[?]"
@@ -43,7 +44,7 @@ gameRem() {
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
-               echo "｜Game Reboosted : $line"
+               echo "｜Game Reboosted :$(pkglist -P "$line")"
                compile >/dev/null 2>&1
            fi
        fi
