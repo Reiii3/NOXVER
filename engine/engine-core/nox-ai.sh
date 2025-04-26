@@ -63,8 +63,10 @@
          if [ -n "$detected_apps" ]; then
              if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
                   ai_start
+                  echo "DEBUG : Performance By Noxver Active"
                   if [ "$perfo" = true ]; then
                     ai_op
+                    echo "DEBUG : Performance By oppo Active"
                   fi
                   gamerun="running"
              fi
@@ -72,19 +74,22 @@
                cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
                   "Game Mode : ON  Engine : v$ver.$nameEngine │ Status : Conected │ Developer : ReiiEja"
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Actived" --ei duration "3000"
+               echo "DEBUG : Notif Performance Active"
                   notif_run="run"
              fi
               echo
-              echo "Game sedang dimainkan: $detected_apps"
-              echo "Render saat berada di dalam game: $(getprop debug.hwui.renderer)"
-              echo "Status sekarang adalah : $gamerun"
+              echo "DEBUG : Game sedang dimainkan: $detected_apps"
+              echo "DEBUG : Render saat berada di dalam game: $(getprop debug.hwui.renderer)"
+              echo "DEBUG : Status sekarang adalah : $gamerun"
               echo
               IDLE_TIME=3
           else
              if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
                   ai_end
+                  echo "DEBUG : Performance By Noxver deactived"
                  if [ "$perfo" = true ]; then
                     ai_op_r
+                    echo "DEBUG : Performance By oppo deactived"
                  fi
                   gamerun="stopped"
              fi
@@ -93,11 +98,12 @@
                "Game Mode : OFF  Engine : v1.1.XIO │ Status : Conected │ Developer : ReiiEja"
                   am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactived" --ei duration "3000"
                   notif_run="stop"
+               echo "DEBUG : Notif Performance deactive"
               fi
               echo
-              echo "Tidak ada game yang berjalan"
-              echo "Render saat berada di luar game: $(getprop debug.hwui.renderer)"
-              echo "Status sekarang adalah : $gamerun"
+              echo "DEBUG : Tidak ada game yang berjalan"
+              echo "DEBUG : Render saat berada di luar game: $(getprop debug.hwui.renderer)"
+              echo "DEBUG : Status sekarang adalah : $gamerun"
               echo
               IDLE_TIME=5
          fi
@@ -105,11 +111,11 @@
    
    while true; do
        echo 
-       echo "Loop berhasil dijalankan"
+       echo "DEBUG by looping : Loop berhasil dijalankan"
        check_game
-       echo "Loop akan berulang setiap ${IDLE_TIME} detik"
-       echo "status noti : $notif_run"
-       echo "status game : $gamerun"
+       echo "DEBUG by looping : Loop akan berulang setiap ${IDLE_TIME} detik"
+       echo "DEBUG by looping : status noti : $notif_run"
+       echo "DEBUG by looping : status game : $gamerun"
        echo
        sleep "$IDLE_TIME"
    done
