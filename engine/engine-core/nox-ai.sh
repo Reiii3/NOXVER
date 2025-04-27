@@ -124,6 +124,7 @@ while true; do
     echo "DEBUG by looping : Loop akan berulang setiap ${IDLE_TIME} detik"
     echo "DEBUG by looping : status noti : $notif_run"
     echo "DEBUG by looping : status game : $gamerun"
+    echo "DEBUG by looping : apk $packageRun run"
     echo
     sleep "$IDLE_TIME"
 done
