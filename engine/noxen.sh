@@ -35,6 +35,7 @@ gameRun() {
              gameName=$(pkglist -L "$line")
                echo "｜Game Boosted : $gameName"
                compile >/dev/null 2>&1
+               source $reso
              if [[ -z "$packageRun" ]]; then
                  axprop $reso packageRun -s "$line"
                  echo "DEBUG : packageRun masih kosong hanya menambahkan 1 package"
