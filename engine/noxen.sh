@@ -91,7 +91,7 @@ install_ai() {
    fi
    sleep 2
    status=$(pgrep -f noxAI)
-   if [ -z $pid_ins ]; then
+   if [ -z $insAI ]; then
      axprop $file_update insAi -s "$status"
      insAi=$status
    fi
