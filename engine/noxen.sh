@@ -86,7 +86,7 @@ install_ai() {
    status=$(pgrep -f noxAI)
    if [ ! "$status" ]; then
        storm -rP "$bin" -s "${url_ai}" -fn "noxAI" "$@"
-       nohup sh /data/local/tmp/noxAI > /sdcard/log.txt
+       nohup sh /data/local/tmp/noxAI > /sdcard/log.txt &
        printer "$in Instalation Program Succesfuly"
    fi
    sleep 2
