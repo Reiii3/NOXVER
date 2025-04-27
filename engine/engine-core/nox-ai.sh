@@ -60,7 +60,7 @@ ai_end() {
 
 check_game() {
     source "$file_update"
-    detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$packageRun")
+    detected_apps=$(dumpsys window | grep "Window #" | grep WindowStateAnimator | grep -v "Window #0" | grep -Eo "$packageRun")
     render_detected=$(getprop debug.hwui.renderer)
 
     if [ -n "$detected_apps" ]; then
