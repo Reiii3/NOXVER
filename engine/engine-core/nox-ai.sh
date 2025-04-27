@@ -61,24 +61,21 @@ check_game() {
 
     if [ -n "$detected_apps" ]; then
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
-            ai_start
-            echo "DEBUG : Performance By Noxver Active"
-
+            if [ "$notif_run" != "run" ]; then
+               cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
+                   "Game Mode : ON  Engine : v$ver.$nameEngine │ Status : Connected │ Developer : ReiiEja"
+               am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Activated" --ei duration "3000"
+               echo "DEBUG : Notif Performance Active"
+               notif_run="run"
+           fi
+             ai_start
+             echo "DEBUG : Performance By Noxver Active"
             if [ "$perfo" = true ]; then
                 ai_op
                 echo "DEBUG : Performance By Oppo Active"
             fi
             gamerun="running"
         fi
-
-        if [ "$notif_run" != "run" ]; then
-            cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
-                "Game Mode : ON  Engine : v$ver.$nameEngine │ Status : Connected │ Developer : ReiiEja"
-            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Activated" --ei duration "3000"
-            echo "DEBUG : Notif Performance Active"
-            notif_run="run"
-        fi
-
         echo
         echo "DEBUG : Game sedang dimainkan: $detected_apps"
         echo "DEBUG : Render saat berada di dalam game: $(getprop debug.hwui.renderer)"
@@ -86,24 +83,22 @@ check_game() {
         echo
         IDLE_TIME=3
     else
-        if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
-           if [ "$notif_run" != "stop" ]; then
+         if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
+            if [ "$notif_run" != "stop" ]; then
                cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
                    "Game Mode : OFF  Engine : v1.1.XIO │ Status : Connected │ Developer : ReiiEja"
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactivated" --ei duration "3000"
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
-           fi
+            fi
             ai_end
             echo "DEBUG : Performance By Noxver Deactivated"
-
             if [ "$perfo" = true ]; then
                 ai_op_r
                 echo "DEBUG : Performance By Oppo Deactivated"
             fi
             gamerun="stopped"
-        fi
-
+         fi
         echo
         echo "DEBUG : Tidak ada game yang berjalan"
         echo "DEBUG : Render saat berada di luar game: $(getprop debug.hwui.renderer)"
