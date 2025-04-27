@@ -56,7 +56,7 @@
    check_game() {
       game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
       detected_apps=$(dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' | grep -o "$game")
-      render_detected=$(getrop debug.hwui.renderer)
+      render_detected=$(getprop debug.hwui.renderer)
       perfo1=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
       file_update="/data/local/tmp/axeron_cash/update/noxUp"
        source "$file_update"
