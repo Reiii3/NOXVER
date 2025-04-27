@@ -91,6 +91,13 @@ check_game() {
         IDLE_TIME=3
     else
         if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
+           if [ "$notif_run" != "stop" ]; then
+               cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
+                   "Game Mode : OFF  Engine : v1.1.XIO │ Status : Connected │ Developer : ReiiEja"
+               am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactivated" --ei duration "3000"
+               echo "DEBUG : Notif Performance Deactive"
+               notif_run="stop"
+           fi
             ai_end
             echo "DEBUG : Performance By Noxver Deactivated"
 
@@ -99,14 +106,6 @@ check_game() {
                 echo "DEBUG : Performance By Oppo Deactivated"
             fi
             gamerun="stopped"
-        fi
-
-        if [ "$notif_run" != "stop" ]; then
-            cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
-                "Game Mode : OFF  Engine : v1.1.XIO │ Status : Connected │ Developer : ReiiEja"
-            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactivated" --ei duration "3000"
-            echo "DEBUG : Notif Performance Deactive"
-            notif_run="stop"
         fi
 
         echo
