@@ -38,10 +38,8 @@ gameRun() {
                source $reso
              if [[ -z "$packageRun" ]]; then
                  axprop $reso packageRun -s "$line"
-                 echo "DEBUG : packageRun masih kosong hanya menambahkan 1 package"
              else
                  axprop $reso packageRun -s "$packageRun|$line"
-                 echo "DEBUG : packageRun sudah berisi menambahkan beserta pipe"
              fi
            fi
        fi
