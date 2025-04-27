@@ -24,8 +24,6 @@ ai_start() {
     setprop debug.vulkan.layers ""
     setprop debug.cpurend.vsync false
     setprop debug.gpurend.vsync true
-    dumpsys deviceidle force-idle
-    dumpsys deviceidle step deep
     sleep 0.5
 }
 
@@ -53,8 +51,6 @@ ai_end() {
     setprop debug.vulkan.layers ""
     setprop debug.cpurend.vsync true
     setprop debug.gpurend.vsync false
-    dumpsys deviceidle unforce
-    dumpsys deviceidle step active
     sleep 1
 }
 
