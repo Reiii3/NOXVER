@@ -31,10 +31,7 @@ gameRun() {
    }
    add_package() {
        if [ -z "$packageRun" ]; then
-          axprop $reso packageRun -s "$line"
-        else
-          axprop $reso packageRun -s "$packageRun|$line"
-       fi
+          fi
    }
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
@@ -42,7 +39,13 @@ gameRun() {
              gameName=$(pkglist -L "$line")
                echo "｜Game Boosted : $gameName"
                compile >/dev/null 2>&1
-               add_package # memanggil fungsi menambahkan package berurut
+             if [[ -z "$packageRun" ]]; then
+                 axprop $reso packageRun -s "$line"
+                 echo "DEBUG : packageRun masih kosong hanya menambahkan 1 package"
+             else
+                 axprop $reso packageRun -s "$packageRun|$line"
+                 echo "DEBUG : packageRun sudah berisi menambahkan beserta pipe"
+             fi
            fi
        fi
    done
