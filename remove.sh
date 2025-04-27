@@ -17,6 +17,7 @@ echo "DEBUG : Test Function [time] $time"
 echo "DEBUG : Tes Function [gameRem]"
 gameRem
 axprop "$data_res" perfIns -s ""
+axprop "$data_res" packageRun -s ""
 rm -rf $data
 rm $data_ai
 status=$(pgrep -f noxAI)
