@@ -68,7 +68,6 @@ check_game() {
                echo "DEBUG : Notif Performance Active"
                notif_run="run"
            fi
-             ai_start
              echo "DEBUG : Performance By Noxver Active"
             if [ "$perfo" = true ]; then
                 ai_op
@@ -91,7 +90,6 @@ check_game() {
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
             fi
-            ai_end
             echo "DEBUG : Performance By Noxver Deactivated"
             if [ "$perfo" = true ]; then
                 ai_op_r
