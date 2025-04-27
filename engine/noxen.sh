@@ -29,10 +29,6 @@ gameRun() {
       cmd package compile -m quicken -f "$line"
       cmd package compile -m speed --secondary-dex -f "$line"
    }
-   add_package() {
-       if [ -z "$packageRun" ]; then
-          fi
-   }
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
