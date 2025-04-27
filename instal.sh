@@ -213,13 +213,13 @@ run_ui() {
    storm -x "${url_ui}" "ui"
    if [[ -z "$perfIns" ]]; then
       install_perff
-      gameRun
       echo
       echo "=================================="
       echo "   Auto Scan Game For AI NOXVER"
       echo "=================================="
-      install_ai
+      gameRun
       echo "=================================="
+      install_ai
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
