@@ -63,6 +63,19 @@ gameRem() {
    done
 }
 
+cek_oppo_boost() {
+   cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
+   if "$cek_oppo"; then
+     echo "$su High performance supported"
+     axprop $file_update sperfor -s true
+     sperfor=true
+   else
+     echo "$war High performance not support"
+     axprop $file_update sperfor -s false
+     sperfor=false
+   fi
+}
+
 install_perff() {
    reso="/data/local/tmp/axeron_cash/update/noxUp"
    engine_system="/data/local/tmp/engine_core"
