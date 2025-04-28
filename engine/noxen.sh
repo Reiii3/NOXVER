@@ -64,7 +64,7 @@ gameRem() {
 }
 
 cek_oppo_boost() {
-   cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" && echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
+   cek_oppo=$(echo "$tes_up" | grep -q "cmd settings put global high_performance_mode_on=1|0" || echo "$tes_up" grep -q "cmd settings put global high_performance_mode_on_when_shutdown=1|0")
    if "$cek_oppo"; then
      echo "$su High performance supported"
      axprop $file_update sperfor -s true
