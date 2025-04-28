@@ -53,6 +53,7 @@ setup_file_awal() {
      axprop $file_update nameGame -s ""
      axprop $file_update status -s "maintenance"
      axprop $file_update notif -s false
+     axprop $file_update sperfor -s "null"
      axprop $file_update waktuUp -s "null"
      axprop $file_update waktuIn -s "null"
      axprop $file_update insUp -s true
@@ -213,6 +214,7 @@ run_ui() {
    storm -x "${url_ui}" "ui"
    if [[ -z "$perfIns" ]]; then
       install_perff
+      cek_oppo_boost
       echo
       echo "=================================="
       echo "   Auto Scan Game For AI NOXVER"
