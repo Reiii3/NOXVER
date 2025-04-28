@@ -87,9 +87,9 @@ install_perff() {
    if [[ -z "$perfIns" ]]; then
       axprop $reso perfIns -s "$time"
       rm "$engine_system"
-      echo "DEBUG : Test setprop terinstall"
+      echo "DEBUG : performance mode is not yet active"
    else
-      echo "DEBUG : Setprop sudah terinstall"
+      echo "DEBUG : performance mode is active"
     fi
 }
 
@@ -108,7 +108,7 @@ install_ai() {
    fi
    if [ "$status" ]; then
        echo "${ORANGE}$su Program berhasil terpasang${END}"
-       am broadcast -a axeron.show.TOAST --es title "FOXVER Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
+       am broadcast -a axeron.show.TOAST --es title "NOXVER.AI Instaled" --es msg "Developer : Reii | Engine : CXI" --ei duration "4000" >/dev/null 2>&1
    else
        echo "$war Program failed: gagal"
    fi
