@@ -106,10 +106,56 @@ check_game() {
     fi
 }
 
+check_game2() {
+   source "$file_update"
+    detected_apps=$(dumpsys window | grep "Window #" | grep WindowStateAnimator | grep -v "Window #0" | grep -Eo "$packageRun")
+    render_detected=$(getprop debug.hwui.renderer)
+    if [ -n "$detected_apps" ]; then
+        if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
+            ai_start
+            if [ "$sperfor" = true ]; then
+              ai_op
+            fi
+            gamerun="running"
+        fi
+        if [ "$notif_run" != "run" ]; then
+            cmd notification post -S bigtext -t "FOXVER AI" "game_log" "AI GAME RUNNING : $nameGame | Actived Performance"
+            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Actived" --ei duration "3000"
+            notif_run="run"
+        fi
+        echo
+        echo "Game sedang dimainkan: $detected_apps"
+        echo "Render saat berada di dalam game: $(getprop debug.hwui.renderer)"
+        echo "Status sekarang adalah : $gamerun"
+        echo
+        IDLE_TIME=3
+    else
+        if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
+        if [ "$notif_run" != "stop" ]; then
+            cmd notification post -S bigtext -t "FOXVER AI" "game_log" "AI GAME CLOSED | Deactived Performance"
+            am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactived" --ei duration "3000"
+            notif_run="stop"
+        fi
+            ai_end
+            if [ "$sperfor" = true ]; then
+              ai_op_r
+            fi
+            gamerun="stopped"
+        fi
+
+        echo
+        echo "Tidak ada game yang berjalan"
+        echo "Render saat berada di luar game: $(getprop debug.hwui.renderer)"
+        echo "Status sekarang adalah : $gamerun"
+        echo
+        IDLE_TIME=5
+    fi
+}
+
 while true; do
     echo
     echo "DEBUG by looping : Loop berhasil dijalankan"
-    check_game
+    check_game2
     echo "DEBUG by looping : Loop akan berulang setiap ${IDLE_TIME} detik"
     echo "DEBUG by looping : status noti : $notif_run"
     echo "DEBUG by looping : status game : $gamerun"
