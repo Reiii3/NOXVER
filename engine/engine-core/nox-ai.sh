@@ -112,7 +112,6 @@ check_game2() {
     render_detected=$(getprop debug.hwui.renderer)
     if [ -n "$detected_apps" ]; then
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
-            ai_start
             if [ "$sperfor" = true ]; then
               ai_op
             fi
@@ -136,7 +135,6 @@ check_game2() {
             am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactived" --ei duration "3000"
             notif_run="stop"
         fi
-            ai_end
             if [ "$sperfor" = true ]; then
               ai_op_r
             fi
