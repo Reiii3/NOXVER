@@ -69,7 +69,7 @@ check_game() {
                notif_run="run"
            fi
              echo "DEBUG : Performance By Noxver Active"
-            if [ "$perfo" = true ]; then
+            if [ "$sperfor" = true ]; then
                 ai_op
                 echo "DEBUG : Performance By Oppo Active"
             fi
@@ -91,7 +91,7 @@ check_game() {
                notif_run="stop"
             fi
             echo "DEBUG : Performance By Noxver Deactivated"
-            if [ "$perfo" = true ]; then
+            if [ "$sperfor" = true ]; then
                 ai_op_r
                 echo "DEBUG : Performance By Oppo Deactivated"
             fi
