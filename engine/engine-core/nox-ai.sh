@@ -121,7 +121,7 @@ test_logic() {
           gamerun="running"
         fi
     else
-        if [[ "$gamerun" != "stopped" ]] && [[ "$render_detected" != "opengl" ]]; then
+        if [[ "$gamerun" != "stopped" ]]; then
            if [[ "$notif_run" != "stop" ]]; then
               cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" "Game Mode : OFF  Engine : v1.1.XIO │ Status : Connected │ Developer : ReiiEja"
               notif_run="stop"
