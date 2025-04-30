@@ -20,7 +20,7 @@ echo
 }
 
 gameRun() {
-   reso="/Android/data/com.fhrz.axeron/files/noxUp"
+   reso="/data/local/tmp/nxver/.noxUp"
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
    package_list=$(cmd package list packages | cut -f 2 -d ":")
    source $reso
@@ -77,7 +77,7 @@ cek_oppo_boost() {
 }
 
 install_perff() {
-   reso="Android/data/com.fhrz.axeron/files/noxUp"
+   reso="/data/local/tmp/nxver/.noxUp"
    engine_system="/data/local/tmp/engine_core"
    source $reso
    if [[ -f $engine_system ]]; then
