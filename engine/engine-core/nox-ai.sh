@@ -3,7 +3,7 @@ bin="/data/local/tmp/nxver"
 engine="$bin/engine"
 gamerun=""
 notif_run=""
-file_update="/data/local/tmp/axeron_cash/update/noxUp"
+file_update="/Android/data/com.fhrz.axeron/files/update/noxUp"
 
 source "$file_update"
 source "$engine"
@@ -107,6 +107,7 @@ check_game() {
 }
 
 test_logic() {
+   source $file_update
    detected_apps=$(dumpsys window | grep "Window #" | grep WindowStateAnimator | grep -v "Window #0" | grep -Eo "$packageRun")
     render_detected=$(getprop debug.hwui.renderer)
 
