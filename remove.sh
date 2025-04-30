@@ -1,7 +1,7 @@
 $AXFUN
 import axeron.prop
 data="/data/local/tmp/nxver/engine"
-data_res="/data/local/tmp/axeron_cash/update/noxUp"
+data_res="/Android/data/com.fhrz.axeron/files/update/noxUp"
 data_ai="/data/local/tmp/noxAI"
 source "$data"
 source "$data_res"
