@@ -3,7 +3,7 @@ $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
 local bin="/data/local/tmp"
-local cashup="/Android/data/com.fhrz.axeron/files/"
+local cashup="//data/local/tmp/nxver"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
@@ -15,7 +15,7 @@ local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-p
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/detecUpdate"
-local file_update="$cashup/noxUp"
+local file_update="$cashup/.noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
 local engine_core="$data/engine_system"
@@ -34,16 +34,7 @@ setup_file_awal() {
      echo "DEBUG : all file berhasil ter ekstrak"
    fi
    source $engine
-   if [[ ! -d "$cashup" ]]; then
-    if mkdir -p "$cashup"; then
-        echo "DEBUG : direktory cash berhasil di tambahkan"
-    else
-        echo "DEBUG : Gagal membuat direktori cash"
-        exit 1
-    fi
-   else
-    echo "DEBUG : direktory cash sudah ada"
-   fi
+   
    if [[ ! -f $file_update ]]; then
      echo "# Dont Change It" > "$file_update"
      axprop $file_update ver -s "null"
