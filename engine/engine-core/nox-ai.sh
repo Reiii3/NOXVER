@@ -107,7 +107,6 @@ check_game() {
 }
 
 test_logic() {
-   source "$file_update"
    detected_apps=$(dumpsys window | grep "Window #" | grep WindowStateAnimator | grep -v "Window #0" | grep -Eo "$packageRun")
     render_detected=$(getprop debug.hwui.renderer)
 
