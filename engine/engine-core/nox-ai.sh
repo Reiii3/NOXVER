@@ -132,7 +132,7 @@ test_logic() {
 }
 
 while true; do
-    test_logic
+    check_game
     echo
     echo "DEBUG by looping : loop berhasil dijalankan"
     echo "DEBUG by looping : loop akan berulang setiap ${IDLE_TIME} detik"
