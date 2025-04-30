@@ -3,7 +3,7 @@ bin="/data/local/tmp/nxver"
 engine="$bin/engine"
 gamerun=""
 notif_run=""
-file_update="/Android/data/com.fhrz.axeron/files/noxUp"
+file_update="//data/local/tmp/nxver/.noxUp"
 
 source "$file_update"
 source "$engine"
