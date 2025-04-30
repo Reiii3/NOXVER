@@ -25,6 +25,8 @@ ai_start() {
     setprop debug.cpurend.vsync false
     setprop debug.gpurend.vsync true
     sleep 0.5
+    dumpsys deviceidle force-idle
+    dumpsys deviceidle step deep
 }
 
 ai_op() {
@@ -52,6 +54,8 @@ ai_end() {
     setprop debug.cpurend.vsync true
     setprop debug.gpurend.vsync false
     sleep 1
+    dumpsys deviceidle unforce
+    dumpsys deviceidle step active
 }
 
 check_game() {
@@ -68,6 +72,7 @@ check_game() {
                echo "DEBUG : Notif Performance Active"
                notif_run="run"
            fi
+           ai_start
              echo "DEBUG : Performance By Noxver Active"
             if [ "$sperfor" = true ]; then
                 ai_op
@@ -89,6 +94,7 @@ check_game() {
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactivated" --ei duration "3000"
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
+               ai_end
             fi
             echo "DEBUG : Performance By Noxver Deactivated"
             if [ "$sperfor" = true ]; then
