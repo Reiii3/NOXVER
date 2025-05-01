@@ -82,7 +82,7 @@ developer_mode() {
    fi
 }
 
-info_modules() {
+panel_info() {
    case $1 in
    --info | -i)
       storm -x "${url_info}" "ui"
@@ -242,6 +242,7 @@ main() {
    setup_file_awal
    detected_update
    developer_mode
+   panel_info
    
    case $1 in 
      -update )
