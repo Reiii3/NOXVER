@@ -194,7 +194,11 @@ run_maintrnance() {
         rm $update
         echo
         exit 0
+       else 
+       echo "DEBUG : failed ui maintenance"
      fi
+    else
+     echo "DEBUG : maintenance system infailed"
    fi
 }
 
