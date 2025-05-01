@@ -73,7 +73,7 @@ developer_mode() {
      local id_dev=$(storm "$url_core/user/developer.txt")
    fi
    local akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
-   
+   echo "DEBUG : akses_awal in function $akses_awal"
    if [[ $akses_awal = true ]]; then
      echo "DEBUG : cek id berhasi"
    else
