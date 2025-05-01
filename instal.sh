@@ -180,6 +180,7 @@ run_notif() {
 
 # fungsi ; ini adalah system maintenance
 run_maintrnance() {
+   developer_mode
    if [[ "$akses_awal" == false ]]; then
      if [[ "$status" == "maintenance" ]]; then
         storm -x "${run_update}" "maintenance"
@@ -232,7 +233,6 @@ run_ui() {
 main() {
    setup_file_awal
    detected_update
-   developer_mode
 
    case $1 in 
      -update )
