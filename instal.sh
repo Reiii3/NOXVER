@@ -228,7 +228,7 @@ run_ui() {
 }
 
 
-# == MAIN MODULES INSTALATION ==
+#--------------MAIN MODULES INSTALATION-------------
 main() {
    setup_file_awal
    detected_update
