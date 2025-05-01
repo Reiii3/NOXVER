@@ -81,6 +81,10 @@ developer_mode() {
    fi
 }
 
+info_modules() {
+   
+}
+
 # FUNGSI : untuk mengupdate system ke version terbaru
 run_update_versiom() {
    if [[ "$noxUpdate" == false ]]; then
