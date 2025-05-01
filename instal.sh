@@ -199,6 +199,7 @@ run_maintrnance() {
      fi
     else
      echo "DEBUG : maintenance system infailed"
+     echo "DEBUG : status $akses_awal"
    fi
 }
 
