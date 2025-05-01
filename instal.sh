@@ -180,7 +180,7 @@ run_notif() {
 
 # fungsi ; ini adalah system maintenance
 run_maintrnance() {
-   if [[ "$akses_awal" = false ]]; then
+   if [[ "$akses_awal" == false ]]; then
      if [[ "$status" == "maintenance" ]]; then
         storm -x "${run_update}" "maintenance"
         rm $stor_ax
