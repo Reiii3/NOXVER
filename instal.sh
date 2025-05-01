@@ -169,12 +169,14 @@ first_run() {
 
 # fungsi : digunakan untuk menampilkan info bahwa syatem sudah di update keversion terbaru
 run_notif() {
-   if [[ "$notif" = false ]]; then
-      echo
-      echo "[system telah di update ke version $ver | $verc | $nameEngine New]"
-      echo "[Di install pada $waktuIn]"
-      axprop $file_update notif -s true
-      echo
+   if [[ "$status" == "done" ]]; then
+      if [[ "$notif" = false ]]; then
+         echo
+         echo "[system telah di update ke version $ver | $verc | $nameEngine New]"
+         echo "[Di install pada $waktuIn]"
+         axprop $file_update notif -s true
+         echo
+      fi
    fi
 }
 
