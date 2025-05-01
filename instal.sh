@@ -100,6 +100,7 @@ run_update_versiom() {
          axprop $file_update insUp -s true
          sleep 1
          echo "  $su update succesfully"
+         
          echo
          sleep 0.03
          echo " - New Information Modules -"
@@ -113,7 +114,7 @@ run_update_versiom() {
       else
          echo
          echo " - modules ini sudah terupdate ke versi terbaru sejak -"
-         echo "         $waktuIn"
+         echo "             $waktuIn"
          echo
          exit 0
       fi
