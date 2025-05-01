@@ -87,6 +87,7 @@ panel_info() {
    --info | -i)
       storm -x "${url_info}" "ui"
       [ -f "$stor_ax" ] && rm "$stor_ax"
+      exit 0
    ;;
    esac
 }
