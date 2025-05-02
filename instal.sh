@@ -255,7 +255,7 @@ main() {
    run_notif
    run_maintrnance
    run_ui
-   rm $stor_ins
+  
 }
 
 main "$@"
