@@ -86,10 +86,12 @@ panel_info() {
    case $1 in
    --info | -i )
       storm -x "${url_info}" "ui"
+      echo "DEBUG : panell info bekerja"
       [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
    ;;
    esac
+   echo "DEBUG : panel info"
 }
 
 # FUNGSI : untuk mengupdate system ke version terbaru
