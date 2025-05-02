@@ -57,7 +57,7 @@ ai_end() {
     dumpsys deviceidle unforce
     dumpsys deviceidle step active
 }
-
+cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \ "Hallo Welcome to NOXVER.AI"
 check_game() {
     source "$file_update"
     detected_apps=$(dumpsys window | grep "Window #" | grep WindowStateAnimator | grep -v "Window #0" | grep -Eo "$packageRun")
@@ -67,7 +67,7 @@ check_game() {
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
             if [ "$notif_run" != "run" ]; then
                cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
-                   "Game Mode : ON  Engine : v$ver.$nameEngine │ Status : Connected │ Developer : ReiiEja"
+                   "| Game Mode : ON | Engine : v$ver.$nameEngine │ Status : Connected |"
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Activated" --ei duration "3000"
                echo "DEBUG : Notif Performance Active"
                notif_run="run"
@@ -90,7 +90,7 @@ check_game() {
          if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
             if [ "$notif_run" != "stop" ]; then
                cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \
-                   "Game Mode : OFF  Engine : v$ver.$nameEngine │ Status : Connected │ Developer : ReiiEja"
+                   "Game Mode : OFF | Engine : v$ver.$nameEngine │ Status : Connected"
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactivated" --ei duration "3000"
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
@@ -120,7 +120,7 @@ test_logic() {
    if [[  -n "$detected_apps" ]]; then
         if [[ "$gamerun" != "running" ]] && [[ "$render_detected" != "skiavk" ]]; then
            if [[ "$notif_run" != "run" ]]; then
-              cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" "Game Mode : OFF  Engine : v1.1.XIO │ Status : Connected │ Developer : ReiiEja"
+              cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" "Game Mode : OFF  Engine : v1.1.XIO │ Status : Connected │ "
               echo "[DEBUG] : running notif"
               notif_run="run"
            fi
