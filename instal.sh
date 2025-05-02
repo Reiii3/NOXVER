@@ -84,7 +84,7 @@ developer_mode() {
 
 panel_info() {
    case $1 in
-   --info | -i)
+   --info | -i )
       storm -x "${url_info}" "ui"
       [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
