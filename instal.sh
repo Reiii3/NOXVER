@@ -197,7 +197,7 @@ run_maintrnance() {
         storm -x "${run_update}" "maintenance"
         rm $stor_ax
         if [[ "$noxUpdate" == true ]]; then
-           echo "info : update terbaru akan segera siap silahkan tunggu.."
+           echo "info : $info"
          else
            echo "info : update terbaru sudah siap, silahkan update"
            echo "exec : ax vex -update"
