@@ -13,6 +13,7 @@ local url_ui="https://reiii3.github.io/NOXVER/engine/ui-system/ui-v1.sh"
 local url_ai="https://reiii3.github.io/NOXVER/engine/engine-core/nox-ai.sh"
 local url_info="https://reiii3.github.io/NOXVER/engine/ui-system/info.sh"
 local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-performance.sh"
+local url_core="https://reiii3.github.io/NOXVER/user/developer.txt"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/detecUpdate"
