@@ -55,6 +55,14 @@ setup_file_awal() {
    fi
 }
 
+dev_selection() {
+   case $1 in 
+      -debug )
+      axprop $engine devmode -s true
+      ;;
+   esac
+}
+
 # // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
 detected_update() {
    storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
@@ -243,9 +251,10 @@ run_ui() {
 #--------------MAIN MODULES INSTALATION-------------
 main() {
    setup_file_awal
+   dev_selection "$@"
    detected_update
-   developer_mode
-   panel_info
+   developer_mode 
+   panel_info "$@"
    
    case $1 in 
      -update )
