@@ -98,6 +98,9 @@ panel_info() {
       [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
    ;;
+   *)
+      echo "eror argument"
+   ;;
    esac
    echo "DEBUG : panel info"
 }
