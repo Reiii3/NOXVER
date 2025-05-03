@@ -95,7 +95,7 @@ detected_update() {
 
 # FUNGSI : digunakan untuk par developer untuk debugger pada saat system sedang maintenance
 developer_mode() {
-   if [[ "$devmode" = true ]]; then
+   if [[ "$devmode" == true ]]; then
      id_dev=$(storm "$url_core/user/developer.txt")
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
