@@ -61,19 +61,24 @@ dev_selection() {
       -debug )
         axprop $engine devmode true
         devmode=true
+        if [[ "$devmode" == true ]]; then
+           echo "Welcome Developer Debug mode On"
+          else
+            echo "See you Developer Debug mode off"
+        fi
       ;;
       -user )
         axprop $engine devmode false
         devmode=false
+        if [[ "$devmode" == true ]]; then
+           echo "Welcome Developer Debug mode On"
+          else
+            echo "See you Developer Debug mode off"
+        fi
+
       ;;
    esac
 }
-
-if [[ "$devmode" == true ]]; then
-      echo "Welcome Developer Debug mode On"
- else
-      echo "See you Developer Debug mode off"
-fi
 
 # // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
 detected_update() {
