@@ -50,7 +50,7 @@ gameRem() {
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
    package_list=$(cmd package list packages | cut -f 2 -d ":")
    compile() {
-      cmd package compile --reset "$line"
+      cmd package compile -m verify -f "$line"
    }
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
