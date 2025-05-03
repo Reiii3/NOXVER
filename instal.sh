@@ -104,7 +104,7 @@ panel_info() {
       exit 0
    ;;
    *)
-      echo "eror argument"
+      echo "DEBUG : eror argument"
    ;;
    esac
    echo "DEBUG : panel info"
