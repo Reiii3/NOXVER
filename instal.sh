@@ -58,7 +58,7 @@ setup_file_awal() {
 dev_selection() {
    case $1 in 
       -debug )
-      axprop $engine export devmode  true
+      axprop $engine devmode  true
       if [[ "$devmode" == true ]]; then
          echo "Welcome Developer Debug mode On"
        else
