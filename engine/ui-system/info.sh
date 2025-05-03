@@ -14,9 +14,12 @@ printer "                   ↓↓"
 echo "==========================================="
 echo -n "   version       : "
 printer "$ver"
+load 0.5
 echo -n "   versionCode   : "
 printer "$verc"
+load 0.5
 echo -n "   versionEngine : "
 printer "$nameEngine"
+load 0.5
 echo "==========================================="
 echo
