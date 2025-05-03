@@ -19,6 +19,10 @@ text="$1"
 echo
 }
 
+load() {
+   sleep $1
+}
+
 gameRun() {
    reso="/data/local/tmp/nxver/.noxUp"
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
