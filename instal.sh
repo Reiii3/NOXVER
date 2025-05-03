@@ -59,6 +59,11 @@ dev_selection() {
    case $1 in 
       -debug )
       axprop $engine devmode -s true
+      if [[ "$devmode" == true ]]; then
+         echo "Welcome Developer Debug mode On"
+       else
+         echo "See you Developer Debug mode off"
+      fi
       ;;
    esac
 }
