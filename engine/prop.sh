@@ -1,3 +1,3 @@
-verU="1.2"
-vercU=12
-engineName="CVX1"
+verU="1.3"
+vercU=13
+engineName="NVXR130R"
