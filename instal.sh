@@ -101,7 +101,7 @@ developer_mode() {
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
    echo "DEBUG : akses_awal in function $akses_awal"
-   echo "DEBUG : status devmode $devmode"
+   echo "DEBUG : status devmode $nox_debug"
    if [[ $akses_awal = true ]]; then
      echo "DEBUG : cek id berhasi"
    else
