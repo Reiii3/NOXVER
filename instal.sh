@@ -3,7 +3,7 @@ $AXFUN
 local data="/data/local/tmp/nxver"
 local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
 local bin="/data/local/tmp"
-local cashup="//data/local/tmp/nxver"
+local cashup="/data/local/tmp/nxver"
 local nox_bin="$bin/nvxer"
 local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
@@ -21,6 +21,7 @@ local file_update="$cashup/.noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
 local engine_core="$data/engine_system"
+local bin_dev="$bin/debug/nox-control"
 local stor_ax="$bin/axeron_cash/Vex/response"
 local stor_ins="$bin/axeron_cash/Vex/instal"
 local u_ver="$bin/prop"
@@ -36,7 +37,7 @@ setup_file_awal() {
      echo "DEBUG : all file berhasil ter ekstrak"
    fi
    source $engine
-   
+   source $bin_dev
    if [[ ! -f $file_update ]]; then
      echo "# Dont Change It" > "$file_update"
      axprop $file_update ver -s "null"
@@ -59,7 +60,7 @@ setup_file_awal() {
 dev_selection() {
    case $1 in 
       -debug )
-        axprop $engine devmode true
+        axprop $bin_dev devmode true
         devmode=true
         if [[ "$devmode" == true ]]; then
            echo "Welcome Developer Debug mode On"
@@ -68,7 +69,7 @@ dev_selection() {
         fi
       ;;
       -user )
-        axprop $engine devmode false
+        axprop $bin_dev devmode false
         devmode=false
         if [[ "$devmode" == true ]]; then
            echo "Welcome Developer Debug mode On"
@@ -95,7 +96,7 @@ detected_update() {
 
 # FUNGSI : digunakan untuk par developer untuk debugger pada saat system sedang maintenance
 developer_mode() {
-   if [[ "$devmode" == true ]]; then
+   if [[ "$nox_debug" == true ]]; then
      id_dev=$(storm "$url_core/user/developer.txt")
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
