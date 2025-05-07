@@ -24,6 +24,9 @@ ai_start() {
     setprop debug.vulkan.layers ""
     setprop debug.cpurend.vsync false
     setprop debug.gpurend.vsync true
+    pm disable --user 0 com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
+    pm disable --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
+    dumpsys deviceidle whitelist -com.google.android.gms
     sleep 0.5
     dumpsys deviceidle force-idle
     dumpsys deviceidle step deep
@@ -56,6 +59,9 @@ ai_end() {
     sleep 1
     dumpsys deviceidle unforce
     dumpsys deviceidle step active
+    pm enable --user 0 com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
+    pm enable --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
+    dumpsys deviceidle whitelist +com.google.android.gms
 }
 cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \ "Hallo Welcome to NOXVER.AI"
 check_game() {
