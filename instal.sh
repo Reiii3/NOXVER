@@ -16,7 +16,7 @@ local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-p
 local url_core="https://reiii3.github.io/NOXVER/user/developer.txt"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
-local update="$bin/detecUpdate"
+local update="$bin/.detecUpdate"
 local file_update="$cashup/.noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
@@ -82,7 +82,7 @@ dev_selection() {
 
 # // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
 detected_update() {
-   storm -rP "$bin" -s "${url_detect}" -fn "detecUpdate"
+   storm -rP "$bin" -s "${url_detect}" -fn ".detecUpdate"
    . $update
    . $file_update
    
