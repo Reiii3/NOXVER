@@ -97,7 +97,7 @@ detected_update() {
 # FUNGSI : digunakan untuk par developer untuk debugger pada saat system sedang maintenance
 developer_mode() {
    if [[ "$nox_debug" == true ]]; then
-     id_dev=$(storm "$url_core/user/developer.txt")
+     id_dev=$(storm "$url_core")
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
    echo "DEBUG : akses_awal in function $akses_awal"
