@@ -60,18 +60,18 @@ setup_file_awal() {
 dev_selection() {
    case $1 in 
       -debug )
-        axprop $bin_dev devmode true
-        devmode=true
-        if [[ "$devmode" == true ]]; then
+        axprop $bin_dev nox_debug true
+        nox_debug=true
+        if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
           else
             echo "See you Developer Debug mode off"
         fi
       ;;
       -user )
-        axprop $bin_dev devmode false
-        devmode=false
-        if [[ "$devmode" == true ]]; then
+        axprop $bin_dev nox_debug false
+        nox_debug=false
+        if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
           else
             echo "See you Developer Debug mode off"
@@ -101,7 +101,7 @@ developer_mode() {
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
    echo "DEBUG : akses_awal in function $akses_awal"
-   echo "DEBUG : status devmode $nox_debug"
+   echo "DEBUG : status nox_debug $nox_debug"
    if [[ $akses_awal = true ]]; then
      echo "DEBUG : cek id berhasi"
    else
