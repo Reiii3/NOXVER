@@ -4,7 +4,7 @@ source $engine
 
 #---------------- main ui modules-----------------
 echo
-printer "          - NOXVER.AI -"
+printer "                  - NOXVER.AI -"
 echo "     ======================================"
 echo "     │ Instalation performance && AI api  │"
 echo "     ======================================"
