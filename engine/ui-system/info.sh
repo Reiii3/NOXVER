@@ -7,10 +7,10 @@ source $source_module
 source $engine_module
 
 echo
-echo "   ┌══════════════════════════════════════┐"
-echo "      information modules && new update"
-echo "   └══════════════════════════════════════┘"
-printer "                      ↓↓"
+echo "     ┌══════════════════════════════════════┐"
+printer "        information modules && new update"
+echo "     └══════════════════════════════════════┘"
+printer "                        ↓↓"
 echo "   ==========================================="
 echo -n "      version       : "
 printer "$ver"
