@@ -24,7 +24,7 @@ load 0.5
 if [[ $noxUpdate == true ]]; then
    echo -n "     AI-stats      : "
    printer "maintenance-server"
-elif [[ -z "$insAi" ]]; then
+elif pgrep -f noxAI >/dev/null 2>&1; then
    echo -n "      AI-stats      : "
    printer "actived"
 else
