@@ -261,6 +261,9 @@ run_ui() {
       gameRun
       echo "=================================="
       install_ai
+   else
+      echo "       - system sudah terinstall -"
+      echo "                - Reii -"
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    echo
