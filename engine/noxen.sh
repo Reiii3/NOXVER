@@ -112,7 +112,7 @@ install_ai() {
    fi
    if [ "$status" ]; then
        echo "${ORANGE}$su Program berhasil terpasang${END}"
-       am broadcast -a axeron.show.TOAST --es title "NOXVER.AI Instaled" --es msg "Developer : Reii | Engine : CXI" --ei duration "4000" >/dev/null 2>&1
+       am broadcast -a axeron.show.TOAST --es title "NOXVER.AI Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
    else
        echo "$war Program failed: gagal"
    fi
