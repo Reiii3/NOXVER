@@ -202,8 +202,8 @@ run_notif() {
    if [[ "$status" == "done" ]]; then
       if [[ "$notif" = false ]]; then
          echo
-         echo "[update ke version $ver | $verc | $nameEngine New]"
-         echo "  [Di install pada $waktuIn]"
+         echo "    [update ke version $ver | $verc | $nameEngine New]"
+         echo "    [Di install pada $waktuIn]"
          axprop $file_update notif -s true
          echo
       fi
