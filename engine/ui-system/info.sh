@@ -2,9 +2,11 @@ $AXFUN
 data="/data/local/tmp/nxver"
 source_module="$data/.noxUp"
 engine_module="$data/engine"
+source_update="$data/.detecUpdate"
 
 source $source_module
 source $engine_module
+source $source_update
 
 echo
 echo "     ┌══════════════════════════════════════┐"
