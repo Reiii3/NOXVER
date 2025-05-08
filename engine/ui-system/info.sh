@@ -21,7 +21,7 @@ load 0.5
 echo -n "      versionEngine : "
 printer "$nameEngine"
 load 0.5
-if [[ $noxUpdate == true ]]; then
+if [[ "$noxUpdate" == true ]]; then
    echo -n "     AI-stats      : "
    printer "maintenance-server"
 elif pgrep -f noxAI >/dev/null 2>&1; then
