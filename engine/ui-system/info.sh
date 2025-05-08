@@ -10,16 +10,26 @@ echo
 echo "   ┌══════════════════════════════════════┐"
 echo "      information modules && new update"
 echo "   └══════════════════════════════════════┘"
-printer "                   ↓↓"
-echo "==========================================="
-echo -n "   version       : "
+printer "                      ↓↓"
+echo "   ==========================================="
+echo -n "      version       : "
 printer "$ver"
 load 0.5
-echo -n "   versionCode   : "
+echo -n "      versionCode   : "
 printer "$verc"
 load 0.5
-echo -n "   versionEngine : "
+echo -n "      versionEngine : "
 printer "$nameEngine"
 load 0.5
-echo "==========================================="
+if [[ $noxUpdate == true ]]; then
+   echo -n "     AI-stats      : "
+   printer "maintenance-server"
+elif [[ -z "$insAi" ]]; then
+   echo -n "      AI-stats      : "
+   printer "actived"
+else
+   echo -n "      AI-stats      : "
+   printer "non-active"
+fi
+echo "   ==========================================="
 echo
