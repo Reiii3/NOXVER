@@ -2,7 +2,7 @@ $AXFUN
 data="/data/local/tmp/nxver"
 source_module="$data/.noxUp"
 engine_module="$data/engine"
-source_update="$data/.detecUpdate"
+source_update="/data/local/tmp/.detecUpdate"
 
 source $source_module
 source $engine_module
