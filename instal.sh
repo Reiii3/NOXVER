@@ -30,11 +30,9 @@ local u_ver="$bin/prop"
 setup_file_awal() {
    if [ ! -d $data ]; then
      mkdir -p "$data"
-     echo "DEBUG : direktory berhasil di tambahkan"
    fi
    if [[ ! -f $engine ]]; then
      storm -rP "$data" -s "${url}" -fn "engine"
-     echo "DEBUG : all file berhasil ter ekstrak"
    fi
    source $engine
    source $bin_dev
@@ -53,7 +51,6 @@ setup_file_awal() {
      axprop $file_update insUp -s true
      axprop $file_update perfIns -s ""
      axprop $file_update insAi -s ""
-     echo "DEBUG : File penyimpan update berhasil di tambahkan"
    fi
 }
 
@@ -65,7 +62,7 @@ dev_selection() {
         if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
           else
-            echo "See you Developer Debug mode off"
+           echo "See you Developer Debug mode off"
         fi
       ;;
       -user )
@@ -74,7 +71,7 @@ dev_selection() {
         if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
           else
-            echo "See you Developer Debug mode off"
+           echo "See you Developer Debug mode off"
         fi
 
       ;;
@@ -100,12 +97,10 @@ developer_mode() {
      id_dev=$(storm "$url_core")
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
-   echo "DEBUG : akses_awal in function $akses_awal"
-   echo "DEBUG : status nox_debug $nox_debug"
    if [[ $akses_awal = true ]]; then
-     echo "DEBUG : cek id berhasi"
+     echo "DEBUG : developer_mode sedang di jalankan"
    else
-     echo "DEBUG : cek id gagal, ada masalah di logic anda"
+     echo "DEBUG : developer_mode sedang tidak di jalankan"
    fi
 }
 
@@ -113,12 +108,10 @@ panel_info() {
    case $1 in
    --info | -i )
       storm -x "${url_info}" "ui"
-      echo "DEBUG : panell info bekerja"
       [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
    ;;
    esac
-   echo "DEBUG : panel info"
 }
 
 # FUNGSI : untuk mengupdate system ke version terbaru
@@ -209,8 +202,8 @@ run_notif() {
    if [[ "$status" == "done" ]]; then
       if [[ "$notif" = false ]]; then
          echo
-         echo "[system telah di update ke version $ver | $verc | $nameEngine New]"
-         echo "    [Di install pada $waktuIn]"
+         echo "[update ke version $ver | $verc | $nameEngine New]"
+         echo "  [Di install pada $waktuIn]"
          axprop $file_update notif -s true
          echo
       fi
@@ -231,21 +224,14 @@ run_maintrnance() {
            storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
         fi
         rm $update
-        echo
         exit 0
-       else 
-       echo "DEBUG : failed ui maintenance"
      fi
-    else
-     echo "DEBUG : maintenance system infailed"
-     echo "DEBUG : status $akses_awal"
    fi
 }
 
 # FUNGSI : running all system && performa fitures
 run_ui() {
    echo
-   echo "ui visual modules"
    if [[ -z "$perfIns" ]]; then
       storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
    fi
