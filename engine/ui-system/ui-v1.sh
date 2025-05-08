@@ -1,10 +1,11 @@
 $AXFUN
 engine="/data/local/tmp/nxver/engine"
 source $engine
-echo "Test ui v1 debug engine"
-printer "selamat datang di ui v1"
+
+#---------------- main ui modules-----------------
 echo
-echo "=============================="
-echo "   TEST UI && PERF FUNCTION"
-echo "=============================="
-echo
+printer "          - NOXVER.AI -"
+echo "     ======================================"
+echo "     │ Instalation performance && AI api  │"
+echo "     ======================================"
+echo ""
