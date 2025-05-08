@@ -241,11 +241,11 @@ run_ui() {
       install_perff
       cek_oppo_boost
       echo
-      echo "=================================="
-      echo "   Auto Scan Game For AI NOXVER"
-      echo "=================================="
+      echo "        =================================="
+      echo "           Auto Scan Game For AI NOXVER"
+      echo "        =================================="
       gameRun
-      echo "=================================="
+      echo "        =================================="
       install_ai
    else
       printer "           - system sudah terinstall -"
