@@ -37,7 +37,7 @@ gameRun() {
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
              gameName=$(pkglist -L "$line")
-               echo "｜Game Boosted : $gameName"
+               echo "        ｜Game Boosted : $gameName"
                compile >/dev/null 2>&1
                source $reso
              if [[ -z "$packageRun" ]]; then
@@ -70,11 +70,11 @@ gameRem() {
 cek_oppo_boost() {
    cek_oppo=$(settings list system | grep -qE "high_performance_mode_on|high_performance_mode_on_when_shutdown" && echo true || echo false)
    if "$cek_oppo"; then
-     echo "$su High performance supported"
+     echo "        $su High performance supported"
      axprop $file_update sperfor -s true
      sperfor=true
    else
-     echo "$war High performance not support"
+     echo "       $war High performance not support"
      axprop $file_update sperfor -s false
      sperfor=false
    fi
@@ -91,9 +91,6 @@ install_perff() {
    if [[ -z "$perfIns" ]]; then
       axprop $reso perfIns -s "$time"
       rm "$engine_system"
-      echo "DEBUG : performance mode is not yet active"
-   else
-      echo "DEBUG : performance mode is active"
     fi
 }
 
