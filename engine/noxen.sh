@@ -60,7 +60,7 @@ gameRem() {
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
             gameName=$(pkglist -L "$line")
-               echo "       ｜Game Reboosted : $gameName"
+               echo "           ｜Game Reboosted : $gameName"
                compile >/dev/null 2>&1
            fi
        fi
