@@ -11,9 +11,9 @@ source "$data_res"
 echo
 printer "                  - NOXVER.AI -"
 load "1"
-echo "     ================================="
-echo "     │ Remove performance && AI api  │"
-echo "     ================================="
+echo "         ================================="
+echo "         │ Remove performance && AI api  │"
+echo "         ================================="
 echo 
 gameRem
 axprop "$data_res" perfIns -s ""
