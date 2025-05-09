@@ -97,10 +97,12 @@ developer_mode() {
      id_dev=$(storm "$url_core")
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
-   if [[ $akses_awal = true ]]; then
-     echo "DEBUG : developer_mode sedang di jalankan"
-   else
-     echo "DEBUG : developer_mode sedang tidak di jalankan"
+   if [[ -f "$bin_dev" ]]; then
+      if [[ $akses_awal = true ]]; then
+        echo "DEBUG : developer_mode sedang di jalankan"
+      else
+        echo "DEBUG : developer_mode sedang tidak di jalankan"
+      fi
    fi
 }
 
