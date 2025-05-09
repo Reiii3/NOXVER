@@ -254,6 +254,7 @@ run_ui() {
       printer "                    - Reii -"
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
+   rm $stor_ins
    echo
 }
 
