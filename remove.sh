@@ -7,17 +7,18 @@ source "$data"
 source "$data_res"
 
 
+#---------------- main ui modules-----------------
 echo
-echo "========================================="
-echo "   Test Removed && Debug Engine System"
-echo "========================================="
-
-printer "DEBUG : Test Function [printer]"
-echo "DEBUG : Test Function [time] $time"
-echo "DEBUG : Tes Function [gameRem]"
+printer "                  - NOXVER.AI -"
+load "1"
+echo "     ================================="
+echo "     │ Remove performance && AI api  │"
+echo "     ================================="
+echo 
 gameRem
 axprop "$data_res" perfIns -s ""
 axprop "$data_res" packageRun -s ""
+axprop "$data_res" insAi -s ""
 rm -rf $data
 rm $data_ai
 status=$(pgrep -f noxAI)
