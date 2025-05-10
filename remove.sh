@@ -5,7 +5,7 @@ data_res="/data/local/tmp/nxver/.noxUp"
 data_ai="/data/local/tmp/noxAI"
 local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-performance.sh"
 local engine_core="/data/local/tmp/engine_system"
-storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
+storm -rP "$bin" -s "${engine_system}" -fn "engine_system" "$@"
 
 source "$engine_core"
 source "$data"
