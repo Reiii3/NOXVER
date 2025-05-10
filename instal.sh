@@ -5,7 +5,7 @@ local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
 local bin="/data/local/tmp"
 local cashup="/data/local/tmp/nxver"
 local nox_bin="$bin/nvxer"
-local url_detect="https://reiii3.github.io/Center-Module/update/nox-update.sh"
+local system_detec="https://reiii3.github.io/Center-Module/engine-core/system-up.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local run_update="https://reiii3.github.io/NOXVER/engine/ui-system/ui-maintenance.sh"
 local url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
@@ -17,6 +17,7 @@ local url_core="https://reiii3.github.io/NOXVER/user/developer.txt"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/.detecUpdate"
+local system_ai_up="$bin/detecAi"
 local file_update="$cashup/.noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
@@ -81,10 +82,15 @@ dev_selection() {
 
 # // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
 detected_update() {
-   storm -rP "$bin" -s "${url_detect}" -fn ".detecUpdate"
+   if [[ ! -f $system_ai_up ]]; then
+      storm -rP "$bin" -s "${system_detec}" -fn "detecAi"
+   fi
+   status=$(pgrep -f detecAi)
+   if [[ ! $status ]]; then
+      nohup /data/local/tmp/noxAI > /data/local/tmp/log &
+   fi
    . $update
    . $file_update
-   
    if [[ "$noxUpdate" == true ]]; then
       axprop $file_update status -s "maintenance"
       axprop $file_update notif false
