@@ -114,3 +114,47 @@ install_ai() {
        echo "$war Program failed: gagal"
    fi
 }
+
+reboot_ai() {
+   reso="/data/local/tmp/nxver/.noxUp"
+   echo "                 - REBOOT SYSTEM -"
+   echo "  $in menonaktifkan system ai"
+   status=$(pgrep -f noxAI)
+   if [[ $status ]]; then
+      pkill -f "/data/local/tmp/noxAI"
+   else
+      echo "[DEBUG] gagal menonaktifkan system ai"
+      exit 0
+   fi
+   status=$(pgrep -f noxAI)
+   if [[ ! $status ]]; then
+      echo "$su system ai non-actived"
+   else
+      echo "$war system ai is actived"
+      exit 0
+   fi
+   
+   echo 
+   echo "$in memulai ulang scan game"
+   echo "$in menghapus terlebih dahulu daftar game lama, please wait.."
+   echo
+   gameRem
+   if [[ -n $packageRun ]]; then
+      axprop $reso packageRun ""
+   fi
+   echo
+   echo "$in memulai scan game"
+   echo
+   gameRun
+   echo
+   if [[ -n $packageRun ]]; then
+      echo "successfully added all games"
+   else
+      echo "failed to add game"
+      exit 0
+   fi
+   
+   echo "$pr booting system ai, please wait..."
+   install_ai
+   echo "$su reboot system successfully"
+}
