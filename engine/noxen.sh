@@ -121,11 +121,16 @@ reboot_ai() {
    echo "  $in menonaktifkan system ai"
    status=$(pgrep -f noxAI)
    if [[ $status ]]; then
-      pkill -f "/data/local/tmp/noxAI"
+      pkill -9 -f noxAI
+      while pgrep -f noxAI >/dev/null; do
+        echo "Menonaktifkan System AI"
+        sleep 1
+      done
    else
       echo "[DEBUG] gagal menonaktifkan system ai"
       exit 0
    fi
+   load 2
    status=$(pgrep -f noxAI)
    if [[ ! $status ]]; then
       echo "$su system ai non-actived"
@@ -133,7 +138,7 @@ reboot_ai() {
       echo "$war system ai is actived"
       exit 0
    fi
-   
+   load 1
    echo 
    echo "$in memulai ulang scan game"
    echo "$in menghapus terlebih dahulu daftar game lama, please wait.."
@@ -143,6 +148,7 @@ reboot_ai() {
       axprop $reso packageRun ""
       axprop $reso insAi ""
    fi
+   load 1
    echo
    echo "$in memulai scan game"
    echo
@@ -154,7 +160,6 @@ reboot_ai() {
       echo "failed to add game"
       exit 0
    fi
-   
    echo "$pr booting system ai, please wait..."
    install_ai
    echo "$su reboot system successfully"
