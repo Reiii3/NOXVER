@@ -37,7 +37,7 @@ gameRun() {
        if [ -n "$line" ]; then
            if echo "$package_list" | grep -qx "$line"; then
              gameName=$(pkglist -L "$line")
-               echo "        ｜Game Boosted : $gameName"
+               echo "           ｜Game Boosted : $gameName"
                compile >/dev/null 2>&1
                source $reso
              if [[ -z "$packageRun" ]]; then
