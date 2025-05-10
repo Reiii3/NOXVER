@@ -134,7 +134,8 @@ run_update_versiom() {
          axprop $file_update nameEngine -s "$engineName"
          axprop $file_update waktuIn -s "$time"
          axprop $file_update status -s "done"
-         axprop $file_update insUp -s true
+         axprop $file_update insUp true
+         axprop $file_update notif_update false
          sleep 1
          echo "  $su update succesfully"
          
