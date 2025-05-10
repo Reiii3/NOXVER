@@ -34,6 +34,7 @@ ai_start() {
     pm disable --user 0 com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
     pm disable --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
     pm disable --user 0 com.google.android.gms
+    am force-stop com.google.android.gms
     dumpsys deviceidle whitelist -com.google.android.gms
     sleep 0.5
     dumpsys deviceidle force-idle
