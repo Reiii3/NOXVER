@@ -21,7 +21,7 @@ echo "         │ Remove performance && AI api  │"
 echo "         ================================="
 echo
 core_1_r
-gameRe
+gameRem
 load 1
 axprop "$data_res" perfIns -s ""
 axprop "$data_res" packageRun -s ""
