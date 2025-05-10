@@ -7,11 +7,11 @@ local cashup="/data/local/tmp/nxver"
 local nox_bin="$bin/nvxer"
 local system_detec="https://reiii3.github.io/NOXVER/engine/engine-core/system-up.sh"
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
-local run_update="https://reiii3.github.io/NOXVER/engine/ui-system/ui-maintenance.sh"
 local url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
 local url_ui="https://reiii3.github.io/NOXVER/engine/ui-system/ui-v1.sh"
 local url_ai="https://reiii3.github.io/NOXVER/engine/engine-core/nox-ai.sh"
 local url_info="https://reiii3.github.io/NOXVER/engine/ui-system/info.sh"
+local url_system_update="https://reiii3.github.io/NOXVER/engine/ui-system/update.sh"
 local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-performance.sh"
 local url_core="https://reiii3.github.io/NOXVER/user/developer.txt"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
@@ -118,6 +118,9 @@ panel_info() {
       reboot_ai
       exit 0
    ;;
+   --cek_update | -cekUp )
+   
+   ;;
    esac
 }
 
@@ -218,24 +221,6 @@ run_notif() {
    fi
 }
 
-# fungsi ; ini adalah system maintenance
-run_maintrnance() {
-   if [[ "$akses_awal" == false ]]; then
-     if [[ "$status" == "maintenance" ]]; then
-        storm -x "${run_update}" "maintenance"
-        rm $stor_ax
-        if [[ "$noxUpdate" == true ]]; then
-           echo "info : $info"
-         else
-           echo "info : update terbaru sudah siap, silahkan update"
-           echo "exec : ax vex -update"
-           storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
-        fi
-        rm $update
-        exit 0
-     fi
-   fi
-}
 
 # FUNGSI : running all system && performa fitures
 run_ui() {
@@ -264,19 +249,6 @@ run_ui() {
    echo
 }
 
-test_logic_update() {
-   storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
-   source $u_ver
-   source $file_update
-   
-   if [[ $engineName == $nameEngine ]]; then
-      echo "ini adalah versi yang paling baru"
-   else
-      echo "tersedia versi terbaru yaitu : $verU"
-   fi
-   rm $u_ver
-   exit 0
-}
 
 case $1 in 
    tes )
