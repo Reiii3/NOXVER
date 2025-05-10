@@ -151,16 +151,11 @@ reboot_ai() {
    fi
    load 1
    echo
-   echo "$in memulai scan game"
+   echo "                - SCAN GAMES API NOXVER -"
    echo
    gameRun
    echo
-   if [[ ! -z $packageRun ]]; then
-      echo "successfully added all games"
-   else
-      echo "failed to add game"
-      exit 0
-   fi
+   echo "$su successfully added all games"
    status=$(pgrep -f noxAI)
    if [[ $status ]]; then
       echo "$pr booting system ai, please wait..."
