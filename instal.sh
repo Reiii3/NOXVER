@@ -273,6 +273,7 @@ test_logic_update() {
    else
       echo "tersedia versi terbaru yaitu : $vercU"
    fi
+   rm $u_ver
    exit 0
 }
 
