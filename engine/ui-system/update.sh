@@ -16,7 +16,7 @@ systenUp() {
    else
       echo "tersedia versi terbaru yaitu : $verU"
    fi
-   rm $u_ver
+   rm $prop_update
    exit 0
 }
 
