@@ -85,7 +85,7 @@ detected_update() {
    status=$(pgrep -f detecAi)
    if [[ ! $status ]]; then
       storm -rP "$bin" -s "${system_detec}" -fn "detecAi" "$@"
-      nohup /data/local/tmp/detecAi > /data/local/tmp/log &
+      nohup /data/local/tmp/detecAi >/data/local/tmp/log &
    fi
    . $update
    . $file_update
