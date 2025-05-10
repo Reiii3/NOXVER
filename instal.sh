@@ -9,6 +9,7 @@ local system_detec="https://reiii3.github.io/NOXVER/engine/engine-core/system-up
 local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
 local url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
 local url_ui="https://reiii3.github.io/NOXVER/engine/ui-system/ui-v1.sh"
+local url_system_update="https://reiii3.github.io/NOXVER/engine/ui-system/update.sh"
 local url_ai="https://reiii3.github.io/NOXVER/engine/engine-core/nox-ai.sh"
 local url_info="https://reiii3.github.io/NOXVER/engine/ui-system/info.sh"
 local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-performance.sh"
@@ -247,13 +248,6 @@ run_ui() {
    rm $stor_ins
    echo
 }
-
-
-case $1 in 
-   tes )
-   test_logic_update
-   ;;
-esac
 
 
 #--------------MAIN MODULES INSTALATION-------------
