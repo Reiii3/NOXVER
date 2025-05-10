@@ -38,4 +38,5 @@ fi
 load 1 
 
 printer "       $su Uninstall system modules succesfuly"
+echo
 
