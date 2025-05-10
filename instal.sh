@@ -55,6 +55,12 @@ setup_file_awal() {
    fi
 }
 
+allways_cek_update() {
+      storm -x "${url_system_update}" "up"
+      [ -f "$stor_ax" ] && rm "$stor_ax"
+      exit 0
+}
+
 dev_selection() {
    case $1 in 
       -debug )
@@ -115,11 +121,6 @@ panel_info() {
    ;;
    --reboot_ai | -aR )
       reboot_ai
-      exit 0
-   ;;
-   --cek_update | -cekUp )
-      storm -x "${url_system_update}" "up"
-      [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
    ;;
    esac
