@@ -141,6 +141,7 @@ reboot_ai() {
    gameRem
    if [[ -n $packageRun ]]; then
       axprop $reso packageRun ""
+      axprop $reso insAi ""
    fi
    echo
    echo "$in memulai scan game"
