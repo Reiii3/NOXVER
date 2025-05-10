@@ -99,7 +99,7 @@ check_game() {
                notif_run="run"
            fi
            if [[ "$notif_update" == true ]]; then
-              cmd notification post -S bigtext -t "ANNOUNCEMENT" "nox_ai_status" \ "MAINTENANCE SYSTEM"
+              cmd notification post -S bigtext -t "ANNOUNCEMENT NOXVER.AI" "nox_ai_status" \ "MAINTENANCE SYSTEM"
            fi
            ai_start
              echo "DEBUG : Performance By Noxver Active"
