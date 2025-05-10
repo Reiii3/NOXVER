@@ -161,6 +161,8 @@ reboot_ai() {
       echo "$pr booting system ai, please wait..."
       install_ai
       echo "$su reboot system successfully"
+   else 
+      echo "gagal"
    fi
    echo
 }
