@@ -69,7 +69,7 @@ ai_end() {
     setprop debug.composition.type gpu
     setprop debug.hwui.render_dirty_regions true
     setprop debug.hwui.skia_atrace_enabled true
-    setprop debug.qsg_renderer 0
+    setprop debug.qsg_renderer 1
     setprop debug.cpurend.vsync true
     setprop debug.gpurend.vsync false
     sleep 1
