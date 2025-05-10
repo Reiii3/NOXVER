@@ -126,7 +126,7 @@ check_game() {
                ai_end
             fi
             if [[ "$notif_update" == true ]]; then
-               cmd notification post -S bigtext -t "ANNOUNCEMENT" "nox_ai_status" \ "MAINTENANCE SYSTEM"
+               cmd notification post -S bigtext -t "ANNOUNCEMENT NOXVER.AI" "nox_ai_status" \ "MAINTENANCE SYSTEM"
             fi
             echo "DEBUG : Performance By Noxver Deactivated"
             if [ "$sperfor" = true ]; then
