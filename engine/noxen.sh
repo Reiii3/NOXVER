@@ -157,7 +157,7 @@ reboot_ai() {
    echo
    echo "$su successfully added all games"
    status=$(pgrep -f noxAI)
-   if [[ $status ]]; then
+   if [[ ! $status ]]; then
       echo "$pr booting system ai, please wait..."
       install_ai
       echo "$su reboot system successfully"
