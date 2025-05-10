@@ -232,7 +232,6 @@ main() {
    
    first_run
    run_notif
-   run_maintrnance
    run_ui
   
 }
