@@ -118,7 +118,7 @@ install_ai() {
 reboot_ai() {
    reso="/data/local/tmp/nxver/.noxUp"
    echo "                 - REBOOT SYSTEM -"
-   echo "  $in menonaktifkan system ai"
+   echo "$in menonaktifkan system ai"
    status=$(pgrep -f noxAI)
    if [[ $status ]]; then
       pkill -9 -f noxAI
