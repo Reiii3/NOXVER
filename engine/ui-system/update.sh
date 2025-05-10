@@ -1,19 +1,22 @@
 engine="/data/local/tmp/nxver/engine"
 . $engine
 
-ui_maintenance() {
-   echo
-   echo "               - Welcome to NOXVER.AI -"
-   echo "                   - comming soon -"
-   echo
-   echo "changelogs : - AI system fixed"
-   echo "             - Test maintenance server"
-   echo "             - Add new properties"
-   echo
+systenUp() {
+   storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+   source $u_ver
+   source $file_update
+   
+   if [[ $engineName == $nameEngine ]]; then
+      echo "ini adalah versi yang paling baru"
+   else
+      echo "tersedia versi terbaru yaitu : $verU"
+   fi
+   rm $u_ver
+   exit 0
 }
 
 main() {
-   ui_maintenance
+   systenUp
 }
 
 main "$@"
