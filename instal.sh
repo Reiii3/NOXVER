@@ -128,44 +128,7 @@ panel_info() {
 
 # FUNGSI : untuk mengupdate system ke version terbaru
 run_update_versiom() {
-   if [[ "$noxUpdate" == false ]]; then
-     if [[ "$insUp" == false ]]; then
-         . $u_ver
-         sleep 1
-         echo "  $pr update system starting"
-         axprop $file_update ver -s "$verU"
-         axprop $file_update verc -s $vercU
-         axprop $file_update nameEngine -s "$engineName"
-         axprop $file_update waktuIn -s "$time"
-         axprop $file_update status -s "done"
-         axprop $file_update insUp true
-         axprop $file_update notif_update false
-         sleep 1
-         echo "  $su update succesfully"
-         
-         echo
-         sleep 0.03
-         echo " - New Information Modules -"
-         echo "   - version : $verU New"
-         echo "   - versionCode : $vercU New"
-         echo "   - nameEngine : $engineName New"
-         echo
-         rm $u_ver
-         rm $update
-         exit 0
-      else
-         echo
-         echo " - modules ini sudah terupdate ke versi terbaru sejak -"
-         echo "             $waktuIn"
-         echo
-         exit 0
-      fi
-   else 
-      echo
-      echo "  - silahkan tunggu maintenance selesai -"
-      echo
-      exit 0
-   fi
+   
 }
 
 # FUNGSI : berfungsi untuk Menginstall versi terbaru pada saat pertama kali menggunakan modules
@@ -255,6 +218,7 @@ run_ui() {
 #--------------MAIN MODULES INSTALATION-------------
 main() {
    setup_file_awal
+   allways_cek_update
    dev_selection "$@"
    detected_update
    developer_mode 
