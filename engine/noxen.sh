@@ -162,7 +162,7 @@ reboot_ai() {
       install_ai
       echo "$su reboot system successfully"
    else 
-      echo "gagal"
+      echo "$war booting system failed"
    fi
    echo
 }
