@@ -144,7 +144,7 @@ reboot_ai() {
    echo "$in menghapus terlebih dahulu daftar game lama, please wait.."
    echo
    gameRem
-   if [[ -n $packageRun ]]; then
+   if [[ ! -z $packageRun ]]; then
       axprop $reso packageRun ""
       axprop $reso insAi ""
    fi
@@ -154,7 +154,7 @@ reboot_ai() {
    echo
    gameRun
    echo
-   if [[ -n $packageRun ]]; then
+   if [[ ! -z $packageRun ]]; then
       echo "successfully added all games"
    else
       echo "failed to add game"
