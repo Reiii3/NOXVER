@@ -114,7 +114,6 @@ panel_info() {
       exit 0
    ;;
    --reboot-ai | ai-r)
-      echo "tess"
       reboot_ai
       exit 0
    ;;
