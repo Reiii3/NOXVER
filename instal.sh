@@ -264,6 +264,24 @@ run_ui() {
    echo
 }
 
+test_logic_update() {
+   storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+   source $u_ver
+   
+   if [[ $verU = $ver ]] && [[ $vercU = $verc ]]; then
+      echo "ini adalah versi yang paling baru"
+   else
+      echo "tersedia versi terbaru yaitu : $vercU"
+   fi
+   exit 0
+}
+
+case $1 in 
+   tes )
+   test_logic_update
+   ;;
+esac
+
 
 #--------------MAIN MODULES INSTALATION-------------
 main() {
