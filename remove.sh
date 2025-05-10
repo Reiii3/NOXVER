@@ -19,9 +19,7 @@ echo "         ================================="
 echo "         │ Remove performance && AI api  │"
 echo "         ================================="
 echo
-if [[ -n "$perfIns" ]]; then
-   storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
-fi
+storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
 core_1_r
 gameRe
 load 1
