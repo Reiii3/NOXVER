@@ -83,7 +83,7 @@ dev_selection() {
 # // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
 detected_update() {
    if [[ ! -f $system_ai_up ]]; then
-      storm -rP "$bin" -s "${system_detec}" -fn "detecAi"
+      storm -rP "$bin" -s "${system_detec}" -fn "detecAi" "$@"
    fi
    status=$(pgrep -f detecAi)
    if [[ ! $status ]]; then
