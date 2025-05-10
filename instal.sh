@@ -267,6 +267,7 @@ run_ui() {
 test_logic_update() {
    storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
    source $u_ver
+   source $file_update
    
    if [[ $engineName == $nameEngine ]]; then
       echo "ini adalah versi yang paling baru"
