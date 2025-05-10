@@ -115,6 +115,8 @@ panel_info() {
    ;;
    --reboot-ai | ai-r)
       echo "tess"
+      reboot_ai
+      exit 0
    ;;
    esac
 }
