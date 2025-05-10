@@ -9,23 +9,31 @@ source "$file_update"
 source "$engine"
 
 ai_start() {
+    setprop debug.sf.hw 1
+    setprop debug.egl.hw 1
     setprop debug.hwui.renderer skiavk
     setprop debug.hwui.shadow.renderer skiavk
+    setprop debug.renderengine.backend skiavk
+    setprop debug.renderengine.vulkan true
+    setprop debug.vulkan.enable_callback false
+    setprop debug.vulkan.layers ""
     cmd thermalservice override-status 0
     settings put global low_power 0
     cmd power set-adaptive-power-saver-enabled false
     cmd power set-fixed-performance-mode-enabled true
     cmd power set-mode 0
-    setprop debug.renderengine.backend skiavk
     setprop debug.composition.type dyn
     setprop debug.hwui.render_dirty_regions false
     setprop debug.hwui.skia_atrace_enabled false
     setprop debug.qsg_renderer 0
-    setprop debug.vulkan.layers ""
     setprop debug.cpurend.vsync false
     setprop debug.gpurend.vsync true
+    settings put global window_animation_scale 0.8
+    settings put global transition_animation_scale 0.8
+    settings put global animator_duration_scale 0.8
     pm disable --user 0 com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
     pm disable --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
+    pm disable --user 0 com.google.android.gms
     dumpsys deviceidle whitelist -com.google.android.gms
     sleep 0.5
     dumpsys deviceidle force-idle
@@ -45,23 +53,34 @@ ai_op_r() {
 }
 
 ai_end() {
+    setprop debug.sf.hw 0
+    setprop debug.egl.hw 0
     setprop debug.hwui.renderer opengl
     setprop debug.hwui.shadow.renderer opengl
-    cmd thermalservice override-status 1
     setprop debug.renderengine.backend opengl
+    setprop debug.renderengine.vulkan false
+    setprop debug.vulkan.enable_callback false
+    setprop debug.vulkan.layers ""
+    cmd thermalservice reset
+    cmd power set-adaptive-power-saver-enabled true
+    cmd power set-fixed-performance-mode-enabled false
+    cmd power set-mode 1
     setprop debug.composition.type gpu
     setprop debug.hwui.render_dirty_regions true
     setprop debug.hwui.skia_atrace_enabled true
     setprop debug.qsg_renderer 0
-    setprop debug.vulkan.layers ""
     setprop debug.cpurend.vsync true
     setprop debug.gpurend.vsync false
     sleep 1
-    dumpsys deviceidle unforce
-    dumpsys deviceidle step active
+    settings put global window_animation_scale 1.0
+    settings put global transition_animation_scale 1.0
+    settings put global animator_duration_scale 1.0
     pm enable --user 0 com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
     pm enable --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
+    pm enable --user 0 com.google.android.gms
     dumpsys deviceidle whitelist +com.google.android.gms
+    dumpsys deviceidle unforce
+    dumpsys deviceidle step active
 }
 cmd notification post -S bigtext -t "NOXVER.AI RESPONSE" "nox_ai_status" \ "Hallo Welcome to NOXVER.AI"
 check_game() {
