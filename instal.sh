@@ -118,7 +118,9 @@ panel_info() {
       exit 0
    ;;
    --cek_update | -cekUp )
-   
+      storm -x "${url_system_update}" "up"
+      [ -f "$stor_ax" ] && rm "$stor_ax"
+      exit 0
    ;;
    esac
 }
