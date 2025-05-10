@@ -1,4 +1,5 @@
 engine="/data/local/tmp/nxver/engine"
+local url_system_update="https://reiii3.github.io/NOXVER/engine/ui-system/update.sh"
 . $engine
 
 systenUp() {
