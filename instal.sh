@@ -268,7 +268,7 @@ test_logic_update() {
    storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
    source $u_ver
    
-   if [[ $engineName = $nameEngine ]]; then
+   if [[ $engineName == $nameEngine ]]; then
       echo "ini adalah versi yang paling baru"
    else
       echo "tersedia versi terbaru yaitu : $verU"
