@@ -21,7 +21,6 @@ systemCecking() {
       echo
    fi
    rm $prop_update
-   exit 0
 }
 
 main() {
