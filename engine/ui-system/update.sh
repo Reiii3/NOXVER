@@ -1,13 +1,13 @@
 bin="/data/local/tmp"
 engine="/data/local/tmp/nxver/engine"
-local url_system_update="https://reiii3.github.io/NOXVER/engine/ui-system/update.sh"
+url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
 prop_update="$bin/prop"
 prop_stable="$bin/nxver/.noxUp"
 
 . $engine
 
 systenUp() {
-   storm -rP "$bin" -s "${url_system_update}" -fn "prop" "$@"
+   storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
    source $prop_update
    source $prop_stable
    
