@@ -45,6 +45,7 @@ setup_file_awal() {
      axprop $file_update nameGame -s ""
      axprop $file_update status -s "maintenance"
      axprop $file_update notif false
+     axprop $file_update notif_update false
      axprop $file_update sperfor -s "null"
      axprop $file_update waktuUp -s "null"
      axprop $file_update waktuIn -s "null"
@@ -86,7 +87,8 @@ detected_update() {
    
    if [[ "$noxUpdate" == true ]]; then
       axprop $file_update status -s "maintenance"
-      axprop $file_update notif -s false
+      axprop $file_update notif false
+      axprop $file_update notif_update true
       axprop $file_update insUp -s false
    fi
 }
