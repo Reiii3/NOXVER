@@ -113,7 +113,7 @@ panel_info() {
       [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
    ;;
-   --reboot-ai | ai-r )
+   --reboot-ai | -ai-r )
       reboot_ai
       exit 0
    ;;
