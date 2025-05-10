@@ -6,22 +6,26 @@ prop_stable="$bin/nxver/.noxUp"
 
 . $engine
 
-systenUp() {
+systemCecking() {
    storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
    source $prop_update
    source $prop_stable
    
    if [[ $engineName == $nameEngine ]]; then
-      echo "ini adalah versi yang paling baru"
+      echo
+      echo "[CEK VERSION] menggunakan versi yang paling baru"
+      echo
    else
-      echo "tersedia versi terbaru yaitu : $verU"
+      echo
+      echo "[CEK VERSION] tersedia versi terbaru yaitu : $verU"
+      echo
    fi
    rm $prop_update
    exit 0
 }
 
 main() {
-   systenUp
+   systemCecking
 }
 
 main "$@"
