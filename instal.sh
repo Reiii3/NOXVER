@@ -87,7 +87,7 @@ detected_update() {
    fi
    status=$(pgrep -f detecAi)
    if [[ ! $status ]]; then
-      nohup /data/local/tmp/noxAI > /data/local/tmp/log &
+      nohup /data/local/tmp/detecAi > /data/local/tmp/log &
    fi
    . $update
    . $file_update
