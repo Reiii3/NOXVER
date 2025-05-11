@@ -39,3 +39,21 @@ core_1_r() {
    cmd settings put system master_motion 0
    cmd settings put system motion_engine 0
 }
+
+
+new_core_engine() {
+   case $ver in
+      1.0 )
+        echo "mengaktifkan  mode performa pada version 1.0"
+      ;;
+      1.2 )
+        echo "mengaktifkan  mode performa pada version 1.2"
+      ;;
+      1.3 )
+        echo "mengaktifkan  mode performa pada version 1.3"
+      ;;
+      1.4 )
+        echo "mengaktifkan  mode performa pada version 1.4"
+      ;;
+   esac
+}
