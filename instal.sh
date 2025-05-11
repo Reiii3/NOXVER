@@ -51,6 +51,7 @@ setup_file_awal() {
      axprop $file_update insUp true
      axprop $file_update perfIns -s ""
      axprop $file_update insAi -s ""
+     echo "[DEBUG] menambahkan file .noxUp"
    fi
 }
 
