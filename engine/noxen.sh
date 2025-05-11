@@ -192,6 +192,7 @@ installationUp() {
          axprop $file_update status -s "done"
          axprop $file_update insUp true
          axprop $file_update notif_update false
+         rm $engine
          sleep 1
          echo "  $su update succesfully"
          
