@@ -214,7 +214,7 @@ main() {
    allways_cek_update
    dev_selection "$@"
    developer_mode
-   run_update_versiom
+   run_update_versiom "$@"
    panel_info "$@"
    
    case $1 in 
