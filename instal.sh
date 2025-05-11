@@ -18,7 +18,7 @@ local update="$bin/.detecUpdate"
 local file_update="$cashup/.noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
-local engine_core="$data/engine_system"
+local engine_core="$bin/engine_system"
 local bin_dev="$bin/debug/nox-control"
 local stor_ax="$bin/axeron_cash/Vex/response"
 local stor_ins="$bin/axeron_cash/Vex/instal"
@@ -156,6 +156,7 @@ run_ui() {
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    rm $stor_ins
+   rm $engine_core
    echo
 }
 
