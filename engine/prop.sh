@@ -1,4 +1,4 @@
-verU="1.3"
-vercU=13
-engineName="NVXR130B"
-version_release="B"
+verU="1.0"
+vercU=10
+engineName="NVXR100R"
+version_release="R"
