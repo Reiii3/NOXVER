@@ -25,7 +25,8 @@ load() {
 }
 
 devPL() {
-   [[ -f "$bin_dev" ]] && echo "$1"
+   source $bin_dev
+   [[ "$nox_debug" == true ]] && echo "$1"
 }
 
 gameRun() {
