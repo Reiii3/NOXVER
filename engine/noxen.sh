@@ -1,4 +1,5 @@
 $AXFUN
+url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
 devmode=false
 export time=$(date "+%a %b %d %Y %H:%M %Z")
 export wr="\e[38;2;188;61;0m"
