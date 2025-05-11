@@ -35,8 +35,9 @@ setup_file_awal() {
      storm -rP "$data" -s "${url}" -fn "engine"
    fi
    source $engine
+   source $file_update
    [[ -f "$bin_dev" ]] && source $bin_dev;
-   if [[ ! -f $file_update ]]; then
+   if [[ ! -f file_update ]]; then
      echo "# Dont Change It" > "$file_update"
      axprop $file_update ver -s "null"
      axprop $file_update verc -s "null"
