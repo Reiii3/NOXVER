@@ -220,8 +220,8 @@ installationUp() {
             echo "   - versionCode : $vercU Experimental"
             echo "   - nameEngine : $engineName Experimental"
             echo
-            rm $prop_update
             exit 0
+            rm $prop_update
          fi
       else
          echo
@@ -229,6 +229,7 @@ installationUp() {
          echo "    Hanya Developer Yang Mempunyai Akses"
          echo " silahkan tunggu Version Release Stable/Beta"
          echo
+         rm $prop_update
       fi
    else
       echo
@@ -236,5 +237,6 @@ installationUp() {
       echo "             $waktuIn"
       echo
       exit 0
+      rm $prop_update
    fi
 }
