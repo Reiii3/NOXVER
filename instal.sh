@@ -121,6 +121,8 @@ run_update_versiom() {
    case $1 in
     -update )
        installationUp
+       echo "DEBUG"
+       exit 0
      ;;
    esac
 }
