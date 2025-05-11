@@ -134,9 +134,11 @@ run_notif() {
 run_ui() {
    echo
    if [[ -z "$perfIns" ]]; then
-      storm -rP "$bin" -s "${engine_system}" -fn "engine_core" "$@"
+      storm -rP "$bin" -s "${engine_system}" -fn "engine_system" "$@"
+      devPL "[DEBUG] instalasi engine_system"
    fi
    sleep 1
+   source $engine_core
    storm -x "${url_ui}" "ui"
    if [[ -z "$perfIns" ]]; then
       new_core_engine $@
