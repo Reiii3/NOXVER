@@ -58,7 +58,6 @@ setup_file_awal() {
 allways_cek_update() {
       storm -x "${url_system_update}" "up"
       [ -f "$stor_ax" ] && rm "$stor_ax"
-      exit 0
 }
 
 dev_selection() {
@@ -86,16 +85,6 @@ dev_selection() {
 }
 
 # // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
-detected_update() {
-   . $update
-   . $file_update
-   if [[ "$noxUpdate" == true ]]; then
-      axprop $file_update status -s "maintenance"
-      axprop $file_update notif false
-      axprop $file_update notif_update true
-      axprop $file_update insUp -s false
-   fi
-}
 
 # FUNGSI : digunakan untuk par developer untuk debugger pada saat system sedang maintenance
 developer_mode() {
@@ -128,7 +117,11 @@ panel_info() {
 
 # FUNGSI : untuk mengupdate system ke version terbaru
 run_update_versiom() {
-   
+   case $1 in
+    -update )
+       installationUp
+     ;;
+   esac
 }
 
 # FUNGSI : berfungsi untuk Menginstall versi terbaru pada saat pertama kali menggunakan modules
@@ -220,8 +213,8 @@ main() {
    setup_file_awal
    allways_cek_update
    dev_selection "$@"
-   detected_update
-   developer_mode 
+   developer_mode
+   run_update_versiom
    panel_info "$@"
    
    case $1 in 
