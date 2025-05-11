@@ -178,7 +178,7 @@ installationUp() {
    source $prop_stable
    
    if [[ "$ver" != "$verU" ]] && [[ "$verc" != "$vercU" ]] && [[ "$nameEngine" != "$engineName" ]]; then
-      if [[ "$version_release" = "R|B" ]]; then
+      if [[ "$version_release" = "R" ]] || [[ "$version_release" = "B" ]]; then
          sleep 1
          echo "  $pr update system starting"
          axprop $file_update ver -s "$verU"
