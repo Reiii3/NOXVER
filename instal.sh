@@ -139,7 +139,6 @@ run_ui() {
    sleep 1
    storm -x "${url_ui}" "ui"
    if [[ -z "$perfIns" ]]; then
-      install_perff
       new_core_engine $@
       cek_oppo_boost
       echo
