@@ -25,18 +25,6 @@ local stor_ins="$bin/axeron_cash/Vex/instal"
 local u_ver="$bin/prop"
 
 
-setup_system() {
-   if [ ! -d $data ]; then
-     mkdir -p "$data"
-   fi
-   if [[ ! -f $engine ]]; then
-     storm -rP "$data" -s "${url}" -fn "engine"
-   fi
-   source $engine
-   source $file_update
-   [[ -f "$bin_dev" ]] && source $bin_dev;
-}
-
 # // FUNGSI : Menambahkan file penting seperti engine san yang lain
 setup_file_awal() {
    if [[ ! -f $file_update ]]; then
@@ -172,7 +160,15 @@ run_ui() {
 
 #--------------MAIN MODULES INSTALATION-------------
 main() {
-   setup_system
+   if [ ! -d $data ]; then
+     mkdir -p "$data"
+   fi
+   if [[ ! -f $engine ]]; then
+     storm -rP "$data" -s "${url}" -fn "engine"
+   fi
+   source $engine
+   source $file_update
+   [[ -f "$bin_dev" ]] && source $bin_dev;
    setup_file_awal
    allways_cek_update
    dev_selection "$@"
