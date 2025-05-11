@@ -24,8 +24,8 @@ local stor_ax="$bin/axeron_cash/Vex/response"
 local stor_ins="$bin/axeron_cash/Vex/instal"
 local u_ver="$bin/prop"
 
-# // FUNGSI : Menambahkan file penting seperti engine san yang lain
-setup_file_awal() {
+
+setup_system() {
    if [ ! -d $data ]; then
      mkdir -p "$data"
    fi
@@ -35,6 +35,10 @@ setup_file_awal() {
    source $engine
    source $file_update
    [[ -f "$bin_dev" ]] && source $bin_dev;
+}
+
+# // FUNGSI : Menambahkan file penting seperti engine san yang lain
+setup_file_awal() {
    if [[ ! -f $file_update ]]; then
      echo "# Dont Change It" > "$file_update"
      axprop $file_update ver -s "null"
@@ -168,6 +172,7 @@ run_ui() {
 
 #--------------MAIN MODULES INSTALATION-------------
 main() {
+   setup_system
    setup_file_awal
    allways_cek_update
    dev_selection "$@"
