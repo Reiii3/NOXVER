@@ -170,6 +170,10 @@ reboot_ai() {
 
 installationUp() {
    storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+   bin="/data/local/tmp"
+   prop_update="$bin/prop"
+   prop_stable="$bin/nxver/.noxUp"
+
    source $prop_update
    source $prop_stable
    
