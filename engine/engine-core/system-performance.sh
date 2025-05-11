@@ -1,10 +1,3 @@
-core_test() {
-   cmd package compile -m everything-profile -f "$line"
-   cmd package compile -m quicken -f "$line"
-   cmd package compile -m speed --secondary-dex -f "$line"
-}
-
-
 new_core_engine() {
    case $ver in
       1.0 )
@@ -26,7 +19,23 @@ new_core_engine() {
          cmd settings put system motion_engine 0
          devPL "[DEBUG] mode perdorma v1 succes actived"
         } # core 1 di gunakana untuk resource setprop
+        core_1
+      ;;
+      1.2 )
+        echo "mengaktifkan  mode performa pada version 1.2"
+      ;;
+      1.3 )
+        echo "mengaktifkan  mode performa pada version 1.3"
+      ;;
+      1.4 )
+        echo "mengaktifkan  mode performa pada version 1.4"
+      ;;
+   esac
+}
 
+new_core_engine_r() {
+   case $ver in
+      1.0 )
          core_1_r() {
             setprop debug.hwui.use_hint_manager ""
             setprop debug.hwui.disable_vsync ""
@@ -45,6 +54,7 @@ new_core_engine() {
             cmd settings put system motion_engine 1
             devPL "[DEBUG] mode removed tweak v1 succes"
          }
+         core_1_r
       ;;
       1.2 )
         echo "mengaktifkan  mode performa pada version 1.2"
