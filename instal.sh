@@ -35,14 +35,13 @@ setup_file_awal() {
    source $engine
    source $file_update
    [[ -f "$bin_dev" ]] && source $bin_dev;
-   if [[ ! -f file_update ]]; then
+   if [[ ! -f $file_update ]]; then
      echo "# Dont Change It" > "$file_update"
      axprop $file_update ver -s "null"
      axprop $file_update verc -s "null"
      axprop $file_update nameEngine -s "null"
      axprop $file_update packageRun -s ""
      axprop $file_update nameGame -s ""
-     axprop $file_update status -s "maintenance"
      axprop $file_update notif false
      axprop $file_update notif_update false
      axprop $file_update sperfor -s "null"
