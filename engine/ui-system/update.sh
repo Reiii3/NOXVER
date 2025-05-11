@@ -13,11 +13,11 @@ systemCecking() {
    
    if [[ $engineName == $nameEngine ]]; then
       echo
-      echo "[CEK VERSION] menggunakan versi yang paling baru"
+      echo "[Information] sudah menggunakan versi yang paling baru"
       echo
    else
       echo
-      echo "[CEK VERSION] tersedia versi terbaru yaitu : $verU"
+      echo "[Information] tersedia versi terbaru yaitu : $verU"
       echo
    fi
    rm $prop_update
