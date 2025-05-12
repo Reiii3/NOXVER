@@ -138,9 +138,10 @@ run_ui() {
       devPL "[DEBUG] instalasi engine_system"
    fi
    sleep 1
-   source $engine_core
+   [[ -f "$engine_core" ]] && source $engine_core
    storm -x "${url_ui}" "ui"
    if [[ -z "$perfIns" ]]; then
+      axprop $file_update perfIns -s "$time"
       new_core_engine $@
       cek_oppo_boost
       echo
@@ -150,14 +151,13 @@ run_ui() {
       gameRun
       echo "          =================================="
       install_ai
-      axprop $file_update perfIns -s "$time"
    else
       printer "           - system sudah terinstall -"
       printer "                    - Reii -"
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    rm $stor_ins
-   rm $engine_core
+   [[ -f "$engine_core" ]] && rm $engine_core
    echo
 }
 
