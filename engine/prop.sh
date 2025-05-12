@@ -1,5 +1,5 @@
-verU="1.1"
-vercU=11
-engineName="NVXR110R"
-version_release="X"
-buildDate=""
+verU="1.2"
+vercU=12
+engineName="NVXR120R"
+version_release="R"
+buildDate="Sel 13 Mei 2025"
