@@ -109,7 +109,7 @@ run_update_versiom() {
    case $1 in
     -update )
        installationUp
-       echo "DEBUG"
+       devPL "[DEBUG] run_update_version running $su"
        exit 0
      ;;
    esac
