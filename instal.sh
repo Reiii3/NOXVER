@@ -116,7 +116,7 @@ run_update_versiom() {
 
 # FUNGSI : berfungsi untuk Menginstall versi terbaru pada saat pertama kali menggunakan modules
 first_run() {
-   if [[ "$ver" = "null" ]] && [[ "$verc" = "null" ]]; then
+   if [[ "$ver" = "null" ]] && [[ "$verc" = null ]]; then
       storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
       sleep 1 
       . $u_ver
