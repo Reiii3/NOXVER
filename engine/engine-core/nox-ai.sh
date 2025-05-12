@@ -101,9 +101,6 @@ check_game() {
                echo "DEBUG : Notif Performance Active"
                notif_run="run"
            fi
-           if [[ "$notif_update" == true ]]; then
-              cmd notification post -S bigtext -t "ANNOUNCEMENT NOXVER.AI" "nox_ai_status" \ "MAINTENANCE SYSTEM"
-           fi
            ai_start
              echo "DEBUG : Performance By Noxver Active"
             if [ "$sperfor" = true ]; then
@@ -127,9 +124,6 @@ check_game() {
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
                ai_end
-            fi
-            if [[ "$notif_update" == true ]]; then
-               cmd notification post -S bigtext -t "ANNOUNCEMENT NOXVER.AI" "nox_ai_status" \ "MAINTENANCE SYSTEM"
             fi
             echo "DEBUG : Performance By Noxver Deactivated"
             if [ "$sperfor" = true ]; then
