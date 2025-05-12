@@ -9,6 +9,7 @@ source "$file_update"
 source "$engine"
 
 ai_start() {
+    settings put global updatable_driver_production_opt_in_apps $detected_apps
     setprop debug.sf.hw 1
     setprop debug.egl.hw 1
     setprop debug.hwui.renderer skiavk
@@ -35,6 +36,7 @@ ai_start() {
     pm disable --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
     pm disable --user 0 com.google.android.gms
     am force-stop com.google.android.gms
+    cmd activity force-stop com.xiaomi.joyose
     dumpsys deviceidle whitelist -com.google.android.gms
     sleep 0.5
     dumpsys deviceidle force-idle
@@ -54,6 +56,7 @@ ai_op_r() {
 }
 
 ai_end() {
+    settings delete global updatable_driver_production_opt_in > /dev/null 2>&1
     setprop debug.sf.hw 0
     setprop debug.egl.hw 0
     setprop debug.hwui.renderer opengl
