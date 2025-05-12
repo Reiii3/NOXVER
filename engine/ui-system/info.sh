@@ -6,7 +6,6 @@ source_update="/data/local/tmp/.detecUpdate"
 
 source $source_module
 source $engine_module
-source $source_update
 
 echo
 echo "     ┌══════════════════════════════════════┐"
