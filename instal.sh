@@ -169,7 +169,11 @@ first_run() {
          echo
          rm $u_ver
          exit 0
+      else
+        devPL "[DEBUG] terjadi masalah di bagian cek version_release $version_release"
       fi
+   else
+      devPL "[DEBUG] terjadi masalah pada bagian pengecekan version"
    fi
 }
 
