@@ -181,7 +181,9 @@ installationUp() {
 
    source $prop_update
    source $prop_stable
-   
+   echo
+   echo "[Online Update] connected"
+   echo
    if [[ "$ver" != "$verU" ]] && [[ "$verc" != "$vercU" ]] && [[ "$nameEngine" != "$engineName" ]]; then
       if [[ "$version_release" = "R" ]] || [[ "$version_release" = "B" ]]; then
          sleep 1
