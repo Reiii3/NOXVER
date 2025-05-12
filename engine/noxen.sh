@@ -38,6 +38,8 @@ gameRun() {
       cmd package compile -m everything-profile -f "$line"
       cmd package compile -m quicken -f "$line"
       cmd package compile -m speed --secondary-dex -f "$line"
+      cmd package reconcile-secondary-dex-files "$line"
+      cmd package compile --compile-layouts --secondary-dex -f "$line"
    }
    echo "$game" | while IFS= read -r line; do
        if [ -n "$line" ]; then
