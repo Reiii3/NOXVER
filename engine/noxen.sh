@@ -162,6 +162,7 @@ reboot_ai() {
 installationUp() {
    storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
    bin="/data/local/tmp"
+   engine_mcine="$bin/nxver/engine"
    prop_update="$bin/prop"
    prop_stable="$bin/nxver/.noxUp"
 
@@ -223,6 +224,7 @@ installationUp() {
             echo "         silahkan tunggu Version Release Stable/Beta"
             echo
             rm $prop_update
+            rm $engine_mcine
          fi
       fi
    else
