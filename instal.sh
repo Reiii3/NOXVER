@@ -115,6 +115,39 @@ run_update_versiom() {
    esac
 }
 
+# FUNGSI : berfungsi untuk Menginstall versi terbaru pada saat pertama kali menggunakan modules
+first_run() {
+   if [[ "$ver" = "null" ]] && [[ "$verc" = "null" ]]; then
+      storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
+      sleep 1 
+      . $u_ver
+      echo "       - [initializing system] -"
+      sleep 1.5
+      echo "      Welcome to NOXVER.AI Modules"
+      echo
+      echo "  $in Menginstall system modules.."
+      sleep 1 
+      axprop $file_update ver -s "$verU"
+      axprop $file_update verc -s $vercU
+      axprop $file_update status -s "done"
+      axprop $file_update waktuIn -s "$time"
+      axprop $file_update nameEngine -s "$engineName"
+      sleep 1 
+      echo "  $su Instalation succesfully"
+      echo 
+      echo "==============================="
+      echo "    Information Instalation"
+      echo "==============================="
+      echo "  version : $verU"
+      echo "  versionCode : $vercU"
+      echo "  engine : $engineName"
+      echo "==============================="
+      echo
+      rm $u_ver
+      exit 0
+   fi
+}
+
 
 # fungsi : digunakan untuk menampilkan info bahwa syatem sudah di update keversion terbaru
 run_notif() {
