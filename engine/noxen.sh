@@ -91,7 +91,7 @@ install_ai() {
    if [ ! "$status" ]; then
        storm -rP "$bin" -s "${url_ai}" -fn "noxAI" "$@"
        nohup /data/local/tmp/noxAI >/dev/null 2>&1 &
-       printer "   $in Instalation Program Succesfuly"
+       printer "     $in Instalation Program Succesfuly"
    fi
    sleep 2
    status=$(pgrep -f noxAI)
@@ -100,10 +100,10 @@ install_ai() {
      insAi=$status
    fi
    if [ "$status" ]; then
-       echo "   ${ORANGE}$su Program berhasil terpasang${END}"
+       echo "     ${ORANGE}$su Program berhasil terpasang${END}"
        am broadcast -a axeron.show.TOAST --es title "NOXVER.AI Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
    else
-       echo "   $war Program failed: gagal"
+       echo "     $war Program failed: gagal"
    fi
 }
 
