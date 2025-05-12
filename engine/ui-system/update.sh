@@ -17,8 +17,14 @@ systemCecking() {
       echo
    else
       echo
-      echo "[Information] tersedia versi terbaru yaitu : $verU"
-      echo
+      if [[ "$version_release" == "B" ]] || [[ "$version_release" == "R" ]]; then
+         echo "[Information] tersedia versi terbaru yaitu : $verU"
+         echo
+      elif [[ "$version_release" == "X" ]]; then
+         echo "[Information] tersedia versi terbaru yaitu : $verU"
+         echo "[Notes] Hanya untuk pengguna Tester/Developer"
+         echo
+      fi
    fi
    rm $prop_update
 }
