@@ -77,11 +77,11 @@ cek_oppo_boost() {
    cek_oppo=$(settings list system | grep -qE "high_performance_mode_on|high_performance_mode_on_when_shutdown" && echo true || echo false)
    if "$cek_oppo"; then
      echo "            $su High performance supported"
-     axprop $file_update sperfor -s true
+     axprop $file_update sperfor true
      sperfor=true
    else
      echo "            $war High performance not support"
-     axprop $file_update sperfor -s false
+     axprop $file_update sperfor false
      sperfor=false
    fi
 }
