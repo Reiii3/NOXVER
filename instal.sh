@@ -228,8 +228,8 @@ main() {
    if [[ ! -f $engine ]]; then
      storm -rP "$data" -s "${url}" -fn "engine"
    fi
-   setup_file_awal
    source $engine
+   setup_file_awal
    source $file_update
    [[ -f "$bin_dev" ]] && source $bin_dev;
    allways_cek_update
