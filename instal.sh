@@ -152,8 +152,8 @@ run_ui() {
       echo "          =================================="
       install_ai
    else
-      printer "           - system sudah terinstall -"
-      printer "                    - Reii -"
+      printer "             - system sudah terinstall -"
+      printer "                      - Reii -"
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
    rm $stor_ins
