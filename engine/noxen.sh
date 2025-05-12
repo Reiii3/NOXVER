@@ -218,9 +218,9 @@ installationUp() {
             rm $prop_update
           else
             echo
-            echo "   - Version Release Masih Experimental -"
-            echo "    Hanya Developer Yang Mempunyai Akses"
-            echo " silahkan tunggu Version Release Stable/Beta"
+            echo "           - Version Release Masih Experimental -"
+            echo "            Hanya Developer Yang Mempunyai Akses"
+            echo "         silahkan tunggu Version Release Stable/Beta"
             echo
             rm $prop_update
          fi
