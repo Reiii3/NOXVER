@@ -1,6 +1,6 @@
 new_core_engine() {
    case $ver in
-      1.0 )
+      1.0 | 1.1 )
         core_1() {
          setprop debug.hwui.use_hint_manager 1
          setprop debug.hwui.disable_vsync true
