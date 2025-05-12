@@ -150,6 +150,7 @@ run_ui() {
       gameRun
       echo "          =================================="
       install_ai
+      axprop $file_update perfIns -s "$time"
    else
       printer "           - system sudah terinstall -"
       printer "                    - Reii -"
