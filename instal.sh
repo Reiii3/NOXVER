@@ -30,7 +30,7 @@ setup_file_awal() {
    if [[ ! -f $file_update ]]; then
      echo "# Dont Change It" > "$file_update"
      axprop $file_update ver -s "null"
-     axprop $file_update verc -s "null"
+     axprop $file_update verc "null"
      axprop $file_update nameEngine -s "null"
      axprop $file_update packageRun -s ""
      axprop $file_update nameGame -s ""
@@ -121,6 +121,9 @@ first_run() {
       storm -rP "$bin" -s "${url_prop}" -fn "prop" "$@"
       sleep 1 
       . $u_ver
+      if [[ "$version_realeas" ]]; then
+         #statements
+      fi
       echo "       - [initializing system] -"
       sleep 1.5
       echo "      Welcome to NOXVER.AI Modules"
@@ -128,7 +131,7 @@ first_run() {
       echo "  $in Menginstall system modules.."
       sleep 1 
       axprop $file_update ver -s "$verU"
-      axprop $file_update verc -s $vercU
+      axprop $file_update verc $vercU
       axprop $file_update status -s "done"
       axprop $file_update waktuIn -s "$time"
       axprop $file_update nameEngine -s "$engineName"
