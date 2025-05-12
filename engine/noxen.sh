@@ -194,6 +194,7 @@ installationUp() {
          echo "   - nameEngine : $engineName New"
          echo
          rm $prop_update
+         rm $engine_mcine
          exit 0
       elif [[ "$version_release" = "X" ]]; then
          if [[ "$akses_awal" = true ]]; then
@@ -215,8 +216,9 @@ installationUp() {
             echo "   - versionCode : $vercU Experimental"
             echo "   - nameEngine : $engineName Experimental"
             echo
-            exit 0
             rm $prop_update
+            rm $engine_mcine
+            exit 0
           else
             echo
             echo "           - Version Release Masih Experimental -"
@@ -224,7 +226,6 @@ installationUp() {
             echo "         silahkan tunggu Version Release Stable/Beta"
             echo
             rm $prop_update
-            rm $engine_mcine
          fi
       fi
    else
@@ -232,7 +233,7 @@ installationUp() {
       echo " - modules ini sudah terupdate ke versi terbaru sejak -"
       echo "               $waktuIn"
       echo
-      exit 0
       rm $prop_update
+      exit 0
    fi
 }
