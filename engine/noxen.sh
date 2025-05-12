@@ -86,20 +86,6 @@ cek_oppo_boost() {
    fi
 }
 
-install_perff() {
-   reso="/data/local/tmp/nxver/.noxUp"
-   engine_system="/data/local/tmp/engine_core"
-   source $reso
-   if [[ -f $engine_system ]]; then
-      source $engine_system
-   fi
-   sleep 1
-   if [[ -z "$perfIns" ]]; then
-      axprop $reso perfIns -s "$time"
-      rm "$engine_system"
-    fi
-}
-
 install_ai() {
    status=$(pgrep -f noxAI)
    if [ ! "$status" ]; then
