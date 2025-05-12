@@ -1,6 +1,6 @@
 $AXFUN
 url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
-bin_dev="/data/local/tmp//debug/nox-control"
+bin_dev="/data/local/tmp/debug/nox-control"
 export time=$(date "+%a %b %d %Y %H:%M %Z")
 export wr="\e[38;2;188;61;0m"
 export nwr="\e[0m"
@@ -25,7 +25,7 @@ load() {
 }
 
 devPL() {
-   source $bin_dev
+   [[ -f "$bin_dev" ]] && source $bin_dev;
    [[ "$nox_debug" == true ]] && echo "$1"
 }
 
