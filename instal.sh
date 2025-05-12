@@ -248,6 +248,7 @@ main() {
       ;;
    esac
    
+   first_run
    run_notif
    run_ui
   
