@@ -196,7 +196,7 @@ installationUp() {
          echo "   - nameEngine : $engineName New"
          echo
          rm $prop_update
-         rm $engine_mcine
+         [[ -f $engine_mcine ]] && rm $engine_mcine;
          exit 0
       elif [[ "$version_release" = "X" ]]; then
          if [[ "$akses_awal" = true ]]; then
