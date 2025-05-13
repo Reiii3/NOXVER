@@ -67,10 +67,10 @@ new_core_engine() {
        }
       ;;
       1.3 )
-        echo "mengaktifkan  mode performa pada version 1.3"
+        devPL "mengaktifkan  mode performa pada version 1.3"
       ;;
       1.4 )
-        echo "mengaktifkan  mode performa pada version 1.4"
+        devPL "mengaktifkan  mode performa pada version 1.4"
       ;;
    esac
 }
@@ -129,10 +129,10 @@ new_core_engine_r() {
 
       ;;
       1.3 )
-        echo "mengaktifkan  mode performa pada version 1.3"
+        devPL "mengaktifkan  mode performa pada version 1.3"
       ;;
       1.4 )
-        echo "mengaktifkan  mode performa pada version 1.4"
+        devPL "mengaktifkan  mode performa pada version 1.4"
       ;;
    esac
 }
