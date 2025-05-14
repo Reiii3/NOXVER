@@ -99,7 +99,7 @@ check_game() {
            render_detected=$(getprop debug.hwui.renderer)
             if [ "$notif_run" != "run" ]; then
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
-"Game Mode : ON    Engine : $nameEngine
+"Game Mode : ON     Engine : $nameEngine
 Status : Conected    Render : $render_detected"
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Activated" --ei duration "3000"
                echo "DEBUG : Notif Performance Active"
