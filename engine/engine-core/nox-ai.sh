@@ -96,6 +96,7 @@ check_game() {
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
            ai_start
            sleep 0.5
+           render_detected=$(getprop debug.hwui.renderer)
             if [ "$notif_run" != "run" ]; then
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
 "Game Mode : ON    Engine : $nameEngine
@@ -122,6 +123,7 @@ Status : Conected    Render : $render_detected"
             if [ "$notif_run" != "stop" ]; then
               ai_end
               sleep 0.5
+              render_detected=$(getprop debug.hwui.renderer)
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
 "Game Mode : OFF    Engine : $nameEngine 
 Status : Conected    Render : $render_detected"
