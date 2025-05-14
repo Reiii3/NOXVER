@@ -120,13 +120,14 @@ Status : Conected    Render : $render_detected"
     else
          if [ "$gamerun" != "stopped" ] || [ "$render_detected" != "opengl" ]; then
             if [ "$notif_run" != "stop" ]; then
+              ai_end
+              sleep 0.5
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
 "Game Mode : OFF    Engine : $nameEngine 
 Status : Conected    Render : $render_detected"
                am broadcast -a gvr.service.TOAST --es title "FOXVER AI" --es message "Performance Deactivated" --ei duration "3000"
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
-               ai_end
             fi
             echo "DEBUG : Performance By Noxver Deactivated"
             if [ "$sperfor" = true ]; then
