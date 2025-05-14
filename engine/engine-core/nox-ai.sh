@@ -94,6 +94,8 @@ check_game() {
 
     if [ -n "$detected_apps" ]; then
         if [ "$gamerun" != "running" ] || [ "$render_detected" != "skiavk" ]; then
+           ai_start
+           sleep 0.5
             if [ "$notif_run" != "run" ]; then
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
 "Game Mode : ON    Engine : $nameEngine
@@ -102,7 +104,6 @@ Status : Conected    Render : $render_detected"
                echo "DEBUG : Notif Performance Active"
                notif_run="run"
            fi
-           ai_start
              echo "DEBUG : Performance By Noxver Active"
             if [ "$sperfor" = true ]; then
                 ai_op
