@@ -101,7 +101,6 @@ check_game() {
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
 "Game Mode : ON     Engine : $nameEngine
 Status : Conected    Render : $render_detected"
-               am broadcast -a axeron.show.TOAST --es title "FOXVER AI" --es message "Performance Activated" --ei duration "3000"
                echo "DEBUG : Notif Performance Active"
                notif_run="run"
            fi
@@ -127,7 +126,6 @@ Status : Conected    Render : $render_detected"
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
 "Game Mode : OFF    Engine : $nameEngine 
 Status : Conected    Render : $render_detected"
-               am broadcast -a axeron.show.TOAST --es title "FOXVER AI" --es message "Performance Deactivated" --ei duration "3000"
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
             fi
