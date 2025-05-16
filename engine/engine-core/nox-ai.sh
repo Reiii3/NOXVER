@@ -32,8 +32,6 @@ ai_start() {
     settings put global window_animation_scale 0.8
     settings put global transition_animation_scale 0.8
     settings put global animator_duration_scale 0.8
-    pm disable-user --user 0 com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
-    pm disable-user --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
     pm disable-user --user 0 com.google.android.gms
     am force-stop com.google.android.gms
     cmd activity force-stop com.xiaomi.joyose
@@ -79,8 +77,6 @@ ai_end() {
     settings put global window_animation_scale 1.0
     settings put global transition_animation_scale 1.0
     settings put global animator_duration_scale 1.0
-    pm enable --user 0 com.google.android.gms/com.google.android.gms.auth.managed.admin.DeviceAdminReceiver
-    pm enable --user 0 com.google.android.gms/com.google.android.gms.mdm.receivers.MdmDeviceAdminReceiver
     pm enable --user 0 com.google.android.gms
     dumpsys deviceidle whitelist +com.google.android.gms
     dumpsys deviceidle unforce
