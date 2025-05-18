@@ -14,7 +14,7 @@ source "$data_res"
 
 #---------------- main ui modules-----------------
 echo
-printer "                  - NOXVER.AI -"
+brand_noxver ice
 load "1"
 echo "         ================================="
 echo "         │ Remove performance && AI api  │"
