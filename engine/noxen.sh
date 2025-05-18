@@ -219,66 +219,71 @@ installationUp() {
    echo
    echo "[Online Update] connected"
    echo
-   if [[ "$ver" != "$verU" ]] && [[ "$verc" != "$vercU" ]] && [[ "$nameEngine" != "$engineName" ]]; then
-      if [[ "$version_release" = "R" ]] || [[ "$version_release" = "B" ]]; then
-         sleep 1
-         echo "  $pr update system starting"
-         axprop $file_update ver -s "$verU"
-         axprop $file_update verc -s $vercU
-         axprop $file_update nameEngine -s "$engineName"
-         axprop $file_update waktuUp -s "$time"
-         axprop $file_update buildDate -s "$build"
-         axprop $file_update notif_update false
-         rm $engine
-         sleep 1
-         echo "  $su update succesfully"
-         
-         echo
-         sleep 0.03
-         echo " - New Information Modules -"
-         echo "   - version : $verU New"
-         echo "   - versionCode : $vercU New"
-         echo "   - nameEngine : $engineName New"
-         echo
-         rm $prop_update
-         [[ -f $engine_mcine ]] && rm $engine_mcine;
-         exit 0
-      elif [[ "$version_release" = "X" ]]; then
-         if [[ "$akses_awal" = true ]]; then
+   if [[ -z $perfIns ]]; then
+      if [[ "$ver" != "$verU" ]] && [[ "$verc" != "$vercU" ]] && [[ "$nameEngine" != "$engineName" ]]; then
+         if [[ "$version_release" = "R" ]] || [[ "$version_release" = "B" ]]; then
+            sleep 1
             echo "  $pr update system starting"
             axprop $file_update ver -s "$verU"
             axprop $file_update verc -s $vercU
             axprop $file_update nameEngine -s "$engineName"
             axprop $file_update waktuUp -s "$time"
+            axprop $file_update buildDate -s "$build"
             axprop $file_update notif_update false
+            rm $engine
             sleep 1
             echo "  $su update succesfully"
             
             echo
             sleep 0.03
             echo " - New Information Modules -"
-            echo "   - version : $verU Experimental"
-            echo "   - versionCode : $vercU Experimental"
-            echo "   - nameEngine : $engineName Experimental"
+            echo "   - version : $verU New"
+            echo "   - versionCode : $vercU New"
+            echo "   - nameEngine : $engineName New"
             echo
             rm $prop_update
-            rm $engine_mcine
+            [[ -f $engine_mcine ]] && rm $engine_mcine;
             exit 0
-          else
-            echo
-            echo "           - Version Release Masih Experimental -"
-            echo "            Hanya Developer Yang Mempunyai Akses"
-            echo "         silahkan tunggu Version Release Stable/Beta"
-            echo
-            rm $prop_update
+         elif [[ "$version_release" = "X" ]]; then
+            if [[ "$akses_awal" = true ]]; then
+               echo "  $pr update system starting"
+               axprop $file_update ver -s "$verU"
+               axprop $file_update verc -s $vercU
+               axprop $file_update nameEngine -s "$engineName"
+               axprop $file_update waktuUp -s "$time"
+               axprop $file_update notif_update false
+               sleep 1
+               echo "  $su update succesfully"
+               
+               echo
+               sleep 0.03
+               echo " - New Information Modules -"
+               echo "   - version : $verU Experimental"
+               echo "   - versionCode : $vercU Experimental"
+               echo "   - nameEngine : $engineName Experimental"
+               echo
+               rm $prop_update
+               rm $engine_mcine
+               exit 0
+             else
+               echo
+               echo "           - Version Release Masih Experimental -"
+               echo "            Hanya Developer Yang Mempunyai Akses"
+               echo "         silahkan tunggu Version Release Stable/Beta"
+               echo
+               rm $prop_update
+            fi
          fi
+      else
+         echo
+         echo " - modules ini sudah terupdate ke versi terbaru sejak -"
+         echo "               $waktuIn"
+         echo
+         rm $prop_update
+         exit 0
       fi
-   else
-      echo
-      echo " - modules ini sudah terupdate ke versi terbaru sejak -"
-      echo "               $waktuIn"
-      echo
-      rm $prop_update
-      exit 0
+   else 
+     echo "   Harap Uninstall terlebih dahulu module version lama"
+     echo "   Usage : ax vex -r"
    fi
 }
