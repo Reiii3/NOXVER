@@ -218,7 +218,7 @@ run_ui() {
       printer "                      - Reii -"
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
-   rm $stor_ins
+   [[ -f "$stor_ins" ]] && rm $stor_ins
    [[ -f "$engine_core" ]] && rm $engine_core
    echo
 }
