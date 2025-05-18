@@ -25,5 +25,5 @@ echo "    - Added Game Driver Option"
 echo "    - Stabilizing Game Compiler"
 echo "    - Stabilizing the skiavk renderer"
 echo
-echo " plugin NOXVER :"
+echo " Plugin NOXVER :"
 echo "    - comming soon"
