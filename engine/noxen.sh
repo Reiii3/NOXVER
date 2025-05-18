@@ -1,5 +1,5 @@
 $AXFUN
-url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
+url_prop="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/prop.sh"
 bin_dev="/data/local/tmp/debug/nox-control"
 export time=$(date "+%a %b %d %Y %H:%M %Z")
 export wr="\e[38;2;188;61;0m"
