@@ -274,11 +274,11 @@ installationUp() {
                rm $prop_update
             fi
          fi
-      else 
+       else 
         echo "   Harap Uninstall terlebih dahulu module version lama"
         echo "   Usage : ax vex -r"
       fi
-   else
+    else
       echo
       echo " - modules ini sudah terupdate ke versi terbaru sejak -"
       echo "               $waktuIn"
