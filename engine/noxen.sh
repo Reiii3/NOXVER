@@ -31,7 +31,6 @@ text="$1"
    i=$((i + 1))
  done
 echo
-echo
 }
 load() {
    sleep $1
