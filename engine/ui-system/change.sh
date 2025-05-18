@@ -6,17 +6,17 @@ source $engine
 source $prop
 
 brand_noxver ice
-echo "          ====================================="
-echo "             Welcome To Changelogs NOXVER.AI"
-echo "          ====================================="
+echo "         ====================================="
+echo "            Welcome To Changelogs NOXVER.AI"
+echo "         ====================================="
 echo 
 echo " Usage This Module :" && load 0.5
 echo "    Instalation this Module : ax vex " && load 0.5
 echo "    Removed this Module : ax vex -r" && load 0.5
-echo "    Module this Information : ax vex -i | ax vex --info" && load 0.5
-echo "    Module this Changelogs : ax vex -c " && load 0.5
+echo "    Information this Module : ax vex -i | ax vex --info" && load 0.5
+echo "    Changelogs this Module : ax vex -c " && load 0.5
 echo "    Update this module [ If Any ] : ax vex -update" && load 0.5
-echo "    Rebooot System thus Module : ax vex -aR" && load 0.5
+echo "    Rebooot System this Module : ax vex -aR" && load 0.5
 echo
 echo " Information New Update :" && load 0.5
 echo "    - Optimalisasi System AI Noxver" && load 0.5
