@@ -244,7 +244,7 @@ installationUp() {
             rm $prop_update
             [[ -f $engine_mcine ]] && rm $engine_mcine;
             exit 0
-         elif [[ "$version_release" = "X" ]]; then
+          elif [[ "$version_release" = "X" ]]; then
             if [[ "$akses_awal" = true ]]; then
                echo "  $pr update system starting"
                axprop $file_update ver -s "$verU"
