@@ -38,7 +38,6 @@ setup_file_awal() {
      axprop $file_update notif false
      axprop $file_update sperfor -s "null"
      axprop $file_update waktuUp -s "null"
-     axprop $file_update waktuIn -s "null"
      axprop $file_update buidDate -s "null"
      axprop $file_update plugins null
      axprop $file_update perfIns -s ""
@@ -190,7 +189,7 @@ run_notif() {
       if [[ "$notif" = false ]]; then
          echo
          echo "    [update ke version $ver | $verc | $nameEngine New]"
-         echo "    [Di install pada $waktuIn]"
+         echo "    [Di install pada $waktuUp]"
          axprop $file_update notif -s true
          echo
       fi
