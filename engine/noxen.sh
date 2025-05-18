@@ -219,8 +219,8 @@ installationUp() {
    echo
    echo "[Online Update] connected"
    echo
-   if [[ -z $perfIns ]]; then
-      if [[ "$ver" != "$verU" ]] && [[ "$verc" != "$vercU" ]] && [[ "$nameEngine" != "$engineName" ]]; then
+   if [[ "$ver" != "$verU" ]] && [[ "$verc" != "$vercU" ]] && [[ "$nameEngine" != "$engineName" ]]; then
+      if [[ -z $perfIns ]]; then
          if [[ "$version_release" = "R" ]] || [[ "$version_release" = "B" ]]; then
             sleep 1
             echo "  $pr update system starting"
@@ -274,16 +274,16 @@ installationUp() {
                rm $prop_update
             fi
          fi
-      else
-         echo
-         echo " - modules ini sudah terupdate ke versi terbaru sejak -"
-         echo "               $waktuIn"
-         echo
-         rm $prop_update
-         exit 0
+      else 
+        echo "   Harap Uninstall terlebih dahulu module version lama"
+        echo "   Usage : ax vex -r"
       fi
-   else 
-     echo "   Harap Uninstall terlebih dahulu module version lama"
-     echo "   Usage : ax vex -r"
+   else
+      echo
+      echo " - modules ini sudah terupdate ke versi terbaru sejak -"
+      echo "               $waktuIn"
+      echo
+      rm $prop_update
+      exit 0
    fi
 }
