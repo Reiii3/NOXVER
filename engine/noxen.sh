@@ -20,6 +20,7 @@ export war="$warning[?]$nwr"
 export in="$notice[!]$nwr"
 export pr="$pending[-]$nwr"
 export su="$succes[√]$nwr"
+export ga="$warning[•]$nwr"
 
 printer() {
 text="$1"
@@ -30,7 +31,7 @@ text="$1"
    i=$((i + 1))
  done
 echo
-}
+echo
 
 load() {
    sleep $1
@@ -226,7 +227,8 @@ installationUp() {
          axprop $file_update ver -s "$verU"
          axprop $file_update verc -s $vercU
          axprop $file_update nameEngine -s "$engineName"
-         axprop $file_update waktuIn -s "$time"
+         axprop $file_update waktuUp -s "$time"
+         axprop $file_update buildDate -s "$build"
          axprop $file_update status -s "done"
          axprop $file_update insUp true
          axprop $file_update notif_update false
@@ -250,7 +252,7 @@ installationUp() {
             axprop $file_update ver -s "$verU"
             axprop $file_update verc -s $vercU
             axprop $file_update nameEngine -s "$engineName"
-            axprop $file_update waktuIn -s "$time"
+            axprop $file_update waktuUp -s "$time"
             axprop $file_update status -s "done"
             axprop $file_update insUp true
             axprop $file_update notif_update false
