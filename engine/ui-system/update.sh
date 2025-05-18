@@ -1,6 +1,6 @@
 bin="/data/local/tmp"
 engine="/data/local/tmp/nxver/engine"
-url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
+url_prop="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/prop.sh"
 prop_update="$bin/prop"
 prop_stable="$bin/nxver/.noxUp"
 
