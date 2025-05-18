@@ -229,8 +229,6 @@ installationUp() {
          axprop $file_update nameEngine -s "$engineName"
          axprop $file_update waktuUp -s "$time"
          axprop $file_update buildDate -s "$build"
-         axprop $file_update status -s "done"
-         axprop $file_update insUp true
          axprop $file_update notif_update false
          rm $engine
          sleep 1
@@ -253,8 +251,6 @@ installationUp() {
             axprop $file_update verc -s $vercU
             axprop $file_update nameEngine -s "$engineName"
             axprop $file_update waktuUp -s "$time"
-            axprop $file_update status -s "done"
-            axprop $file_update insUp true
             axprop $file_update notif_update false
             sleep 1
             echo "  $su update succesfully"
