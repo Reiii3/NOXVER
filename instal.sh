@@ -40,7 +40,6 @@ setup_file_awal() {
      axprop $file_update waktuUp -s "null"
      axprop $file_update waktuIn -s "null"
      axprop $file_update buidDate -s "null"
-     axprop $file_update insUp true
      axprop $file_update plugins null
      axprop $file_update perfIns -s ""
      axprop $file_update insAi -s ""
