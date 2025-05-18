@@ -13,7 +13,7 @@ echo -n "├$pr " && printer "version-code : $verc"
 echo -n "├$pr " && printer "version-engine : $nameEngine"
 echo -n "└┬$pr " && printer "build-date : $buildDate"
 echo -n " ├$pr " && printer "developer : @ReiiEja"
-echo -n " ├$pr " && printer "last install : $waktuIn"
+echo -n " ├$pr " && printer "last install : $perfIns"
 echo -n " ├$pr " && printer "last update : $waktuUp"
 echo -n " ├$pr " && printer "plugin install : $plugins"
 if [[ -n "$status" ]]; then
