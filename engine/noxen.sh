@@ -32,7 +32,7 @@ text="$1"
  done
 echo
 echo
-
+}
 load() {
    sleep $1
 }
