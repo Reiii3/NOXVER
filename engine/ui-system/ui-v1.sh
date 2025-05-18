@@ -4,7 +4,7 @@ source $engine
 
 #---------------- main ui modules-----------------
 echo
-printer "                     - NOXVER.AI -"
+brand_noxver ice
 load "1"
 echo "        ======================================"
 echo "        │ Instalation performance && AI api  │"
