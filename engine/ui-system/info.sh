@@ -21,3 +21,4 @@ if [[ -n "$status" ]]; then
 else
    echo -n " └$pr " && printer "status AI : deactived"
 fi
+echo
