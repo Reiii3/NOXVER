@@ -134,8 +134,7 @@ first_run() {
          sleep 1 
          axprop $file_update ver -s "$verU"
          axprop $file_update verc $vercU
-          
-         axprop $file_update waktuIn -s "$time"
+         axprop $file_update waktuUp -s "$time"
          axprop $file_update nameEngine -s "$engineName"
          sleep 1 
          echo "  $su Instalation succesfully"
@@ -159,7 +158,7 @@ first_run() {
          sleep 1 
          axprop $file_update ver -s "1.0"
          axprop $file_update verc 11
-         axprop $file_update waktuIn -s "$time"
+         axprop $file_update waktuUp -s "$time"
          axprop $file_update nameEngine -s "$engineName"
          sleep 1 
          echo "  $su Instalation succesfully"
@@ -185,7 +184,6 @@ first_run() {
 
 # fungsi : digunakan untuk menampilkan info bahwa syatem sudah di update keversion terbaru
 run_notif() {
-   if [[ "$status" == "done" ]]; then
       if [[ "$notif" = false ]]; then
          echo
          echo "    [update ke version $ver | $verc | $nameEngine New]"
@@ -193,7 +191,6 @@ run_notif() {
          axprop $file_update notif -s true
          echo
       fi
-   fi
 }
 
 
