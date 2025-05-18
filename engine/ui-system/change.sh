@@ -26,5 +26,7 @@ echo "    - Stabilizing Game Compiler" && load 0.5
 echo "    - Stabilizing the skiavk renderer" && load 0.5
 echo
 echo " Plugin NOXVER :" && load 0.5
-echo "    - comming soon" && load 0.5
-echo
+echo "    - Comming soon" && load 0.5
+echo "    - Comming soon" && load 0.5
+echo "    - Comming soon" && load 0.5
+echo 
