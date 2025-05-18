@@ -162,7 +162,7 @@ reboot_ai() {
    if [[ ! $status ]]; then
       echo "$pr booting system ai, please wait..."
       install_ai
-      echo "      $su reboot system successfully"
+      echo "     $su reboot system successfully"
    else 
       echo "$war booting system failed"
    fi
