@@ -2,12 +2,20 @@ $AXFUN
 url_prop="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/prop.sh"
 bin_dev="/data/local/tmp/debug/nox-control"
 export time=$(date "+%a %b %d %Y %H:%M %Z")
-export wr="\e[38;2;188;61;0m"
+export orange="\e[38;2;188;61;0m" # AXERON - deffault color axeron
+succes="\e[38;2;0;200;0m" # SUCCESS - Hijau Terang
+error="\e[38;2;255;0;0m" # ERROR - Merah Terang
+warning="\e[38;2;255;215;0m" # WARNING - Kuning Emas
+info="\e[38;2;0;180;255m" # INFO - Biru Cerah
+pending="\e[38;2;255;140;0m" # PENDING - Oranye Terang
+debug="\e[38;2;160;160;160m" # DEBUG - Abu-abu Netral
+notice="\e[38;2;153;50;204m" # NOTICE - Ungu Lembut
+clean="\e[38;2;255;255;255m" # CLEAN - Putih Cerah
 export nwr="\e[0m"
-export war="[?]"
-export in="[!]"
-export pr="[-]"
-export su="[√]"
+export war="$warning[?]$nwr"
+export in="$notice[!]$nwr"
+export pr="$pending[-]$nwr"
+export su="$succes[√]$nwr"
 
 printer() {
 text="$1"
