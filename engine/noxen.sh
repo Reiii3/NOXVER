@@ -134,7 +134,6 @@ reboot_ai() {
       exit 0
    fi
    load 1
-   echo 
    echo "$in memulai ulang scan game"
    echo "$in menghapus terlebih dahulu daftar game lama, please wait.."
    echo
@@ -145,7 +144,7 @@ reboot_ai() {
    fi
    load 1
    echo
-   echo "                - SCAN GAMES API NOXVER -"
+   echo "               - SCAN GAMES API NOXVER -"
    echo
    gameRun
    echo
@@ -154,7 +153,7 @@ reboot_ai() {
    if [[ ! $status ]]; then
       echo "$pr booting system ai, please wait..."
       install_ai
-      echo "$su reboot system successfully"
+      echo "      $su reboot system successfully"
    else 
       echo "$war booting system failed"
    fi
