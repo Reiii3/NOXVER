@@ -46,3 +46,4 @@ echo "  Remove terlebih dahulu pada module kalian biar tidak"
 echo "  terjadi eror pada versi terbaru nya, terima kasih.."
 echo
 echo "                ©® Copyright By ReiiEja"
+echo 
