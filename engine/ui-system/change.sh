@@ -12,21 +12,22 @@ echo "         ====================================="
 echo 
 echo " Usage This Module :" && load 0.5
 echo "    - Instalation this Module : ax vex " && load 0.5
-echo "       • fungsi ini di gunakan untuk instalasi"
-echo "         module"
+echo "       • fungsi ini di gunakan untuk instalasi" && load 0.5
+echo "         module" && load 0.5
 echo "    - Removed this Module : ax vex -r" && load 0.5
-echo "       • fungsi ini di gunakan untuk remove module"
+echo "       • fungsi ini di gunakan untuk remove module" && load 0.5
 echo "    - Information this Module : ax vex -i" && load 0.5
 echo "       • ini berisi tentang semua informasi tentang"
-echo "         module ini seperti versi,dev,dll"
+echo "         module ini seperti versi,dev,dll" && load 0.5
 echo "    - Changelogs this Module : ax vex -c " && load 0.5
-echo "       • ini adalah semua penjelasan tentang fitur"
-echo "         di module ini"
+echo "       • ini adalah semua penjelasan tentang fitur" && load 0.5
+echo "         di module ini" && load 0.5
 echo "    - Update this module [ If Any ] : ax vex -update" && load 0.5
-echo "       • Ini di lakukan saat ada anouncement update"
+echo "       • Ini di lakukan untuk update ke versi" && load 0.5
+echo "         terbaru" && load 0.5
 echo "    - Rebooot System this Module : ax vex -aR" && load 0.5
-echo "       • Biasanya ini di gunakan ketika anda baru"
-echo "         download game baru"
+echo "       • Biasanya ini di gunakan ketika anda baru" && load 0.5
+echo "         download game baru" && load 0.5
 echo
 echo " Information New Update :" && load 0.5
 echo "    - Optimalisasi System AI Noxver" && load 0.5
@@ -40,10 +41,10 @@ echo "    - Comming soon" && load 0.5
 echo "    - Comming soon" && load 0.5
 echo "    - Comming soon" && load 0.5
 echo 
-echo " NOTES :"
-echo "  Jika kalian akan melakukan update usahakan melakukan"
-echo "  Remove terlebih dahulu pada module kalian biar tidak"
-echo "  terjadi eror pada versi terbaru nya, terima kasih.."
+echo " NOTES :" && load 0.5
+echo "  Jika kalian akan melakukan update usahakan melakukan" && load 0.5
+echo "  Remove terlebih dahulu pada module kalian biar tidak" && load 0.5
+echo "  terjadi eror pada versi terbaru nya, terima kasih.." && load 0.5
 echo
 echo "                ©® Copyright By ReiiEja"
 echo 
