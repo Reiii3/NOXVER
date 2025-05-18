@@ -13,7 +13,7 @@ ai_start() {
     setprop debug.sf.hw 1
     setprop debug.egl.hw 1
     setprop debug.hwui.renderer skiavk
-    setprop debug.hwui.shadow.renderer skiavkthreaded
+    setprop debug.hwui.shadow.renderer skiaglthreaded
     setprop debug.renderengine.backend skiavkthreaded
     setprop debug.renderengine.vulkan true
     setprop debug.vulkan.enable_callback false
@@ -93,8 +93,8 @@ check_game() {
            render_detected=$(getprop debug.hwui.renderer)
             if [ "$notif_run" != "run" ]; then
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
-"Game Mode : ON     Engine : $nameEngine
-Status : Conected    Render : $render_detected"
+"Game Mode : ON         Engine : $nameEngine
+Status : Conected        Render : $render_detected"
                echo "DEBUG : Notif Performance Active"
                notif_run="run"
            fi
@@ -118,8 +118,8 @@ Status : Conected    Render : $render_detected"
               sleep 0.5
               render_detected=$(getprop debug.hwui.renderer)
                cmd notification post -S bigtext -t "FOXVER.AI RESPONSE" "fox_ai_status" \
-"Game Mode : OFF    Engine : $nameEngine 
-Status : Conected    Render : $render_detected"
+"Game Mode : OFF        Engine : $nameEngine 
+Status : Conected        Render : $render_detected"
                echo "DEBUG : Notif Performance Deactive"
                notif_run="stop"
             fi
