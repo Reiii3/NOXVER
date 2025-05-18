@@ -15,7 +15,7 @@ echo -n "├$pr " && printer "developer : @ReiiEja"
 echo -n "└┬$pr " && printer "build-date : $buildDate"
 echo -n " ├$pr " && printer "last install : $perfIns"
 echo -n " ├$pr " && printer "last update : $waktuUp"
-echo -n " ├$pr " && printer "plugin install : $plugins"
+echo -n " ├$pr " && printer "plugin install : ${plugins:-null}"
 if [[ -n "$status" ]]; then
    echo -n " └$pr " && printer "status AI : actived"
 else
