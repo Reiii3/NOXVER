@@ -36,7 +36,7 @@ if [[ "$status" ]]; then
    pkill -f "/data/local/tmp/noxAI"
 fi
 load 1 
-
-printer "       $su Uninstall system modules succesfuly"
+echo -n "       $su "
+printer "Uninstall system modules succesfuly"
 echo
 
