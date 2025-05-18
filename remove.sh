@@ -16,9 +16,9 @@ source "$data_res"
 echo
 brand_noxver ice
 load "1"
-echo "         ================================="
-echo "         │ Remove performance && AI api  │"
-echo "         ================================="
+echo "           ================================="
+echo "           │ Remove performance && AI api  │"
+echo "           ================================="
 echo
 new_core_engine_r
 gameRem
