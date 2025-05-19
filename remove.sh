@@ -26,6 +26,7 @@ load 1
 axprop "$data_res" perfIns -s ""
 axprop "$data_res" packageRun -s ""
 axprop "$data_res" insAi -s ""
+axprop $data_res nameGame -s ""
 load 1.5
 rm -rf $data
 rm $data_ai
