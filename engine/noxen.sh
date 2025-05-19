@@ -139,6 +139,7 @@ pluginz_install() {
           else
              axprop $module_prop plugins -s "$plugins | downscalePL"
           fi
+         exit 0
       ;;
       -list_plugins | -lp )
         echo
@@ -148,9 +149,9 @@ pluginz_install() {
         echo " [3] No Referensi : ...."
         echo 
         echo "notes : install satu-satu"
+        exit 0
       ;;
    esac
-   exit 0
 }
 
 cek_oppo_boost() {
