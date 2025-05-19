@@ -124,7 +124,7 @@ gameRem() {
 }
 
 pluginz_install() {
-   bin="/data/local/tmmp"
+   bin="/data/local/tmp"
    module_engine="$bin/nxver/engine"
    module_prop="$bin/nxver/.noxUp"
    
