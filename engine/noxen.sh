@@ -96,13 +96,15 @@ gameRun() {
                source $reso
              if [[ -z "$packageRun" ]]; then
                  axprop $reso packageRun -s "$line"
+                 axprop $reso nameGame -s "$gameName"
              else
                  axprop $reso packageRun -s "$packageRun|$line"
+                 axprop $reso nameGame -s "$nameGame | $gameName"
              fi
            fi
        fi
    done
-}
+ }
 
 gameRem() {
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
@@ -241,6 +243,8 @@ installationUp() {
             echo "   - versionCode : $vercU New"
             echo "   - nameEngine : $engineName New"
             echo
+            echo "please relog your laxeron Apk "
+            echo
             rm $prop_update
             [[ -f $engine_mcine ]] && rm $engine_mcine;
             exit 0
@@ -262,6 +266,8 @@ installationUp() {
                echo "   - version : $verU Experimental"
                echo "   - versionCode : $vercU Experimental"
                echo "   - nameEngine : $engineName Experimental"
+               echo
+               echo "please relog your laxeron Apk "
                echo
                rm $prop_update
                rm $engine_mcine
