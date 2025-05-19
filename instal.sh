@@ -107,8 +107,6 @@ panel_info() {
       [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
    ;;
-   -install_plugin | insPL )
-      storm -x
    esac
 }
 
