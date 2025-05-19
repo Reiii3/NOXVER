@@ -245,6 +245,7 @@ main() {
    developer_mode
    run_update_versiom "$@"
    panel_info "$@"
+   pluginz_install "$@" 
    
    case $1 in 
      -update )
