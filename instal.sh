@@ -11,6 +11,7 @@ local url_system_update="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/eng
 local url_ai="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/nox-ai.sh"
 local url_info="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/info.sh"
 local url_change="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/change.sh"
+local url_pl="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/plugin.sh"
 local engine_system="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/system-performance.sh"
 local url_core="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/user/developer.txt"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
@@ -105,6 +106,9 @@ panel_info() {
       storm -x "${url_change}" "change"
       [ -f "$stor_ax" ] && rm "$stor_ax"
       exit 0
+   ;;
+   -install_plugin | insPL )
+      storm -x
    esac
 }
 
