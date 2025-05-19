@@ -150,6 +150,7 @@ pluginz_install() {
         echo "notes : install satu-satu"
       ;;
    esac
+   exit 0
 }
 
 cek_oppo_boost() {
