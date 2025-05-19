@@ -140,7 +140,7 @@ pluginz_install() {
              axprop $module_prop plugins -s "$plugins | downscalePL"
           fi
       ;;
-      * )
+      -list_plugins | -lp )
         echo
         echo "list pluginz : "
         echo " [1] Downscale : ax vex -down"
