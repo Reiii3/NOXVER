@@ -130,22 +130,37 @@ pluginz_install() {
    source $module_engine
    source $module_prop
    
+   engine_downscale() {
+      cmd device_config put game_overlay $game mode=2,downscaleFactor=$velue,useAngle=true,fps=$fps,loadingBoost=999999999;cmd game set --mode 2 --downscale 0.7 --fps $fps $game >/dev/null 2>&1
+   }
+   
    case $1 in 
       downscale | -down )
-         shift
-         game=$1
-         shift
-         velue=$1
-         fps=$(dumpsys display | grep -oE 'fps=[0-9]+' | awk -F '=' '{print $2}' | head -n 1)
-         echo "$pr Instalasi Downscale Game, please wait..."
-         if [[ -z "$plugins" ]]; then
+          echo
+            shift
+            game=$1
+            shift
+            velue=$1
+            fps=$(dumpsys display | grep -oE 'fps=[0-9]+' | awk -F '=' '{print $2}' | head -n 1)
+            name=$(pkglist -L $game)
+          if [[ -z "$plugins" ]]; then
+            echo "$pr Instalasi Downscale Game, please wait..."
             if [[ "$plugins" != "downscalePL" ]]; then
               axprop $module_prop plugins -s "downscalePL"
             fi
-            cmd device_config put game_overlay $game mode=2,downscaleFactor=$velue,useAngle=true,fps=$fps,loadingBoost=999999999;cmd game set --mode 2 --downscale 0.7 --fps $fps $game
+            engine_downscale
+            echo "$su This Game : $name | Succesfuly Downscale"
+          elif [[ $plugins == "downscalePL" ]]; then
+            echo "$pr Instalasi Downscale Game, please wait..."
+            engine_downscale
+            echo "$su This Game : $name | Succesfuly Downscale"
           else
+             echo "$pr Instalasi Downscale Game, please wait..."
              axprop $module_prop plugins -s "$plugins | downscalePL"
+             engine_downscale
+             echo "$su This Game : $name | Succesfuly Downscale"
           fi
+          echo
          exit 0
       ;;
       -list_plugins | -lp )
