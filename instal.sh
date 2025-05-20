@@ -255,7 +255,7 @@ main() {
    
    first_run
    run_notif
-   run_ui
+   run_ui "$@"
   
 }
 
