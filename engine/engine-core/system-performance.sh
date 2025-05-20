@@ -63,7 +63,6 @@ new_core_engine() {
             cmd stats clear-puller-cache
             cmd activity clear-debug-app
             cmd activity clear-watch-heap -a
-            cmd stats print-logs 0 # <- root required
             cmd display ab-logging-disable
             cmd display dwb-logging-disable
             cmd display dmd-logging-disable
@@ -109,7 +108,6 @@ new_core_engine() {
             cmd stats clear-puller-cache
             cmd activity clear-debug-app
             cmd activity clear-watch-heap -a
-            cmd stats print-logs 0 # <- root required
             cmd display ab-logging-disable
             cmd display dwb-logging-disable
             cmd display dmd-logging-disable
