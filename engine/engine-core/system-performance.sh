@@ -1,3 +1,9 @@
+module_engine="/data/local/tmp/nxver/engine"
+module_prop="/data/local/tmp/nxver/.noxUp"
+
+source $module_prop
+source $module_engine
+
 new_core_engine() {
    case $ver in
       1.0 | 1.1 ) # versi 1.0 - 1.1
