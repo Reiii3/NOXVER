@@ -131,11 +131,12 @@ pluginz_install() {
    source $module_prop
    
    case $1 in 
-      game=$1
-      shift
-      velue=$1
-      fps=$(dumpsys display | grep -oE 'fps=[0-9]+' | awk -F '=' '{print $2}' | head -n 1)
       downscale | -down )
+         shift
+         game=$1
+         shift
+         velue=$1
+         fps=$(dumpsys display | grep -oE 'fps=[0-9]+' | awk -F '=' '{print $2}' | head -n 1)
          echo "$pr Instalasi Downscale Game, please wait..."
          if [[ -z "$plugins" ]]; then
             if [[ "$plugins" != "downscalePL" ]]; then
