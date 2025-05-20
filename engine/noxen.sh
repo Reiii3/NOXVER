@@ -171,6 +171,7 @@ pluginz_install() {
         echo " [3] No Referensi : ...."
         echo 
         echo "notes : install satu-satu"
+        echo
         exit 0
       ;;
    esac
