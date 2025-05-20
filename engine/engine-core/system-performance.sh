@@ -71,6 +71,7 @@ new_core_engine() {
            
            devPL "[DEBUG] mode performa v1.2 succes actived"
        }
+        core_1
       ;;
       1.3 ) # versi 1.3
        core_1() {
@@ -120,6 +121,7 @@ new_core_engine() {
           
            devPL "[DEBUG] mode performa v1.3 succes actived"
        }
+       core_1
       ;;
       1.4 )
         devPL "mengaktifkan  mode performa pada version 1.4"
@@ -181,7 +183,7 @@ new_core_engine_r() {
             am memory-factor reset
             devPL "[DEBUG] mode removed tweak v1.2 succes"
         }
-
+       core_1_r
       ;;
       1.3 )
         core_1_r() {
@@ -213,6 +215,7 @@ new_core_engine_r() {
             
             devPL "[DEBUG] mode removed tweak v1.3 succes"
         }
+        core_1_r
       ;;
       1.4 )
         devPL "mengaktifkan  mode performa pada version 1.4"
