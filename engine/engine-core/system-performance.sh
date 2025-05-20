@@ -118,6 +118,9 @@ new_core_engine() {
       1.4 )
         devPL "mengaktifkan  mode performa pada version 1.4"
       ;;
+      * ) # cek kompotibel version
+       devPL "    [DEBUG] version anda tidak kompotibel : v$ver"
+      ;;
    esac
 }
 
@@ -207,6 +210,9 @@ new_core_engine_r() {
       ;;
       1.4 )
         devPL "mengaktifkan  mode performa pada version 1.4"
+      ;;
+      * ) # cek kompotibel version
+       devPL "    [DEBUG] version anda tidak kompotibel : v$ver"
       ;;
    esac
 }
