@@ -131,10 +131,17 @@ pluginz_install() {
    source $module_prop
    
    case $1 in 
+      game=$1
+      shift
+      velue=$1
+      fps=$(dumpsys display | grep -oE 'fps=[0-9]+' | awk -F '=' '{print $2}' | head -n 1)
       downscale | -down )
          echo "$pr Instalasi Downscale Game, please wait..."
-         if [[ -z "$packageRun" ]]; then
+         if [[ -z "$plugins" ]]; then
+            if [[ "$plugins" != "downscalePL" ]]; then
               axprop $module_prop plugins -s "downscalePL"
+            fi
+            cmd device_config put game_overlay $game mode=2,downscaleFactor=$velue,useAngle=true,fps=$fps,loadingBoost=999999999;cmd game set --mode 2 --downscale 0.7 --fps $fps $game
           else
              axprop $module_prop plugins -s "$plugins | downscalePL"
           fi
@@ -143,7 +150,7 @@ pluginz_install() {
       -list_plugins | -lp )
         echo
         echo "list pluginz : "
-        echo " [1] Downscale : ax vex -down"
+        echo " [1] Downscale : ax vex -down <package_name>"
         echo " [2] Javex (sensi FF) : ax vex -jsvex"
         echo " [3] No Referensi : ...."
         echo 
