@@ -2,7 +2,7 @@ data="/data/local/tmp/debug/nox-control"
 
 source $data
 
-if [[ $mode_stable == true ]]; then
+if [[ $mode_stable == false ]]; then
   export url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
   export url_ui="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/ui-v1.sh"
   export url_system_update="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/update.sh"
