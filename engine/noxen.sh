@@ -343,7 +343,7 @@ installationUp() {
     else
       echo
       echo " - modules ini sudah terupdate ke versi terbaru sejak -"
-      echo "               $waktuIn"
+      echo "               $waktuUp"
       echo
       rm $prop_update
       exit 0
