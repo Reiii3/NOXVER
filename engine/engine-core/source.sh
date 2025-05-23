@@ -1,6 +1,6 @@
 data="/data/local/tmp/debug/nox-control"
 
-source $data
+[[ -f $data ]] && source $data
 
 if [[ $mode_stable == false ]]; then
   export url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
