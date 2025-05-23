@@ -71,7 +71,7 @@ deve_selection() {
        mode_stable=true
        dePL "Welcome To Mode Stable"
        ;;
-      -expert
+      -expert )
         axprop $bin_deve mode_stable false
         mode_stable=false
       ;;
