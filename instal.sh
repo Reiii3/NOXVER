@@ -148,7 +148,7 @@ first_run() {
          echo "  version : $verU"
          echo "  versionCode : $vercU"
          echo "  engine : $engineName"
-         echo "  build-date : $buildDate"
+         echo "  build-date : $build"
          echo "==============================="
          echo
          rm $u_ver
