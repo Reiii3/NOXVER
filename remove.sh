@@ -1,6 +1,7 @@
 $AXFUN
 bin="/data/local/tmp"
 data="/data/local/tmp/nxver/engine"
+local data_source="/storage/emulated/0/Android/data/com.fhrz.axeron/files/noxs"
 data_res="/data/local/tmp/nxver/.noxUp"
 data_ai="/data/local/tmp/noxAI"
 local engine_system="https://raw.githubusercontent.com/Reiii3/NOXVER/main/engine/engine-core/system-performance.sh"
@@ -34,6 +35,7 @@ load 1.5
 rm -rf $data
 rm $data_ai
 rm $engine_core
+rm $data_source
 load 1
 status=$(pgrep -f noxAI)
 if [[ "$status" ]]; then
