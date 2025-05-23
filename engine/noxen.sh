@@ -36,7 +36,7 @@ load() {
    sleep $1
 }
 
-devPL() {
+dePL() {
    [[ -f "$bin_dev" ]] && source $bin_dev;
    [[ "$nox_debug" == true ]] && echo "$1"
 }
