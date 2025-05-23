@@ -7,7 +7,7 @@ local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-p
 local engine_core="/data/local/tmp/engine_system"
 source "$data"
 source "$data_res"
-if [[ -z "$perfIns" ]]; then
+if [[ ! -z "$perfIns" ]]; then
     storm -rP "$bin" -s "${engine_system}" -fn "engine_system" "$@"
     devPL "[DEBUG] instalasi engine_system"
 fi
