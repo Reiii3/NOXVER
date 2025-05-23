@@ -5,14 +5,14 @@ data_res="/data/local/tmp/nxver/.noxUp"
 data_ai="/data/local/tmp/noxAI"
 local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-performance.sh"
 local engine_core="/data/local/tmp/engine_system"
+source "$data"
+source "$data_res"
 if [[ -z "$perfIns" ]]; then
     storm -rP "$bin" -s "${engine_system}" -fn "engine_system" "$@"
     devPL "[DEBUG] instalasi engine_system"
 fi
 sleep 1
 [[ -f "$engine_core" ]] && source $engine_core || devPL '$engine_core not detected'
-source "$data"
-source "$data_res"
 
 
 #---------------- main ui modules-----------------
