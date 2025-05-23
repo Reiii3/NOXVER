@@ -5,6 +5,8 @@ source $module_prop
 source $module_engine
 
 new_core_engine() {
+  devPL "[DEBUG] function new_core_engine"
+  devPL "[DEBUG] version : $ver"
    case $ver in
       1.0 | 1.1 ) # versi 1.0 - 1.1
         core_1() {
@@ -131,6 +133,8 @@ new_core_engine() {
 }
 
 new_core_engine_r() {
+   devPL "[DEBUG] function new_core_engine"
+   devPL "[DEBUG] version : $ver"
    case $ver in
       1.0 | 1.1 )
          core_1_r() {
