@@ -1,4 +1,12 @@
+module_engine="/data/local/tmp/nxver/engine"
+module_prop="/data/local/tmp/nxver/.noxUp"
+
+source $module_prop
+source $module_engine
+
 new_core_engine() {
+  dePL "[DEBUG] function new_core_engine"
+  dePL "[DEBUG] version : $ver"
    case $ver in
       1.0 | 1.1 ) # versi 1.0 - 1.1
         core_1() {
@@ -17,9 +25,9 @@ new_core_engine() {
          cmd settings put system air_motion_engine 0
          cmd settings put system master_motion 0
          cmd settings put system motion_engine 0
-         devPL "[DEBUG] mode performa v1 succes actived"
+         dePL "[DEBUG] mode performa v1 succes actived"
         } # core 1 di gunakana untuk resource setprop
-        core_1
+        core_1 >/dev/null 2>&1
       ;;
       1.2 ) # versi 1.2
        core_1() {
@@ -57,14 +65,14 @@ new_core_engine() {
             cmd stats clear-puller-cache
             cmd activity clear-debug-app
             cmd activity clear-watch-heap -a
-            cmd stats print-logs 0 # <- root required
             cmd display ab-logging-disable
             cmd display dwb-logging-disable
             cmd display dmd-logging-disable
             cmd looper_stats disable
            
-           devPL "[DEBUG] mode performa v1.2 succes actived"
+           dePL "[DEBUG] mode performa v1.2 succes actived"
        }
+        core_1 >/dev/null 2>&1
       ;;
       1.3 ) # versi 1.3
        core_1() {
@@ -102,7 +110,6 @@ new_core_engine() {
             cmd stats clear-puller-cache
             cmd activity clear-debug-app
             cmd activity clear-watch-heap -a
-            cmd stats print-logs 0 # <- root required
             cmd display ab-logging-disable
             cmd display dwb-logging-disable
             cmd display dmd-logging-disable
@@ -112,16 +119,22 @@ new_core_engine() {
           
            setprop persist.log.tag "" 
           
-           devPL "[DEBUG] mode performa v1.3 succes actived"
+           dePL "[DEBUG] mode performa v1.3 succes actived"
        }
+       core_1 >/dev/null 2>&1
       ;;
       1.4 )
-        devPL "mengaktifkan  mode performa pada version 1.4"
+        dePL "mengaktifkan  mode performa pada version 1.4"
+      ;;
+      * ) # cek kompotibel version
+       dePL "    [DEBUG] version anda tidak kompotibel : v$ver"
       ;;
    esac
 }
 
 new_core_engine_r() {
+   dePL "[DEBUG] function new_core_engine"
+   dePL "[DEBUG] version : $ver"
    case $ver in
       1.0 | 1.1 )
          core_1_r() {
@@ -140,7 +153,7 @@ new_core_engine_r() {
             cmd settings put system air_motion_engine 1
             cmd settings put system master_motion 1
             cmd settings put system motion_engine 1
-            devPL "[DEBUG] mode removed tweak v1 succes"
+            dePL "[DEBUG] mode removed tweak v1 succes"
          }
          core_1_r
       ;;
@@ -170,9 +183,9 @@ new_core_engine_r() {
             cmd display dmd-logging-enable
             cmd looper_stats reset
             am memory-factor reset
-            devPL "[DEBUG] mode removed tweak v1.2 succes"
+            dePL "[DEBUG] mode removed tweak v1.2 succes"
         }
-
+       core_1_r
       ;;
       1.3 )
         core_1_r() {
@@ -202,11 +215,15 @@ new_core_engine_r() {
             am memory-factor reset
            #--------------------New Update--------------------- # v1.3
             
-            devPL "[DEBUG] mode removed tweak v1.3 succes"
+            dePL "[DEBUG] mode removed tweak v1.3 succes"
         }
+        core_1_r
       ;;
       1.4 )
-        devPL "mengaktifkan  mode performa pada version 1.4"
+        dePL "mengaktifkan  mode performa pada version 1.4"
+      ;;
+      * ) # cek kompotibel version
+       dePL "    [DEBUG] version anda tidak kompotibel : v$ver"
       ;;
    esac
 }

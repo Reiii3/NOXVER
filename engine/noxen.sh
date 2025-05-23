@@ -1,13 +1,26 @@
 $AXFUN
-url_prop="https://reiii3.github.io/NOXVER/engine/prop.sh"
+url_prop="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/prop.sh"
 bin_dev="/data/local/tmp/debug/nox-control"
 export time=$(date "+%a %b %d %Y %H:%M %Z")
-export wr="\e[38;2;188;61;0m"
+export orange="\e[38;2;188;61;0m" # AXERON - deffault color axeron
+succes="\e[38;2;0;200;0m" # SUCCESS - Hijau Terang
+error="\e[38;2;255;0;0m" # ERROR - Merah Terang
+warning="\e[38;2;255;215;0m" # WARNING - Kuning Emas
+info="\e[38;2;0;180;255m" # INFO - Biru Cerah
+pending="\e[38;2;255;140;0m" # PENDING - Oranye Terang
+debug="\e[38;2;160;160;160m" # DEBUG - Abu-abu Netral
+notice="\e[38;2;153;50;204m" # NOTICE - Ungu Lembut
+clean="\e[38;2;255;255;255m" # CLEAN - Putih Cerah
+color_version="\e[38;2;100;180;255m" # Version
+color_versionC="\e[38;2;70;130;180m" # VersionCode - Biru Netral
+color_engine="\e[38;2;0;255;255m" # EngineName - Cyan/Aqua
+color_dev="\e[38;2;180;100;255m" # Developer - Ungu Muda
 export nwr="\e[0m"
-export war="[?]"
-export in="[!]"
-export pr="[-]"
-export su="[√]"
+export war="$warning[?]$nwr"
+export in="$notice[!]$nwr"
+export pr="$pending[-]$nwr"
+export su="$succes[√]$nwr"
+export ga="$warning[•]$nwr"
 
 printer() {
 text="$1"
@@ -19,14 +32,47 @@ text="$1"
  done
 echo
 }
-
 load() {
    sleep $1
 }
 
-devPL() {
+dePL() {
    [[ -f "$bin_dev" ]] && source $bin_dev;
    [[ "$nox_debug" == true ]] && echo "$1"
+}
+
+brand_noxver() {
+  local style="${1:-default}"
+
+  case "$style" in
+    cyber)
+      echo -e "                     - \e[38;2;200;0;255mN\e[38;2;150;0;255mO\e[38;2;100;50;255mX\e[38;2;50;100;255mV\e[38;2;0;150;255mE\e[38;2;0;200;255mR\e[38;2;0;255;200m.\e[38;2;0;255;150mA\e[38;2;0;255;100mI\e[0m -"
+      ;;
+    aurora)
+      echo -e "                     - \e[38;2;50;255;150mN\e[38;2;50;230;180mO\e[38;2;50;200;210mX\e[38;2;50;180;230mV\e[38;2;50;160;250mE\e[38;2;50;140;255mR\e[38;2;100;200;255m.\e[38;2;130;230;255mA\e[38;2;160;255;255mI\e[0m -"
+      ;;
+    monokrom)
+      echo -e "                     - \e[38;2;160;160;160mN\e[38;2;170;170;170mO\e[38;2;180;180;180mX\e[38;2;190;190;190mV\e[38;2;200;200;200mE\e[38;2;210;210;210mR\e[38;2;220;220;220m.\e[38;2;230;230;230mA\e[38;2;240;240;240mI\e[0m -"
+      ;;
+    gold)
+      echo -e "                     - \e[38;2;255;140;0mN\e[38;2;255;160;0mO\e[38;2;255;180;0mX\e[38;2;255;200;0mV\e[38;2;255;215;0mE\e[38;2;255;230;0mR\e[38;2;255;240;100m.\e[38;2;255;250;150mA\e[38;2;255;255;200mI\e[0m -"
+      ;;
+    dark)
+      echo -e "                     - \e[38;2;80;0;80mN\e[38;2;60;0;100mO\e[38;2;50;0;120mX\e[38;2;40;0;140mV\e[38;2;30;0;160mE\e[38;2;20;0;180mR\e[38;2;10;0;200m.\e[38;2;0;0;220mA\e[38;2;0;0;240mI\e[0m -"
+      ;;
+    greenai)
+      echo -e "                     - \e[38;2;0;255;100mN\e[38;2;0;230;120mO\e[38;2;0;200;140mX\e[38;2;0;170;160mV\e[38;2;0;140;180mE\e[38;2;0;110;200mR\e[38;2;0;80;220m.\e[38;2;0;60;240mA\e[38;2;0;40;255mI\e[0m -"
+      ;;
+    retro)
+      echo -e "                     - \e[38;2;255;0;102mN\e[38;2;255;51;153mO\e[38;2;255;102;204mX\e[38;2;255;153;255mV\e[38;2;204;153;255mE\e[38;2;153;102;255mR\e[38;2;102;51;255m.\e[38;2;51;0;255mA\e[38;2;0;0;255mI\e[0m -"
+      ;;
+    ice)
+      echo -e "                     - \e[38;2;180;255;255mN\e[38;2;160;240;255mO\e[38;2;140;220;255mX\e[38;2;120;200;255mV\e[38;2;100;180;255mE\e[38;2;80;160;255mR\e[38;2;60;140;255m.\e[38;2;40;120;255mA\e[38;2;20;100;255mI\e[0m -"
+      ;;
+    default|*)
+      echo -e "                     - \e[38;2;0;255;255mNOX\e[38;2;0;150;255mVER.AI\e[0m -"
+      ;;
+  esac
 }
 
 gameRun() {
@@ -50,13 +96,15 @@ gameRun() {
                source $reso
              if [[ -z "$packageRun" ]]; then
                  axprop $reso packageRun -s "$line"
+                 axprop $reso nameGame -s "$gameName"
              else
                  axprop $reso packageRun -s "$packageRun|$line"
+                 axprop $reso nameGame -s "$nameGame | $gameName"
              fi
            fi
        fi
    done
-}
+ }
 
 gameRem() {
    game=$(storm "https://reiii3.github.io/Center-Module/core-system/Game.txt")
@@ -73,6 +121,60 @@ gameRem() {
            fi
        fi
    done
+}
+
+pluginz_install() {
+   module_engine="$bin/nxver/engine"
+   module_prop="$bin/nxver/.noxUp"
+   
+   source $module_engine
+   source $module_prop
+   
+   engine_downscale() {
+      cmd device_config put game_overlay $game mode=2,downscaleFactor=$velue,useAngle=true,fps=$fps,loadingBoost=999999999;cmd game set --mode 2 --downscale 0.7 --fps $fps $game >/dev/null 2>&1
+   }
+   
+   case $1 in 
+      downscale | -down )
+          echo
+            shift
+            game=$1
+            shift
+            velue=$1
+            fps=$(dumpsys display | grep -oE 'fps=[0-9]+' | awk -F '=' '{print $2}' | head -n 1)
+            name=$(pkglist -L $game)
+          if [[ -z "$plugins" ]]; then
+            echo "$pr Instalasi Downscale Game, please wait..."
+            if [[ "$plugins" != "downscalePL" ]]; then
+              axprop $module_prop plugins -s "downscalePL"
+            fi
+            engine_downscale
+            echo "$su This Game : $name | Succesfuly Downscale"
+          elif [[ $plugins == "downscalePL" ]]; then
+            echo "$pr Instalasi Downscale Game, please wait..."
+            engine_downscale
+            echo "$su This Game : $name | Succesfuly Downscale"
+          else
+             echo "$pr Instalasi Downscale Game, please wait..."
+             axprop $module_prop plugins -s "$plugins | downscalePL"
+             engine_downscale
+             echo "$su This Game : $name | Succesfuly Downscale"
+          fi
+          echo
+         exit 0
+      ;;
+      -list_plugins | -lp )
+        echo
+        echo "list pluginz : "
+        echo " [1] Downscale : ax vex -down <package_name>"
+        echo " [2] Javex (sensi FF) : ax vex -jsvex"
+        echo " [3] No Referensi : ...."
+        echo 
+        echo "notes : install satu-satu"
+        echo
+        exit 0
+      ;;
+   esac
 }
 
 cek_oppo_boost() {
@@ -93,7 +195,8 @@ install_ai() {
    if [ ! "$status" ]; then
        storm -rP "$bin" -s "${url_ai}" -fn "noxAI" "$@"
        nohup /data/local/tmp/noxAI >/dev/null 2>&1 &
-       printer "     $in Instalation Program Succesfuly"
+       echo -n "     $in "
+       printer "Instalation Program Succesfuly"
    fi
    sleep 2
    status=$(pgrep -f noxAI)
@@ -102,7 +205,7 @@ install_ai() {
      insAi=$status
    fi
    if [ "$status" ]; then
-       echo "     ${ORANGE}$su Program berhasil terpasang${END}"
+       echo "     $su ${ORANGE}Program berhasil terpasang${END}"
        am broadcast -a axeron.show.TOAST --es title "NOXVER.AI Instaled" --es msg "Developer : Reii" --ei duration "4000" >/dev/null 2>&1
    else
        echo "     $war Program failed: gagal"
@@ -134,7 +237,6 @@ reboot_ai() {
       exit 0
    fi
    load 1
-   echo 
    echo "$in memulai ulang scan game"
    echo "$in menghapus terlebih dahulu daftar game lama, please wait.."
    echo
@@ -145,7 +247,7 @@ reboot_ai() {
    fi
    load 1
    echo
-   echo "                - SCAN GAMES API NOXVER -"
+   echo "               - SCAN GAMES API NOXVER -"
    echo
    gameRun
    echo
@@ -154,7 +256,7 @@ reboot_ai() {
    if [[ ! $status ]]; then
       echo "$pr booting system ai, please wait..."
       install_ai
-      echo "$su reboot system successfully"
+      echo "     $su reboot system successfully"
    else 
       echo "$war booting system failed"
    fi
@@ -174,66 +276,74 @@ installationUp() {
    echo "[Online Update] connected"
    echo
    if [[ "$ver" != "$verU" ]] && [[ "$verc" != "$vercU" ]] && [[ "$nameEngine" != "$engineName" ]]; then
-      if [[ "$version_release" = "R" ]] || [[ "$version_release" = "B" ]]; then
-         sleep 1
-         echo "  $pr update system starting"
-         axprop $file_update ver -s "$verU"
-         axprop $file_update verc -s $vercU
-         axprop $file_update nameEngine -s "$engineName"
-         axprop $file_update waktuIn -s "$time"
-         axprop $file_update status -s "done"
-         axprop $file_update insUp true
-         axprop $file_update notif_update false
-         rm $engine
-         sleep 1
-         echo "  $su update succesfully"
-         
-         echo
-         sleep 0.03
-         echo " - New Information Modules -"
-         echo "   - version : $verU New"
-         echo "   - versionCode : $vercU New"
-         echo "   - nameEngine : $engineName New"
-         echo
-         rm $prop_update
-         [[ -f $engine_mcine ]] && rm $engine_mcine;
-         exit 0
-      elif [[ "$version_release" = "X" ]]; then
-         if [[ "$akses_awal" = true ]]; then
+      if [[ -z $perfIns ]]; then
+         if [[ "$version_release" = "R" ]] || [[ "$version_release" = "B" ]]; then
+            sleep 1
             echo "  $pr update system starting"
             axprop $file_update ver -s "$verU"
             axprop $file_update verc -s $vercU
             axprop $file_update nameEngine -s "$engineName"
-            axprop $file_update waktuIn -s "$time"
-            axprop $file_update status -s "done"
-            axprop $file_update insUp true
-            axprop $file_update notif_update false
+            axprop $file_update notif false
+            axprop $file_update waktuUp -s "$time"
+            axprop $file_update buildDate -s "$build"
+            axprop $data_prop noxc -s "ax vex -c"
+            rm $engine
             sleep 1
             echo "  $su update succesfully"
             
             echo
             sleep 0.03
             echo " - New Information Modules -"
-            echo "   - version : $verU Experimental"
-            echo "   - versionCode : $vercU Experimental"
-            echo "   - nameEngine : $engineName Experimental"
+            echo "   - version : $verU New"
+            echo "   - versionCode : $vercU New"
+            echo "   - nameEngine : $engineName New"
+            echo
+            echo "please relog your laxeron Apk "
             echo
             rm $prop_update
-            rm $engine_mcine
+            [[ -f $engine_mcine ]] && rm $engine_mcine;
             exit 0
-          else
-            echo
-            echo "           - Version Release Masih Experimental -"
-            echo "            Hanya Developer Yang Mempunyai Akses"
-            echo "         silahkan tunggu Version Release Stable/Beta"
-            echo
-            rm $prop_update
+          elif [[ "$version_release" = "X" ]]; then
+            if [[ "$akses_awal" = true ]]; then
+               echo "  $pr update system starting"
+               axprop $file_update ver -s "$verU"
+               axprop $file_update verc -s $vercU
+               axprop $file_update nameEngine -s "$engineName"
+               axprop $file_update notif false
+               axprop $file_update waktuUp -s "$time"
+               axprop $file_update buildDate -s "$build"
+               sleep 1
+               echo "  $su update succesfully"
+               
+               echo
+               sleep 0.03
+               echo " - New Information Modules -"
+               echo "   - version : $verU Experimental"
+               echo "   - versionCode : $vercU Experimental"
+               echo "   - nameEngine : $engineName Experimental"
+               echo
+               echo "please relog your laxeron Apk "
+               echo
+               rm $prop_update
+               rm $engine_mcine
+               exit 0
+             else
+               echo
+               echo "           - Version Release Masih Experimental -"
+               echo "            Hanya Developer Yang Mempunyai Akses"
+               echo "         silahkan tunggu Version Release Stable/Beta"
+               echo
+               rm $prop_update
+            fi
          fi
+       else 
+        echo "   Harap Uninstall terlebih dahulu module version lama"
+        echo "   Usage : ax vex -r"
       fi
-   else
+    else
       echo
       echo " - modules ini sudah terupdate ke versi terbaru sejak -"
-      echo "               $waktuIn"
+      echo "               $waktuUp"
       echo
       rm $prop_update
       exit 0

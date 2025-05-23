@@ -1,17 +1,14 @@
 # == SOURCE GLOBAL ==
 $AXFUN
-local data="/data/local/tmp/nxver"
-local url="https://reiii3.github.io/NOXVER/engine/noxen.sh"
-local bin="/data/local/tmp"
 local cashup="/data/local/tmp/nxver"
+local data="/data/local/tmp/nxver"
+local data_source="/storage/emulated/0/Android/data/com.fhrz.axeron/files"
+local data_prop="/storage/emulated/0/AxeronModules/.prop"
+local url="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/noxen.sh"
+local url_source="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/source.sh"
+local bin="/data/local/tmp"
 local nox_bin="$bin/nvxer"
-local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
-local url_ui="https://reiii3.github.io/NOXVER/engine/ui-system/ui-v1.sh"
-local url_system_update="https://reiii3.github.io/NOXVER/engine/ui-system/update.sh"
-local url_ai="https://reiii3.github.io/NOXVER/engine/engine-core/nox-ai.sh"
-local url_info="https://reiii3.github.io/NOXVER/engine/ui-system/info.sh"
-local engine_system="https://reiii3.github.io/NOXVER/engine/engine-core/system-performance.sh"
-local url_core="https://reiii3.github.io/NOXVER/user/developer.txt"
+local source="$data_source/noxs"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/.detecUpdate"
@@ -19,7 +16,7 @@ local file_update="$cashup/.noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
 local engine_core="$bin/engine_system"
-local bin_dev="$bin/debug/nox-control"
+local bin_deve="$bin/debug/nox-control"
 local stor_ax="$bin/axeron_cash/Vex/response"
 local stor_ins="$bin/axeron_cash/Vex/instal"
 local u_ver="$bin/prop"
@@ -37,11 +34,11 @@ setup_file_awal() {
      axprop $file_update notif false
      axprop $file_update sperfor -s "null"
      axprop $file_update waktuUp -s "null"
-     axprop $file_update waktuIn -s "null"
-     axprop $file_update insUp true
+     axprop $file_update buildDate -s "null"
+     axprop $file_update plugins null
      axprop $file_update perfIns -s ""
      axprop $file_update insAi -s ""
-     devPL "[DEBUG] menambahkan file .noxUp"
+     dePL "[DEBUG] menambahkan file .noxUp"
    fi
 }
 
@@ -50,10 +47,10 @@ allways_cek_update() {
       [ -f "$stor_ax" ] && rm "$stor_ax"
 }
 
-dev_selection() {
+deve_selection() {
    case $1 in 
       -debug )
-        axprop $bin_dev nox_debug true
+        axprop $bin_deve nox_debug true
         nox_debug=true
         if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
@@ -62,14 +59,22 @@ dev_selection() {
         fi
       ;;
       -user )
-        axprop $bin_dev nox_debug false
+        axprop $bin_deve nox_debug false
         nox_debug=false
         if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
           else
            echo "See you Developer Debug mode off"
         fi
-
+      ;;
+      -stable )
+       axprop $bin_deve mode_stable true
+       mode_stable=true
+       dePL "Welcome To Mode Stable"
+       ;;
+      -expert )
+        axprop $bin_deve mode_stable false
+        mode_stable=false
       ;;
    esac
 }
@@ -83,9 +88,9 @@ developer_mode() {
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
       if [[ $akses_awal = true ]]; then
-        devPL "DEBUG : developer_mode sedang di jalankan"
+        dePL "DEBUG : developer_mode sedang di jalankan"
       else
-        devPL "DEBUG : developer_mode sedang tidak di jalankan"
+        dePL "DEBUG : developer_mode sedang tidak di jalankan"
       fi
 }
 
@@ -100,6 +105,11 @@ panel_info() {
       reboot_ai
       exit 0
    ;;
+   --changelogs | -c )
+      storm -x "${url_change}" "change"
+      [ -f "$stor_ax" ] && rm "$stor_ax"
+      exit 0
+   ;;
    esac
 }
 
@@ -108,7 +118,7 @@ run_update_versiom() {
    case $1 in
     -update )
        installationUp
-       devPL "[DEBUG] run_update_version running $su"
+       dePL "[DEBUG] run_update_version running $su"
        exit 0
      ;;
    esac
@@ -129,9 +139,10 @@ first_run() {
          sleep 1 
          axprop $file_update ver -s "$verU"
          axprop $file_update verc $vercU
-          
-         axprop $file_update waktuIn -s "$time"
+         axprop $file_update waktuUp -s "$time"
          axprop $file_update nameEngine -s "$engineName"
+         axprop $file_update buildDate -s "$build"
+         axprop $data_prop noxc -s "ax vex -c"
          sleep 1 
          echo "  $su Instalation succesfully"
          echo 
@@ -141,6 +152,7 @@ first_run() {
          echo "  version : $verU"
          echo "  versionCode : $vercU"
          echo "  engine : $engineName"
+         echo "  build-date : $build"
          echo "==============================="
          echo
          rm $u_ver
@@ -154,8 +166,9 @@ first_run() {
          sleep 1 
          axprop $file_update ver -s "1.0"
          axprop $file_update verc 11
-         axprop $file_update waktuIn -s "$time"
+         axprop $file_update waktuUp -s "$time"
          axprop $file_update nameEngine -s "$engineName"
+         axprop $file_update buildDate -s "$build"
          sleep 1 
          echo "  $su Instalation succesfully"
          echo 
@@ -170,25 +183,23 @@ first_run() {
          rm $u_ver
          exit 0
       else
-        devPL "[DEBUG] terjadi masalah di bagian cek version_release $version_release"
+        dePL "[DEBUG] terjadi masalah di bagian cek version_release $version_release"
       fi
    else
-      devPL "[DEBUG] terjadi masalah pada bagian pengecekan version"
+      dePL "[DEBUG] terjadi masalah pada bagian pengecekan version"
    fi
 }
 
 
 # fungsi : digunakan untuk menampilkan info bahwa syatem sudah di update keversion terbaru
 run_notif() {
-   if [[ "$status" == "done" ]]; then
       if [[ "$notif" = false ]]; then
          echo
          echo "    [update ke version $ver | $verc | $nameEngine New]"
-         echo "    [Di install pada $waktuIn]"
+         echo "    [Di install pada $waktuUp]"
          axprop $file_update notif -s true
          echo
       fi
-   fi
 }
 
 
@@ -197,7 +208,7 @@ run_ui() {
    echo
    if [[ -z "$perfIns" ]]; then
       storm -rP "$bin" -s "${engine_system}" -fn "engine_system" "$@"
-      devPL "[DEBUG] instalasi engine_system"
+      dePL "[DEBUG] instalasi engine_system"
    fi
    sleep 1
    [[ -f "$engine_core" ]] && source $engine_core
@@ -214,11 +225,11 @@ run_ui() {
       echo "          =================================="
       install_ai
    else
-      printer "             - system sudah terinstall -"
-      printer "                      - Reii -"
+      printer "              - system sudah terinstall -"
+      printer "                       - Reii -"
    fi
    [ -f "$stor_ax" ] && rm "$stor_ax"
-   rm $stor_ins
+   [[ -f "$stor_ins" ]] && rm $stor_ins
    [[ -f "$engine_core" ]] && rm $engine_core
    echo
 }
@@ -229,18 +240,21 @@ main() {
    if [ ! -d $data ]; then
      mkdir -p "$data"
    fi
-   if [[ ! -f $engine ]]; then
+   if [[ ! -f $engine ]] && [[ ! -f $source ]]; then
      storm -rP "$data" -s "${url}" -fn "engine"
+     storm -rP "$data_source" -s "${url_source}" -fn "noxs"
    fi
+   source $source
    source $engine
    setup_file_awal
    source $file_update
-   [[ -f "$bin_dev" ]] && source $bin_dev;
+   [[ -f "$bin_deve" ]] && source $bin_deve;
    allways_cek_update
-   dev_selection "$@"
+   deve_selection "$@"
    developer_mode
    run_update_versiom "$@"
    panel_info "$@"
+   pluginz_install "$@" 
    
    case $1 in 
      -update )
@@ -250,7 +264,7 @@ main() {
    
    first_run
    run_notif
-   run_ui
+   run_ui "$@"
   
 }
 
