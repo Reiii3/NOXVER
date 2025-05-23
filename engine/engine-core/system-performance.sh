@@ -27,7 +27,7 @@ new_core_engine() {
          cmd settings put system motion_engine 0
          dePL "[DEBUG] mode performa v1 succes actived"
         } # core 1 di gunakana untuk resource setprop
-        core_1
+        core_1 >/dev/null 2>&1
       ;;
       1.2 ) # versi 1.2
        core_1() {
@@ -72,7 +72,7 @@ new_core_engine() {
            
            dePL "[DEBUG] mode performa v1.2 succes actived"
        }
-        core_1
+        core_1 >/dev/null 2>&1
       ;;
       1.3 ) # versi 1.3
        core_1() {
@@ -121,7 +121,7 @@ new_core_engine() {
           
            dePL "[DEBUG] mode performa v1.3 succes actived"
        }
-       core_1
+       core_1 >/dev/null 2>&1
       ;;
       1.4 )
         dePL "mengaktifkan  mode performa pada version 1.4"
