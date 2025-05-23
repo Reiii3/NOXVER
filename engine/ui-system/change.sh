@@ -11,21 +11,21 @@ echo "            Welcome To Changelogs NOXVER.AI"
 echo "         ====================================="
 echo 
 echo " Usage This Module :" && load 0.5
-echo "    - Instalation this Module : ax vex " && load 0.5
+echo '    - Instalation this Module : $noxver ' && load 0.5
 echo "       • fungsi ini di gunakan untuk instalasi" && load 0.5
 echo "         module" && load 0.5
-echo "    - Removed this Module : ax vex -r" && load 0.5
+echo '    - Removed this Module : $noxr ' && load 0.5
 echo "       • fungsi ini di gunakan untuk remove module" && load 0.5
-echo "    - Information this Module : ax vex -i" && load 0.5
+echo '    - Information this Module : $noxi ' && load 0.5
 echo "       • ini berisi tentang semua informasi tentang"
 echo "         module ini seperti versi,dev,dll" && load 0.5
-echo "    - Changelogs this Module : ax vex -c " && load 0.5
+echo '    - Changelogs this Module : $noxc' && load 0.5
 echo "       • ini adalah semua penjelasan tentang fitur" && load 0.5
 echo "         di module ini" && load 0.5
-echo "    - Update this module [ If Any ] : ax vex -update" && load 0.5
+echo '    - Update this module [ If Any ] : $noxup' && load 0.5
 echo "       • Ini di lakukan untuk update ke versi" && load 0.5
 echo "         terbaru" && load 0.5
-echo "    - Rebooot System this Module : ax vex -aR" && load 0.5
+echo '    - Rebooot System this Module : $reboot' && load 0.5
 echo "       • Biasanya ini di gunakan ketika anda baru" && load 0.5
 echo "         download game baru" && load 0.5
 echo
