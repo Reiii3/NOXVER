@@ -286,6 +286,7 @@ installationUp() {
             axprop $file_update notif false
             axprop $file_update waktuUp -s "$time"
             axprop $file_update buildDate -s "$build"
+            axprop $data_prop noxc -s "ax vex -c"
             rm $engine
             sleep 1
             echo "  $su update succesfully"
