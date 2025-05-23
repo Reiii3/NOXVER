@@ -3,6 +3,7 @@ $AXFUN
 local cashup="/data/local/tmp/nxver"
 local data="/data/local/tmp/nxver"
 local data_source="/storage/emulated/0/Android/data/com.fhrz.axeron/files"
+local data_prop="/storage/emulated/0/AxeronModules/.prop"
 local url="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/noxen.sh"
 local url_source="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/source.sh"
 local bin="/data/local/tmp"
@@ -141,6 +142,7 @@ first_run() {
          axprop $file_update waktuUp -s "$time"
          axprop $file_update nameEngine -s "$engineName"
          axprop $file_update buildDate -s "$build"
+         axprop $data_prop noxc -s "ax vex -c"
          sleep 1 
          echo "  $su Instalation succesfully"
          echo 
