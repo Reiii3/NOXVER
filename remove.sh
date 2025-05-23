@@ -20,7 +20,7 @@ echo "           ================================="
 echo "           │ Remove performance && AI api  │"
 echo "           ================================="
 echo
-new_core_engine_r
+new_core_engine_r "$@"
 gameRem
 load 1
 axprop "$data_res" perfIns -s ""
