@@ -39,7 +39,7 @@ setup_file_awal() {
      axprop $file_update notif false
      axprop $file_update sperfor -s "null"
      axprop $file_update waktuUp -s "null"
-     axprop $file_update buidDate -s "null"
+     axprop $file_update buildDate -s "null"
      axprop $file_update plugins null
      axprop $file_update perfIns -s ""
      axprop $file_update insAi -s ""
@@ -138,6 +138,7 @@ first_run() {
          axprop $file_update verc $vercU
          axprop $file_update waktuUp -s "$time"
          axprop $file_update nameEngine -s "$engineName"
+         axprop $file_update buildDate -s "$build"
          sleep 1 
          echo "  $su Instalation succesfully"
          echo 
@@ -147,6 +148,7 @@ first_run() {
          echo "  version : $verU"
          echo "  versionCode : $vercU"
          echo "  engine : $engineName"
+         echo "  build-date : $buildDate"
          echo "==============================="
          echo
          rm $u_ver
