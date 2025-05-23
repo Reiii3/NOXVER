@@ -1,5 +1,5 @@
 $AXFUN
-bin="/data/local/tmp/"
+bin="/data/local/tmp"
 data="/data/local/tmp/nxver/engine"
 data_res="/data/local/tmp/nxver/.noxUp"
 data_ai="/data/local/tmp/noxAI"
