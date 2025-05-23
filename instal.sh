@@ -65,7 +65,15 @@ deve_selection() {
           else
            echo "See you Developer Debug mode off"
         fi
-
+      ;;
+      -stable )
+       axprop $bin_deve mode_stable true
+       mode_stable=true
+       dePL "Welcome To Mode Stable"
+       ;;
+      -expert
+        axprop $bin_deve mode_stable false
+        mode_stable=false
       ;;
    esac
 }
