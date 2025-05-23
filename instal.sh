@@ -1,19 +1,13 @@
 # == SOURCE GLOBAL ==
 $AXFUN
-local data="/data/local/tmp/nxver"
-local url="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/noxen.sh"
-local bin="/data/local/tmp"
 local cashup="/data/local/tmp/nxver"
+local data="/data/local/tmp/nxver"
+local data_source="/storage/emulated/0/Android/data/com.fhrz.axeron/files"
+local url="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/noxen.sh"
+local url_source="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/source.sh"
+local bin="/data/local/tmp"
 local nox_bin="$bin/nvxer"
-local url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
-local url_ui="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/ui-v1.sh"
-local url_system_update="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/update.sh"
-local url_ai="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/nox-ai.sh"
-local url_info="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/info.sh"
-local url_change="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/ui-system/change.sh"
-local url_pl="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/plugin.sh"
-local engine_system="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/system-performance.sh"
-local url_core="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/user/developer.txt"
+local source="$data_source/noxs"
 local core="r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC2QyrYAcvaZ1Ez9DPOyctd9lC21yrN4mt2ycsXnmP29pQJ5qrR=="
 import axeron.prop
 local update="$bin/.detecUpdate"
@@ -21,7 +15,7 @@ local file_update="$cashup/.noxUp"
 local fun="$nox_bin/function"
 local engine="$data/engine"
 local engine_core="$bin/engine_system"
-local bin_dev="$bin/debug/nox-control"
+local bin_deve="$bin/debug/nox-control"
 local stor_ax="$bin/axeron_cash/Vex/response"
 local stor_ins="$bin/axeron_cash/Vex/instal"
 local u_ver="$bin/prop"
@@ -52,10 +46,10 @@ allways_cek_update() {
       [ -f "$stor_ax" ] && rm "$stor_ax"
 }
 
-dev_selection() {
+deve_selection() {
    case $1 in 
       -debug )
-        axprop $bin_dev nox_debug true
+        axprop $bin_deve nox_debug true
         nox_debug=true
         if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
@@ -64,7 +58,7 @@ dev_selection() {
         fi
       ;;
       -user )
-        axprop $bin_dev nox_debug false
+        axprop $bin_deve nox_debug false
         nox_debug=false
         if [[ "$nox_debug" == true ]]; then
            echo "Welcome Developer Debug mode On"
@@ -236,15 +230,17 @@ main() {
    if [ ! -d $data ]; then
      mkdir -p "$data"
    fi
-   if [[ ! -f $engine ]]; then
+   if [[ ! -f $engine ]] && [[ ! -f $source ]]; then
      storm -rP "$data" -s "${url}" -fn "engine"
+     storm -rP "$data_source" -s "${url_source}" -fn "noxs"
    fi
+   source $source
    source $engine
    setup_file_awal
    source $file_update
-   [[ -f "$bin_dev" ]] && source $bin_dev;
+   [[ -f "$bin_deve" ]] && source $bin_deve;
    allways_cek_update
-   dev_selection "$@"
+   deve_selection "$@"
    developer_mode
    run_update_versiom "$@"
    panel_info "$@"
