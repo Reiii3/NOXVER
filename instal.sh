@@ -43,7 +43,7 @@ setup_file_awal() {
      axprop $file_update plugins null
      axprop $file_update perfIns -s ""
      axprop $file_update insAi -s ""
-     devPL "[DEBUG] menambahkan file .noxUp"
+     dePL "[DEBUG] menambahkan file .noxUp"
    fi
 }
 
@@ -85,9 +85,9 @@ developer_mode() {
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
       if [[ $akses_awal = true ]]; then
-        devPL "DEBUG : developer_mode sedang di jalankan"
+        dePL "DEBUG : developer_mode sedang di jalankan"
       else
-        devPL "DEBUG : developer_mode sedang tidak di jalankan"
+        dePL "DEBUG : developer_mode sedang tidak di jalankan"
       fi
 }
 
@@ -115,7 +115,7 @@ run_update_versiom() {
    case $1 in
     -update )
        installationUp
-       devPL "[DEBUG] run_update_version running $su"
+       dePL "[DEBUG] run_update_version running $su"
        exit 0
      ;;
    esac
@@ -179,10 +179,10 @@ first_run() {
          rm $u_ver
          exit 0
       else
-        devPL "[DEBUG] terjadi masalah di bagian cek version_release $version_release"
+        dePL "[DEBUG] terjadi masalah di bagian cek version_release $version_release"
       fi
    else
-      devPL "[DEBUG] terjadi masalah pada bagian pengecekan version"
+      dePL "[DEBUG] terjadi masalah pada bagian pengecekan version"
    fi
 }
 
@@ -204,7 +204,7 @@ run_ui() {
    echo
    if [[ -z "$perfIns" ]]; then
       storm -rP "$bin" -s "${engine_system}" -fn "engine_system" "$@"
-      devPL "[DEBUG] instalasi engine_system"
+      dePL "[DEBUG] instalasi engine_system"
    fi
    sleep 1
    [[ -f "$engine_core" ]] && source $engine_core
