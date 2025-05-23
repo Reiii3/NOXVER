@@ -9,10 +9,10 @@ source "$data"
 source "$data_res"
 if [[ ! -z "$perfIns" ]]; then
     storm -rP "$bin" -s "${engine_system}" -fn "engine_system" "$@"
-    devPL "[DEBUG] instalasi engine_system"
+    dePL "[DEBUG] instalasi engine_system"
 fi
 sleep 1
-[[ -f "$engine_core" ]] && source $engine_core || devPL '$engine_core not detected'
+[[ -f "$engine_core" ]] && source $engine_core || dePL '$engine_core not detected'
 
 
 #---------------- main ui modules-----------------
