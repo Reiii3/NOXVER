@@ -19,9 +19,15 @@ systemCecking() {
       echo
       if [[ "$version_release" == "B" ]] || [[ "$version_release" == "R" ]]; then
          echo "[Information] tersedia versi terbaru yaitu : $verU"
+         if [[ ! -z $massage ]]; then
+           echo "[dev-massage] $massage"
+         fi
          echo
       elif [[ "$version_release" == "X" ]]; then
          echo "[Information] tersedia versi terbaru yaitu : $verU"
+         if [[ ! -z $massage ]]; then
+           echo "[dev-massage] $massage"
+         fi
          echo "[Notes] Hanya untuk pengguna Tester/Developer"
          echo
       fi
