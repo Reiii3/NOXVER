@@ -1,5 +1,6 @@
 module_engine="/data/local/tmp/nxver/engine"
 module_prop="/data/local/tmp/nxver/.noxUp"
+soc=$(getprop ro.soc.manufacturer)
 
 source $module_prop
 source $module_engine
@@ -118,6 +119,8 @@ new_core_engine() {
          #--------------------New Update-------------------- # v1.3
           
            setprop persist.log.tag "" 
+           logcat -c
+           logcat --wrap
            setprop debug.cpuprio 7
            setprop debug.gpuprio 7
            setprop debug.ioprio 7
@@ -127,7 +130,21 @@ new_core_engine() {
            setprop debug.performance_schema 1
            setprop debug.performance.force true
            setprop debug.performance.tuning 1
-
+           if [[ "$soc" == "Mediatek" ]]; then
+             setprop debug.mediatek.appgamepq_compress 1
+             setprop debug.mediatek.disp_decompress 1
+             setprop debug.mediatek.appgamepq 2
+             setprop debug.mediatek.game_pq_enable 1
+             setprop debug.mediatek.high_frame_rate_sf_set_big_core_fps_threshold 119
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           elif [[ "$soc" == "Qualcom" ]]; then
+             setprop debug.qti.am.resource.type "super-large"
+             setprop debug.qc.hardware "true"
+             setprop debug.qctwa.statusbar "1"
+             setprop debug.qctwa.preservebuf "1"
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           fi
+           dePL "[DEBUG] CPU : $soc"
            dePL "[DEBUG] mode performa v1.3 succes actived"
        }
        core_1 >/dev/null 2>&1
