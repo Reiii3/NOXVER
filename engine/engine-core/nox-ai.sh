@@ -23,7 +23,7 @@ ai_start() {
     cmd power set-adaptive-power-saver-enabled false
     cmd power set-fixed-performance-mode-enabled true
     cmd power set-mode 0
-    setprop debug.composition.type dyn
+    setprop debug.composition.type mdp
     setprop debug.hwui.render_dirty_regions false
     setprop debug.hwui.skia_atrace_enabled false
     setprop debug.qsg_renderer 0
@@ -41,8 +41,6 @@ ai_start() {
 }
 
 ai_op() {
-    cmd settings put system high_performance_mode_on 0
-    sleep 0.5
     cmd settings put system high_performance_mode_on 1
     cmd settings put system high_performance_mode_on_when_shutdown 1
 }
