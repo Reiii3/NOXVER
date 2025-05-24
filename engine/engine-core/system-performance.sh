@@ -113,12 +113,21 @@ new_core_engine() {
             cmd display ab-logging-disable
             cmd display dwb-logging-disable
             cmd display dmd-logging-disable
-            cmd looper_stats disabl
+            cmd looper_stats disable
             
          #--------------------New Update-------------------- # v1.3
           
            setprop persist.log.tag "" 
-          
+           setprop debug.cpuprio 7
+           setprop debug.gpuprio 7
+           setprop debug.ioprio 7
+           setprop debug.sf.gpu_freq_index 7
+           setprop debug.sf.cpu_freq_index 7
+           setprop debug.sf.mem_freq_index 7
+           setprop debug.performance_schema 1
+           setprop debug.performance.force true
+           setprop debug.performance.tuning 1
+
            dePL "[DEBUG] mode performa v1.3 succes actived"
        }
        core_1 >/dev/null 2>&1
