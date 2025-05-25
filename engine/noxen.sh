@@ -133,7 +133,7 @@ pluginz_install() {
    engine_downscale() {
       cmd device_config put game_overlay $game mode=2,downscaleFactor=0.7,useAngle=true,fps=$fps,loadingBoost=999999999
       if [[ "$os" == 13 ]]; then
-        cmd game set --mode 2 --downscale 0.7 --fps $fps $game
+        cmd game set --mode 2 --downscale 0.7 --fps $fps $game >/dev/nur `ll 2>&1
       elif [[ "$os" -gt 13 ]]; then
         cmd game mode 2 $game >/dev/nur `ll 2>&1
       fi
