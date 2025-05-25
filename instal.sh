@@ -35,7 +35,7 @@ setup_file_awal() {
      axprop $file_update sperfor -s "null"
      axprop $file_update waktuUp -s "null"
      axprop $file_update buildDate -s "null"
-     axprop $file_update plugins null
+     axprop $file_update plugins ""
      axprop $file_update perfIns -s ""
      axprop $file_update insAi -s ""
      dePL "[DEBUG] menambahkan file .noxUp"
