@@ -240,7 +240,29 @@ new_core_engine_r() {
             cmd looper_stats reset
             am memory-factor reset
            #--------------------New Update--------------------- # v1.3
-            
+            setprop debug.gpuprio 5
+           setprop debug.ioprio 5
+           setprop debug.sf.gpu_freq_index 5
+           setprop debug.sf.cpu_freq_index 5
+           setprop debug.sf.mem_freq_index 5
+           setprop debug.performance_schema 0
+           setprop debug.performance.force false
+           setprop debug.performance.tuning 0
+           if [[ "$soc" == "Mediatek" ]]; then
+             setprop debug.mediatek.appgamepq_compress 0
+             setprop debug.mediatek.disp_decompress 0
+             setprop debug.mediatek.appgamepq 0
+             setprop debug.mediatek.game_pq_enable 0
+             setprop debug.mediatek.high_frame_rate_sf_set_big_core_fps_threshold 60
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           elif [[ "$soc" == "Qualcom" ]]; then
+             setprop debug.qti.am.resource.type super-large
+             setprop debug.qc.hardware false
+             setprop debug.qctwa.statusbar 0
+             setprop debug.qctwa.preservebuf 0
+             
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           fi
             dePL "[DEBUG] mode removed tweak v1.3 succes"
         }
         core_1_r
