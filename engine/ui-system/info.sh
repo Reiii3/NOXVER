@@ -17,8 +17,13 @@ echo -n " ├$pr " && printer "last install : ${perfIns:-null}"
 echo -n " ├$pr " && printer "last update : $waktuUp"
 echo -n " ├$pr " && printer "plugin install : ${plugins:-null}"
 if pgrep -f noxAI >/dev/null 2>&1; then
-   echo -n " └$pr " && printer "status AI : actived"
+   echo -n "┌┴$pr " && printer "status AI : actived"
 else
-   echo -n " └$pr " && printer "status AI : deactived"
+   echo -n "┌┴$pr " && printer "status AI : deactived"
 fi
+echo -n "├$pr " && printer "Information Your Phone"
+echo -n "├$pr " && printer ""
+echo -n "├$pr " && printer ""
+echo -n "├$pr " && printer ""
+echo -n "└$pr " && printer ""
 echo
