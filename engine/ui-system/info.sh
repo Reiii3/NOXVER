@@ -20,7 +20,7 @@ echo -n "├$pr " && printer "version-engine : $nameEngine"
 echo -n "├$pr " && printer "developer      : @ReiiEja - Telegram"
 echo -n "└─┬$pr " && printer "build-date     : $buildDate"
 echo -n "  ├$pr " && printer "last install   : ${perfIns:-null}"
-echo -n "  ├$pr " && printer "last update    : ${waktuUpn-null}"
+echo -n "  ├$pr " && printer "last update    : ${waktuUp:-null}"
 echo -n "  ├$pr " && printer "plugin install : ${plugins:-null}"
 if pgrep -f noxAI >/dev/null 2>&1; then
    echo -n "┌─┴$pr " && printer "status AI      : actived"
