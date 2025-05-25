@@ -1,5 +1,7 @@
 data="/data/local/tmp/debug/nox-control"
+engine="/data/local/tmp/nxver/engine"
 
+source $engine
 [[ -f $data ]] && source $data || mode_stable=true
 
 if [[ $mode_stable == false ]]; then
