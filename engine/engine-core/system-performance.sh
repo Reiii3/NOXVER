@@ -75,7 +75,7 @@ new_core_engine() {
        }
         core_1 >/dev/null 2>&1
       ;;
-      1.3 ) # versi 1.3
+      1.3 | 1.4 ) # versi 1.3
        core_1() {
          # configurasi system versi 1.0 - 1.1
             setprop debug.hwui.use_hint_manager 1
@@ -149,7 +149,7 @@ new_core_engine() {
        }
        core_1 >/dev/null 2>&1
       ;;
-      1.4 )
+      1.5 )
         dePL "mengaktifkan  mode performa pada version 1.4"
       ;;
       * ) # cek kompotibel version
@@ -213,7 +213,7 @@ new_core_engine_r() {
         }
        core_1_r
       ;;
-      1.3 )
+      1.3 | 1.4 )
         core_1_r() {
            # configurasi versi 1.0 - 1.1 
             setprop debug.hwui.use_hint_manager ""
@@ -267,7 +267,7 @@ new_core_engine_r() {
         }
         core_1_r
       ;;
-      1.4 )
+      1.5 )
         dePL "mengaktifkan  mode performa pada version 1.4"
       ;;
       * ) # cek kompotibel version
