@@ -7,6 +7,8 @@ source_update="/data/local/tmp/.detecUpdate"
 os=$(getprop ro.build.version.release)
 gpu=$(dumpsys SurfaceFlinger|grep GLES:|cut -f2 -d,)
 chip=$(getprop ro.soc.manufacturer)
+model=$(getprop ro.product.manufacturer)
+
 status=$(pgrep -f noxAI)
 source $source_module
 source $engine_module
@@ -26,8 +28,8 @@ else
    echo -n "┌┴$pr " && printer "status AI : deactived"
 fi
 echo -n "├$pr " && printer "Information Your Phone [•]"
-echo -n "├$pr " && printer "android-version : "
-echo -n "├$pr " && printer ""
-echo -n "├$pr " && printer ""
-echo -n "└$pr " && printer ""
+echo -n "├$pr " && printer "android-version : $os"
+echo -n "├$pr " && printer "chipset : $chip"
+echo -n "├$pr " && printer "gpu : $gpu"
+echo -n "└$pr " && printer "Brand : $model"
 echo
