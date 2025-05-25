@@ -7,6 +7,7 @@ source $engine
 echo
 brand_noxver ice
 load "1"
+echo
 storm $source_image
 echo "        ======================================"
 echo "        │ Instalation performance && AI api  │"
