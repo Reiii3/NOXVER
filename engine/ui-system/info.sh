@@ -30,6 +30,6 @@ fi
 echo -n "├$pr " && printer "Information Your Phone [•]"
 echo -n "├$pr " && printer "android-version : $os"
 echo -n "├$pr " && printer "chipset         : $chip"
-echo -n "├$pr " && printer "gpu             :$gpu"
-echo -n "└$pr " && printer "Brand           : $model"
+echo -n "├$pr " && printer "gpu-chip        :$gpu"
+echo -n "└$pr " && printer "model-brand     : $model"
 echo
