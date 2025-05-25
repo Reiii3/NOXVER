@@ -14,7 +14,6 @@ if [[ $mode_stable == false ]]; then
   export url_pl="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/plugin.sh"
   export engine_system="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/engine/engine-core/system-performance.sh"
   export url_core="https://raw.githubusercontent.com/Reiii3/NOXVER/dev/user/developer.txt"
-  dePL "[DEBUG] developer source"
 else
   export url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"
   export url_ui="https://raw.githubusercontent.com/Reiii3/NOXVER/main/engine/ui-system/ui-v1.sh"
@@ -25,5 +24,4 @@ else
   export url_pl="https://raw.githubusercontent.com/Reiii3/NOXVER/main/plugin.sh"
   export engine_system="https://raw.githubusercontent.com/Reiii3/NOXVER/main/engine/engine-core/system-performance.sh"
   export url_core="https://raw.githubusercontent.com/Reiii3/NOXVER/main/user/developer.txt"
-  dePL "[DEBUG] user source"
 fi
