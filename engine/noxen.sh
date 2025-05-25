@@ -131,7 +131,12 @@ pluginz_install() {
    source $module_prop
    
    engine_downscale() {
-      cmd device_config put game_overlay $game mode=2,downscaleFactor=$velue,useAngle=true,fps=$fps,loadingBoost=999999999;cmd game set --mode 2 --downscale 0.7 --fps $fps $game >/dev/null 2>&1
+      cmd device_config put game_overlay $game mode=2,downscaleFactor=0.7,useAngle=true,fps=$fps,loadingBoost=999999999
+      if [[ "$os" == 13 ]]; then
+        cmd game set --mode 2 --downscale 0.7 --fps $fps $game >/dev/null 2>&1
+      elif [[ "$os" -gt 13 ]]; then
+        cmd game mode 2 $game >/dev/null 2>&1
+      fi
    }
    
    case $1 in 
@@ -139,9 +144,8 @@ pluginz_install() {
           echo
             shift
             game=$1
-            shift
-            velue=$1
             fps=$(dumpsys display | grep -oE 'fps=[0-9]+' | awk -F '=' '{print $2}' | head -n 1)
+            os=$(getprop ro.build.version.release)
             name=$(pkglist -L $game)
           if [[ -z "$plugins" ]]; then
             echo "$pr Instalasi Downscale Game, please wait..."

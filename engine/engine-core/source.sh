@@ -1,6 +1,8 @@
 data="/data/local/tmp/debug/nox-control"
+engine="/data/local/tmp/nxver/engine"
 
-[[ -f $data ]] && source $data
+source $engine
+[[ -f $data ]] && source $data || mode_stable=true
 
 if [[ $mode_stable == false ]]; then
   export url_funct="https://reiii3.github.io/Center-Module/core-system/function.sh"

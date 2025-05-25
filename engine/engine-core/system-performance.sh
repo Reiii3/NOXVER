@@ -1,5 +1,6 @@
 module_engine="/data/local/tmp/nxver/engine"
 module_prop="/data/local/tmp/nxver/.noxUp"
+soc=$(getprop ro.soc.manufacturer)
 
 source $module_prop
 source $module_engine
@@ -74,7 +75,7 @@ new_core_engine() {
        }
         core_1 >/dev/null 2>&1
       ;;
-      1.3 ) # versi 1.3
+      1.3 | 1.4 ) # versi 1.3
        core_1() {
          # configurasi system versi 1.0 - 1.1
             setprop debug.hwui.use_hint_manager 1
@@ -113,17 +114,42 @@ new_core_engine() {
             cmd display ab-logging-disable
             cmd display dwb-logging-disable
             cmd display dmd-logging-disable
-            cmd looper_stats disabl
+            cmd looper_stats disable
             
          #--------------------New Update-------------------- # v1.3
           
            setprop persist.log.tag "" 
-          
+           logcat -c
+           logcat --wrap
+           setprop debug.cpuprio 7
+           setprop debug.gpuprio 7
+           setprop debug.ioprio 7
+           setprop debug.sf.gpu_freq_index 7
+           setprop debug.sf.cpu_freq_index 7
+           setprop debug.sf.mem_freq_index 7
+           setprop debug.performance_schema 1
+           setprop debug.performance.force true
+           setprop debug.performance.tuning 1
+           if [[ "$soc" == "Mediatek" ]]; then
+             setprop debug.mediatek.appgamepq_compress 1
+             setprop debug.mediatek.disp_decompress 1
+             setprop debug.mediatek.appgamepq 2
+             setprop debug.mediatek.game_pq_enable 1
+             setprop debug.mediatek.high_frame_rate_sf_set_big_core_fps_threshold 119
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           elif [[ "$soc" == "Qualcom" ]]; then
+             setprop debug.qti.am.resource.type "super-large"
+             setprop debug.qc.hardware "true"
+             setprop debug.qctwa.statusbar "1"
+             setprop debug.qctwa.preservebuf "1"
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           fi
+           dePL "[DEBUG] CPU : $soc"
            dePL "[DEBUG] mode performa v1.3 succes actived"
        }
        core_1 >/dev/null 2>&1
       ;;
-      1.4 )
+      1.5 )
         dePL "mengaktifkan  mode performa pada version 1.4"
       ;;
       * ) # cek kompotibel version
@@ -187,7 +213,7 @@ new_core_engine_r() {
         }
        core_1_r
       ;;
-      1.3 )
+      1.3 | 1.4 )
         core_1_r() {
            # configurasi versi 1.0 - 1.1 
             setprop debug.hwui.use_hint_manager ""
@@ -214,12 +240,34 @@ new_core_engine_r() {
             cmd looper_stats reset
             am memory-factor reset
            #--------------------New Update--------------------- # v1.3
-            
+            setprop debug.gpuprio 5
+           setprop debug.ioprio 5
+           setprop debug.sf.gpu_freq_index 5
+           setprop debug.sf.cpu_freq_index 5
+           setprop debug.sf.mem_freq_index 5
+           setprop debug.performance_schema 0
+           setprop debug.performance.force false
+           setprop debug.performance.tuning 0
+           if [[ "$soc" == "Mediatek" ]]; then
+             setprop debug.mediatek.appgamepq_compress 0
+             setprop debug.mediatek.disp_decompress 0
+             setprop debug.mediatek.appgamepq 0
+             setprop debug.mediatek.game_pq_enable 0
+             setprop debug.mediatek.high_frame_rate_sf_set_big_core_fps_threshold 60
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           elif [[ "$soc" == "Qualcom" ]]; then
+             setprop debug.qti.am.resource.type super-large
+             setprop debug.qc.hardware false
+             setprop debug.qctwa.statusbar 0
+             setprop debug.qctwa.preservebuf 0
+             
+             dePL "[DEBUG] Chipset terdeteksi $soc"
+           fi
             dePL "[DEBUG] mode removed tweak v1.3 succes"
         }
         core_1_r
       ;;
-      1.4 )
+      1.5 )
         dePL "mengaktifkan  mode performa pada version 1.4"
       ;;
       * ) # cek kompotibel version
