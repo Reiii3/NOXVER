@@ -41,12 +41,13 @@ setup_file_awal() {
      dePL "[DEBUG] menambahkan file .noxUp"
    fi
 }
-
+# // FUNGSI : Fungsi ini digunakan untuk selalu mengecek update terbaru dari module ini
 allways_cek_update() {
       storm -x "${url_system_update}" "up"
       [ -f "$stor_ax" ] && rm "$stor_ax"
 }
 
+# // FUNGSI : Fungsi ini di gunakan khusus untuk para developer dan member tester
 deve_selection() {
    case $1 in 
       -debug )
@@ -79,8 +80,6 @@ deve_selection() {
    esac
 }
 
-# // url_detect ini adalah fungsi utama dari fungsi maintenance di dalam nya ada variabel bernama noxUpdate jika isi variabel adala true maka syatem maintenance akan berkerja dan juga sebaliknya jika variabel berisi false maka system maintenance akan mati
-
 # FUNGSI : digunakan untuk par developer untuk debugger pada saat system sedang maintenance
 developer_mode() {
    if [[ "$nox_debug" == true ]]; then
@@ -88,12 +87,13 @@ developer_mode() {
    fi
    akses_awal=$(echo "$id_dev" | grep -q "$AXERONID" && echo true || echo false)
       if [[ $akses_awal = true ]]; then
-        dePL "DEBUG : developer_mode sedang di jalankan"
+        dePL "[DEBUG] developer_mode sedang di jalankan"
       else
-        dePL "DEBUG : developer_mode sedang tidak di jalankan"
+        dePL "[DEBUG] developer_mode sedang tidak di jalankan"
       fi
 }
 
+# // FUNGSI : Fungai ini di gunakan untuk Fungai inrformasi UI, Reboot System Dan juga changelogs module
 panel_info() {
    case $1 in
    --info | -i )
