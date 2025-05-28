@@ -13,8 +13,8 @@ ai_start() {
     setprop debug.sf.hw 1
     setprop debug.egl.hw 1
     setprop debug.hwui.renderer skiavk
-    setprop debug.hwui.shadow.renderer skiaglthreaded
     setprop debug.renderengine.backend skiavkthreaded
+    setprop debug.hwui.shadow.renderer skiaglthreaded
     setprop debug.renderengine.vulkan true
     setprop debug.vulkan.enable_callback false
     setprop debug.vulkan.layers ""
