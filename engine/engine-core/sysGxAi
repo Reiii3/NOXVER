@@ -6,7 +6,7 @@ battery_lower=""
 running_mode_detection=""
 notif_state=""
 
-settings put global aeternum_engine_version 1.0.0
+settings put global aeternum_engine_version 1.0.0-B
 
 game_mode() {
     [ -n "$detected_apps" ] && \
@@ -49,23 +49,29 @@ saver_mode() {
 notif_run() {
     cmd notification post -S bigtext -t 'Aeternum AI Engine' \
     "noxg_engine_mode" \
-    "Game Mode : [ ON - Game Mode ] \n Aeternum AI Engine - [Enjoy Your Game]" \
+    "Game Mode : [ ON - Game Mode ]
+    Aeternum AI Engine - [Enjoy Your Game]" \
     >/dev/null 2>&1
 }
+
 
 notif_force() {
     cmd notification post -S bigtext -t 'Aeternum AI Engine' \
     "noxg_engine_mode" \
-    "Game Mode : [ Game Force Mode ] \n Aeternum AI Engine - [Enjoy Your Game And Battery Is Low]" \
+    "Game Mode : [ Game Force Mode ]
+    Aeternum AI Engine - [Enjoy Your Game And Battery Is Low]" \
     >/dev/null 2>&1
 }
+
 
 notif_stop() {
     cmd notification post -S bigtext -t 'Aeternum AI Engine' \
     "noxg_engine_mode" \
-    "Game Mode : [ OFF - Saver Mode ] \n Aeternum AI Engine - [Enjoy Efficiency Battery]" \
+    "Game Mode : [ OFF - Saver Mode ]
+    Aeternum AI Engine - [Enjoy Efficiency Battery]" \
     >/dev/null 2>&1
 }
+
 
 gms_tweak() {
     for a in $gms; do
