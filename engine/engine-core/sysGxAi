@@ -154,7 +154,7 @@ systemAI() {
             if [[ "$render_detected" != "skiavk" && "$notif_state" == "run" ]]; then
                 notif_run
                 imperium_switch_init
-                gms_tweak
+                # gms_tweak
                 setprop debug.hwui.renderer skiavk
                 game_mode
                 running_mode_detection="game-mode"
