@@ -1,0 +1,194 @@
+IDLE_TIME=5
+gamerun=""
+battery_lower=""
+running_mode_detection=""
+notif_state=""
+
+settings put global aeternum_engine_version 1.0.0
+
+game_mode() {
+   [ -n "$detected_apps" ] && \
+   settings put global updatable_driver_production_opt_in_apps "$detected_apps"
+
+   # Source By CmdTweak @HoyoSlave
+   cmd power set-adaptive-power-saver-enabled false
+   cmd power set-fixed-performance-mode-enabled true
+   cmd power set-mode 0
+
+   # I got this source from lykafka module
+   setprop debug.renderengine.backend skiavkthreaded
+   am force-stop com.google.android.gms
+   cmd activity force-stop com.xiaomi.joyose
+   dumpsys deviceidle whitelist -com.google.android.gms
+   sleep 0.5
+   cmd thermalservice override-status 0
+   setprop debug.composition.type mdp
+
+   # Oppo Battery High Performance
+   if [[ $(settings get system high_performance_mode_on 2>/dev/null) ]]; then
+      cmd settings put system high_performance_mode_on 1
+      cmd settings put system high_performance_mode_on_when_shutdown 1
+   fi
+}
+
+saver_mode() {
+   settings delete global updatable_driver_production_opt_in > /dev/null 2>&1
+
+   cmd power set-adaptive-power-saver-enabled true
+   cmd power set-fixed-performance-mode-enabled false
+   dumpsys deviceidle whitelist +com.google.android.gms
+
+   if [[ $(settings get system high_performance_mode_on 2>/dev/null) ]]; then
+      cmd settings put system high_performance_mode_on 0
+      cmd settings put system high_performance_mode_on_when_shutdown 0
+   fi
+}
+
+notif_run() {
+   cmd notification post -S bigtext -t 'Aeternum AI Engine' \
+   "noxg_engine_mode" \
+   "Game Mode : [ ON - Game Mode ] \n Aeternum AI Engine - [Enjoy Your Game]" \
+   >/dev/null 2>&1
+}
+
+notif_force() {
+   cmd notification post -S bigtext -t 'Aeternum AI Engine' \
+   "noxg_engine_mode" \
+   "Game Mode : [ Game Force Mode ] \n Aeternum AI Engine - [Enjoy Your Game And Battery Is Low]" \
+   >/dev/null 2>&1
+}
+
+notif_stop() {
+   cmd notification post -S bigtext -t 'Aeternum AI Engine' \
+   "noxg_engine_mode" \
+   "Game Mode : [ OFF - Saver Mode ] \n Aeternum AI Engine - [Enjoy Efficiency Battery]" \
+   >/dev/null 2>&1
+}
+
+gms_tweak() {
+   for a in $gms; do
+      am force-stop "$a" 2>/dev/null
+      am service-restart-backoff disable "$a" 2>/dev/null
+      am set-bg-restriction-level --user 0 "$a" hibernation 2>/dev/null
+      am set-inactive --user 0 "$a" true 2>/dev/null
+      am set-standby-bucket "$a" rare 2>/dev/null
+   done
+}
+
+cache_cleaner() {
+   cmd notification post -S bigtext -t 'Aeternum AI Engine' \
+   "noxg_engine_mode" \
+   "Aeternum AI Engine Cache Cleaner - Midnight Optimization" \
+   >/dev/null 2>&1
+
+   find /data/data/*/cache/* -delete 2>/dev/null
+   find /data/data/*/code_cache/* -delete 2>/dev/null
+   find /data/user_de/*/*/cache/* -delete 2>/dev/null
+   find /data/user_de/*/*/code_cache/* -delete 2>/dev/null
+   find /sdcard/Android/data/*/cache/* -delete 2>/dev/null
+
+   pm trim-caches 1024G &>/dev/null
+}
+
+imperium_switch_init() {
+   get_active=$(settings get global imperium_activity)
+
+   if [[ $get_active == "true" ]]; then
+      wm size 960x2133
+      wm density 440
+   else
+      echo "[info] Imperium Switch : Not Active [disable]"
+   fi
+}
+
+imperium_switch_rmv() {
+   get_active=$(settings get global imperium_activity)
+
+   if [[ $get_active == "true" ]]; then
+      wm size reset
+      wm density reset
+   else
+      echo "[info] Imperium Switch : Not Active [disable]"
+   fi
+}
+
+systemAI() {
+   gms=$(pm list package | grep gms | cut -f2 -d:)
+   timer=$(TZ="Asia/Jakarta" date +"%H:%M")
+   persentase_battrey=$(dumpsys battery | grep level | cut -f2 -d:)
+   detected_apps=$(dumpsys activity processes | grep top-activity | cut -d ':' -f4 | cut -d '/' -f1 | head -n 1)
+   render_detected=$(getprop debug.hwui.renderer)
+   # game=$(cat /data/data/com.android.shell/AxManager/plugins/gx_pride/system/game 2>/dev/null)
+   game_2=$(settings get aeternum_external_package)
+   sorted=$(echo "$game_2" | tr ',' '\n' | sort)
+
+   if [[ "$timer" == "00:00" ]]; then
+      cache_cleaner
+      gms_tweak
+      for package in $sorted; do
+         cmd package compile -m speed -f "$package" 2>/dev/null
+      done
+   fi
+
+   if printf "%s" "$game_2" | tr ',' '\n' | grep -qw "$detected_apps"; then
+      gameDetected="true"
+      if [[ $persentase_battrey -ge 30 ]]; then
+         mode_now="game-mode"
+      elif [[ $persentase_battrey -ge 20 && $persentase_battrey -le 25 ]]; then
+         mode_now="force-mode"
+      else
+         mode_now="force-saver-mode"
+      fi
+   else
+      gameDetected="false"
+      mode_now="saver-mode"
+   fi
+
+   if [[ "$mode_now" != "$running_mode_detection" ]]; then
+      notif_state="run"
+   fi
+
+   if [[ "$gameDetected" == "true" ]]; then
+      if [[ $persentase_battrey -ge 30 ]]; then
+         if [[ "$render_detected" != "skiavk" && "$notif_state" == "run" ]]; then
+            notif_run
+            imperium_switch_init
+            gms_tweak
+            setprop debug.hwui.renderer skiavk
+            game_mode
+            running_mode_detection="game-mode"
+            notif_state="disable"
+         fi
+      elif [[ $persentase_battrey -ge 20 ]]; then
+         if [[ "$notif_state" == "run" ]]; then
+            notif_force
+            imperium_switch_init
+            gms_tweak
+            game_mode
+            running_mode_detection="force-mode"
+            notif_state="disable"
+         fi
+      else
+         if [[ "$notif_state" == "run" ]]; then
+            notif_stop
+            saver_mode
+            running_mode_detection="force-saver-mode"
+            notif_state="disable"
+         fi
+      fi
+   else
+      if [[ "$render_detected" != "opengl" && "$notif_state" == "run" ]]; then
+         notif_stop
+         setprop debug.hwui.renderer opengl
+         imperium_switch_rmv
+         saver_mode
+         running_mode_detection="saver-mode"
+         notif_state="disable"
+      fi
+   fi
+}
+
+while true; do
+   systemAI
+   sleep "$IDLE_TIME"
+done
