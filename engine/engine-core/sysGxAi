@@ -120,7 +120,7 @@ systemAI() {
     persentase_battrey=$(dumpsys battery | grep level | cut -f2 -d:)
     detected_apps=$(dumpsys activity processes | grep top-activity | cut -d ':' -f4 | cut -d '/' -f1 | head -n 1)
     render_detected=$(getprop debug.hwui.renderer)
-    game_2=$(settings get aeternum_external_package)
+    game_2=$(settings get global aeternum_external_package)
     sorted=$(echo "$game_2" | tr ',' '\n' | sort)
 
     if [[ "$timer" == "00:00" ]]; then
