@@ -6,7 +6,7 @@ battery_lower=""
 running_mode_detection=""
 notif_state=""
 
-settings put global aeternum_engine_version 1.0.7-B
+settings put global aeternum_engine_version 1.0.8-B
 
 game_mode() {
     [ -n "$detected_apps" ] && \
@@ -191,7 +191,7 @@ systemAI() {
             fi
         fi
     else
-        if [[ "$render_detected" != "opengl" && "$notif_state" == "run" ]]; then
+        if [[ "$render_detected" != "opengl" ]]; then
             notif_stop
             setprop debug.hwui.renderer opengl
             imperium_switch_rmv
