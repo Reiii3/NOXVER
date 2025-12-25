@@ -6,7 +6,7 @@ battery_lower=""
 running_mode_detection=""
 notif_state=""
 
-settings put global aeternum_engine_version 1.0.5-B
+settings put global aeternum_engine_version 1.0.6-B
 
 game_mode() {
     [ -n "$detected_apps" ] && \
@@ -103,7 +103,7 @@ imperium_switch_init() {
 
     if [[ $get_active == "true" ]]; then
         wm size 960x2133
-        wm density 440
+        wm density 300
     else
         echo "[info] Imperium Switch : Not Active [disable]"
     fi
