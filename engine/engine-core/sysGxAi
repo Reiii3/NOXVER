@@ -6,7 +6,7 @@ battery_lower=""
 running_mode_detection=""
 notif_state=""
 
-settings put global aeternum_engine_version 1.0.6-B
+settings put global aeternum_engine_version 1.0.7-B
 
 game_mode() {
     [ -n "$detected_apps" ] && \
@@ -47,7 +47,7 @@ saver_mode() {
 }
 
 notif_run() {
-    cmd=$(echo "Game Mode : [ ON - Game Mode ]\nAeternum AI Engine | [Enjoy Your Game]")
+    cmd=$(echo "Game Mode : [ ON - Game Mode ]\n\nAeternum AI Engine | [Enjoy Your Game]")
     cmd notification post -S bigtext -t 'Aeternum AI Engine' \
     "noxg_engine_mode" \
     "$cmd" \
@@ -56,7 +56,7 @@ notif_run() {
 
 
 notif_force() {
-    cmd=$(echo "Game Mode : [ Game Force Mode ]\nAeternum AI Engine | [Enjoy Your Game And Battery Is Low]")
+    cmd=$(echo "Game Mode : [ Game Force Mode ]\n\nAeternum AI Engine | [Enjoy Your Game And Battery Is Low]")
     cmd notification post -S bigtext -t 'Aeternum AI Engine' \
     "noxg_engine_mode" \
     "$cmd" \
@@ -65,7 +65,7 @@ notif_force() {
 
 
 notif_stop() {
-    cmd=$(echo "Game Mode : [ OFF - Saver Mode ]\nAeternum AI Engine | [Enjoy Efficiency Battery]")
+    cmd=$(echo "Game Mode : [ OFF - Saver Mode ]\n\nAeternum AI Engine | [Enjoy Efficiency Battery]")
     cmd notification post -S bigtext -t 'Aeternum AI Engine' \
     "noxg_engine_mode" \
     "$cmd" \
@@ -100,10 +100,17 @@ cache_cleaner() {
 
 imperium_switch_init() {
     get_active=$(settings get global imperium_activity)
+    get_custom_dpi=$(settings get global aeternum_custom_dpi_settings)
+    get_custom_reso=$(settings get global aeternum_custom_reso_settings)
 
     if [[ $get_active == "true" ]]; then
-        wm size 960x2133
-        wm density 300
+        if [[ $get_custom_dpi == "null" && $get_custom_reso == "null" ]]; then
+            wm size 960x2133
+            wm density 300
+        else
+            wm size $get_custom_reso
+            wm density $get_custom_dpi
+        fi
     else
         echo "[info] Imperium Switch : Not Active [disable]"
     fi
