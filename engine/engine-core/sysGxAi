@@ -6,7 +6,7 @@ battery_lower=""
 running_mode_detection=""
 notif_state=""
 
-settings put global aeternum_engine_version 1.0.8-B
+settings put global aeternum_engine_version 1.1.0-B
 
 game_mode() {
     [ -n "$detected_apps" ] && \
@@ -81,6 +81,29 @@ gms_tweak() {
         am set-inactive --user 0 "$a" true 2>/dev/null
         am set-standby-bucket "$a" rare 2>/dev/null
     done
+}
+
+havy_force_stopped() {
+    apps="
+        com.facebook.katana
+        com.zhiliaoapp.musically
+        com.ss.android.ugc.trill
+        com.instagram.android
+        com.facebook.orca
+        com.snapchat.android
+        com.twitter.android
+        org.telegram.messenger
+        org.telegram.plus
+        org.thunderdog.challegram
+        com.whatsapp
+        com.whatsapp.w4b
+    "
+
+    for a in $apps; do
+        am force-stop $a >/dev/null 2>&1
+        am kill $a
+    done
+
 }
 
 cache_cleaner() {
@@ -173,6 +196,7 @@ systemAI() {
                 running_mode_detection="game-mode"
                 notif_state="disable"
             fi
+            havy_force_stopped
         elif [[ $persentase_battrey -ge 20 ]]; then
             if [[ "$notif_state" == "run" ]]; then
                 notif_force
@@ -182,6 +206,7 @@ systemAI() {
                 running_mode_detection="force-mode"
                 notif_state="disable"
             fi
+            havy_force_stopped
         else
             if [[ "$notif_state" == "run" ]]; then
                 notif_stop
